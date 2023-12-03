@@ -17,52 +17,6 @@
   
   
   <entry>
-    <title>post123</title>
-    <link href="/2023/12/03/post123/"/>
-    <url>/2023/12/03/post123/</url>
-    
-    <content type="html"><![CDATA[<p><img src="http://image-fgj.test.upcdn.net/idea_1.ico"></p>]]></content>
-    
-    
-    <categories>
-      
-      <category>Diary</category>
-      
-    </categories>
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>测试文章</title>
-    <link href="/2023/12/03/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/"/>
-    <url>/2023/12/03/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/</url>
-    
-    <content type="html"><![CDATA[<hr><p>title: 测试文章<br>date: 2021-06-10 16:35:20<br>tags:</p><ul><li>原创<br>categories:</li><li>Java</li></ul><hr><p>这是一篇测试文章</p><img src="http://image-fgj.test.upcdn.net/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20231202193129.jpg" style="zoom:25%;" /> ]]></content>
-    
-    
-    <categories>
-      
-      <category>Diary</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>PS3</tag>
-      
-      <tag>Games</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>Hello World</title>
     <link href="/2023/12/03/hello-world/"/>
     <url>/2023/12/03/hello-world/</url>
