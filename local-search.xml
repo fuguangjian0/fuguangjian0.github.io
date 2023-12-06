@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>idea的一些使用技巧</title>
+    <link href="/2023/12/06/idea%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
+    <url>/2023/12/06/idea%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</url>
+    
+    <content type="html"><![CDATA[<h2 id="Debug"><a href="#Debug" class="headerlink" title="Debug"></a>Debug</h2><p><code>4个箭头</code></p><ol><li>恢复: 跳到下一个断点（如果有），没有直接运行到完成 </li><li>步过： 执行下一行代码 </li><li>步入： 执行当前行代码以及方法内部的代码，进入方法内部 </li><li>步出： 跳出当前方法，继续执行后续代码</li></ol><p><code>给方法打断点打在头和尾,方便定位这个方法</code></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">a</span>&#123;<br>    <span class="hljs-keyword">void</span> <span class="hljs-title function_">method</span><span class="hljs-params">()</span> &#123;  <span class="hljs-comment">// 断点1</span><br>        xxx;<br>                xxx;<br>                xxx;<br>                        xxx;<br>    &#125;  <span class="hljs-comment">// 断点2</span><br>&#125;<br></code></pre></td></tr></table></figure><p><code>给ServiceImpl打断点,如果找不到ServiceImpl, 打在Service上 </code></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">interface</span> <span class="hljs-title class_">IService</span>&#123;<br><br>  <span class="hljs-keyword">void</span> <span class="hljs-title function_">execute</span><span class="hljs-params">()</span>;  <span class="hljs-comment">// 断点</span><br><br>&#125;<br></code></pre></td></tr></table></figure><h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><p><code>冲突</code><br>      |————-时间线————————————|<br>小明: |——-克隆小刚的代码—|—–修改代码 a.java—-|–提交代码(冲突)–|<br>小刚: |————修改代码 a.java——|-提交代码-|</p><p>点击合并(merge)  -&gt;  根据提示框操作</p><p><code>基本操作</code><br>找到左侧项目对应一个文件,右键选择 add commit rollback，    git reset(重置HEAD)<br>先拉pull: 右上角箭头拉<br>后推push: 右下角分支名称处操作</p><p><code>提交点回滚</code><br>左下角git点开看到commit历史进度, 找到对应点右键 rollback, 弹窗选择hard(硬)</p><p><code>分支</code></p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># 克隆分支(默认主分支master)</span><br>git <span class="hljs-built_in">clone</span> -b master https://xxxxx.git<br><br><span class="hljs-comment"># 新建并切换到一个新分支</span><br>git checkout -b xxx<br></code></pre></td></tr></table></figure><h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><table><thead><tr><th>快捷键</th><th>功能</th></tr></thead><tbody><tr><td>ctrl + f12</td><td>查看当前类的所有方法</td></tr><tr><td>ctrl + h</td><td>打开一个叫做“类型层次结构”的视图</td></tr><tr><td>ctrl + alt + m</td><td>抽取方法</td></tr><tr><td>ctrl + alt + o</td><td>优化导入的类,把import不用的删去</td></tr><tr><td>ctrl + alt + t</td><td>try-catch</td></tr><tr><td>ctrl + y</td><td>删除当前行</td></tr><tr><td>ctrl + Shift  + f</td><td>查找强化,everything</td></tr><tr><td>ctrl + Shift  + j</td><td>自动将下一行上移到当前行末尾</td></tr><tr><td>ctrl + shift + z</td><td>取消撤销</td></tr><tr><td>F2</td><td>跳转到下一个高亮错误 或 警告位置</td></tr></tbody></table><p><a href="https://cloud.tencent.com/developer/article/1767794">IDEA Windows + Mac 快捷键（全）</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>软件操作</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>IDEA</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>博客搭建</title>
     <link href="/2023/12/03/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     <url>/2023/12/03/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</url>
