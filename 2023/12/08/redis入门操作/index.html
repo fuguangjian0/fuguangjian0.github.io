@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20221130190150749.png">
 <meta property="article:published_time" content="2023-12-08T08:02:06.000Z">
-<meta property="article:modified_time" content="2023-12-08T08:02:35.874Z">
+<meta property="article:modified_time" content="2023-12-08T12:05:47.274Z">
 <meta property="article:author" content="fgj">
 <meta property="article:tag" content="redis">
 <meta name="twitter:card" content="summary_large_image">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6.2k 字
+          7.1k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          52 分钟
+          60 分钟
         
       </span>
     
@@ -486,6 +486,13 @@
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.sky.controller.admin;<br><br><span class="hljs-keyword">import</span> com.sky.result.Result;<br><span class="hljs-keyword">import</span> io.swagger.annotations.Api;<br><span class="hljs-keyword">import</span> io.swagger.annotations.ApiOperation;<br><span class="hljs-keyword">import</span> lombok.extern.slf4j.Slf4j;<br><span class="hljs-keyword">import</span> org.springframework.data.redis.core.StringRedisTemplate;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.*;<br><br><span class="hljs-keyword">import</span> javax.annotation.Resource;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> 付广建 2023/12/8 15:44</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@RestController(&quot;adminShopController&quot;)</span><br><span class="hljs-meta">@RequestMapping(&quot;/admin/shop&quot;)</span><br><span class="hljs-meta">@Api(tags = &quot;店铺相关操作&quot;)</span><br><span class="hljs-meta">@Slf4j</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ShopController</span> &#123;<br>    <span class="hljs-meta">@Resource</span><br>    <span class="hljs-keyword">private</span> StringRedisTemplate srt;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">String</span> <span class="hljs-variable">KEY</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;SHOP_STATUS&quot;</span>;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 获取营业状态</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span></span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-meta">@ApiOperation(&quot;获取营业状态&quot;)</span><br>    <span class="hljs-meta">@GetMapping(&quot;/status&quot;)</span><br>    <span class="hljs-keyword">public</span> Result&lt;Integer&gt; <span class="hljs-title function_">getStatus</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">status</span> <span class="hljs-operator">=</span> srt.opsForValue().get(KEY);<br>        <span class="hljs-keyword">if</span> (status != <span class="hljs-literal">null</span>) &#123;<br>            log.info(<span class="hljs-string">&quot;店铺状态: &#123;&#125;&quot;</span>, status.equals(<span class="hljs-string">&quot;1&quot;</span>) ? <span class="hljs-string">&quot;营业中&quot;</span> : <span class="hljs-string">&quot;打烊中&quot;</span>);<br>            <span class="hljs-keyword">return</span> Result.success(Integer.valueOf(status));<br>        &#125;<br>        <span class="hljs-keyword">return</span> Result.success();<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 设置营业状态</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> status</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span></span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-meta">@PutMapping(&quot;/&#123;status&#125;&quot;)</span><br>    <span class="hljs-meta">@ApiOperation(&quot;设置营业状态&quot;)</span><br>    <span class="hljs-keyword">public</span> Result&lt;String&gt; <span class="hljs-title function_">setStatus</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable</span> Integer status)</span>&#123;<br>        srt.opsForValue().set(KEY, status.toString());<br>        <span class="hljs-keyword">return</span> Result.success();<br>    &#125;<br><br><br><br>&#125;<br></code></pre></td></tr></table></figure>
 
+<h2 id="额外的配置"><a href="#额外的配置" class="headerlink" title="额外的配置"></a>额外的配置</h2><blockquote>
+<p>这个配置类不是必须的，因为 Spring Boot 框架会自动装配 RedisTemplate 对象，但是默认的key序列化器为</p>
+<p>JdkSerializationRedisSerializer，导致我们存到Redis中后的数据和原始数据有差别，故设置为</p>
+<p>StringRedisSerializer序列化器。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.sky.config;<br><br><span class="hljs-keyword">import</span> lombok.extern.slf4j.Slf4j;<br><span class="hljs-keyword">import</span> org.springframework.context.annotation.Bean;<br><span class="hljs-keyword">import</span> org.springframework.context.annotation.Configuration;<br><span class="hljs-keyword">import</span> org.springframework.data.redis.connection.RedisConnectionFactory;<br><span class="hljs-keyword">import</span> org.springframework.data.redis.core.RedisTemplate;<br><span class="hljs-keyword">import</span> org.springframework.data.redis.serializer.StringRedisSerializer;<br><br><span class="hljs-meta">@Configuration</span><br><span class="hljs-meta">@Slf4j</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">RedisConfiguration</span> &#123;<br><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-keyword">public</span> RedisTemplate <span class="hljs-title function_">redisTemplate</span><span class="hljs-params">(RedisConnectionFactory redisConnectionFactory)</span>&#123;<br>        log.info(<span class="hljs-string">&quot;开始创建redis模板对象...&quot;</span>);<br>        <span class="hljs-type">RedisTemplate</span> <span class="hljs-variable">redisTemplate</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RedisTemplate</span>();<br>        <span class="hljs-comment">//设置redis的连接工厂对象</span><br>        redisTemplate.setConnectionFactory(redisConnectionFactory);<br>        <span class="hljs-comment">//设置redis key的序列化器</span><br>        redisTemplate.setKeySerializer(<span class="hljs-keyword">new</span> <span class="hljs-title class_">StringRedisSerializer</span>());<br>        <span class="hljs-keyword">return</span> redisTemplate;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>
@@ -575,6 +582,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2023/12/08/SpringCache%E5%85%A5%E9%97%A8/" title="SpringCache入门">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">SpringCache入门</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
