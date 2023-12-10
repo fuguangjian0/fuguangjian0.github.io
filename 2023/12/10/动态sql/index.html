@@ -16,26 +16,23 @@
   <meta name="author" content="fgj">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Spring Cache Spring Cache实现基于注解的缓存功能, 加一个注解实现缓存功能 1234&lt;dependency&gt;    &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;    &lt;artifactId&gt;spring-boot-starter-cache&lt;&#x2F;artifactId&gt;&amp;lt">
+    <meta name="description" content="根据不同条件拼接SQL语句  if注意: test是if的条件, and, 不用跟逗号 1234567891011121314&lt;select id&#x3D;&quot;list&quot; parameterType&#x3D;&quot;com.sky.entity.AddressBook&quot; resultType&#x3D;&quot;com.sky.entity.AddressBook&quot;&amp;gt">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SpringCache入门">
-<meta property="og:url" content="http://example.com/2023/12/08/SpringCache%E5%85%A5%E9%97%A8/index.html">
+<meta property="og:title" content="动态sql">
+<meta property="og:url" content="http://example.com/2023/12/10/%E5%8A%A8%E6%80%81sql/index.html">
 <meta property="og:site_name" content="FGJ">
-<meta property="og:description" content="Spring Cache Spring Cache实现基于注解的缓存功能, 加一个注解实现缓存功能 1234&lt;dependency&gt;    &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;    &lt;artifactId&gt;spring-boot-starter-cache&lt;&#x2F;artifactId&gt;&amp;lt">
+<meta property="og:description" content="根据不同条件拼接SQL语句  if注意: test是if的条件, and, 不用跟逗号 1234567891011121314&lt;select id&#x3D;&quot;list&quot; parameterType&#x3D;&quot;com.sky.entity.AddressBook&quot; resultType&#x3D;&quot;com.sky.entity.AddressBook&quot;&amp;gt">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231208211035613.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231208211047188.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231208211103050.png">
-<meta property="article:published_time" content="2023-12-08T13:24:53.000Z">
-<meta property="article:modified_time" content="2023-12-08T13:25:23.789Z">
+<meta property="article:published_time" content="2023-12-10T13:46:37.000Z">
+<meta property="article:modified_time" content="2023-12-10T13:47:17.877Z">
 <meta property="article:author" content="fgj">
-<meta property="article:tag" content="SpringCache">
+<meta property="article:tag" content="MySQL">
+<meta property="article:tag" content="动态sql">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231208211035613.png">
   
   
   
-  <title>SpringCache入门 - FGJ</title>
+  <title>动态sql - FGJ</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +198,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="SpringCache入门"></span>
+            <span id="subtitle" data-typed-text="动态sql"></span>
           
         </div>
 
@@ -212,8 +209,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-12-08 21:24" pubdate>
-          2023年12月8日 晚上
+        <time datetime="2023-12-10 21:46" pubdate>
+          2023年12月10日 晚上
         </time>
       </span>
     
@@ -224,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.6k 字
+          2.4k 字
         
       </span>
     
@@ -235,7 +232,7 @@
         
         
         
-          14 分钟
+          20 分钟
         
       </span>
     
@@ -272,64 +269,41 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">SpringCache入门</h1>
+            <h1 id="seo-header">动态sql</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="Spring-Cache"><a href="#Spring-Cache" class="headerlink" title="Spring Cache"></a>Spring Cache</h1><blockquote>
-<p><code>Spring Cache</code>实现基于注解的缓存功能, 加一个注解实现缓存功能</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-cache<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
-
+                <blockquote>
+<p>根据不同条件拼接SQL语句</p>
 </blockquote>
-<h2 id="常用注解"><a href="#常用注解" class="headerlink" title="常用注解"></a><strong>常用注解</strong></h2><table>
-<thead>
-<tr>
-<th><strong>注解</strong></th>
-<th><strong>说明</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>@EnableCaching</td>
-<td>开启缓存注解功能，通常加在启动类上</td>
-</tr>
-<tr>
-<td>@Cacheable</td>
-<td>在方法执行前先查询缓存中是否有数据，如果有数据，则直接返回缓存数据；如果没有缓存数据，调用方法并将方法返回值放到缓存中</td>
-</tr>
-<tr>
-<td>@CachePut</td>
-<td>将方法的返回值放到缓存中</td>
-</tr>
-<tr>
-<td>@CacheEvict</td>
-<td>将一条或多条数据从缓存中删除</td>
-</tr>
-</tbody></table>
-<h2 id="CachePut"><a href="#CachePut" class="headerlink" title="@CachePut"></a><strong>@CachePut</strong></h2><p><strong>说明：</strong>key的写法如下</p>
-<p>#user.id : #user指的是方法形参的名称, id指的是user的id属性 , 也就是使用user的id属性作为key ;</p>
-<p>#result.id : #result代表方法返回值，该表达式 代表以返回对象的id属性作为key ；</p>
-<p>#p0.id：#p0指的是方法中的第一个参数，id指的是第一个参数的id属性,也就是使用第一个参数的id属性作为key ;</p>
-<p>#a0.id：#a0指的是方法中的第一个参数，id指的是第一个参数的id属性,也就是使用第一个参数的id属性作为key ;</p>
-<p>#root.args[0].id:#root.args[0]指的是方法中的第一个参数，id指的是第一个参数的id属性,也就是使用第一个参数</p>
-<p>的id属性作为key ;</p>
-<p><strong>启动服务,通过swagger接口文档测试，访问UserController的save()方法</strong></p>
-<p>因为id是自增，所以不需要设置id属性</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment">* CachePut：将方法返回值放入缓存</span><br><span class="hljs-comment">* value：缓存的名称，每个缓存名称下面可以有多个key</span><br><span class="hljs-comment">* key：缓存的key</span><br><span class="hljs-comment">*/</span><br><span class="hljs-meta">@PostMapping</span><br>   <span class="hljs-meta">@CachePut(value = &quot;userCache&quot;, key = &quot;#user.id&quot;)</span><span class="hljs-comment">//key的生成：userCache::1</span><br>   <span class="hljs-keyword">public</span> User <span class="hljs-title function_">save</span><span class="hljs-params">(<span class="hljs-meta">@RequestBody</span> User user)</span>&#123;<br>       userMapper.insert(user);<br>       <span class="hljs-keyword">return</span> user;<br>   &#125;<br></code></pre></td></tr></table></figure>
+<h2 id="if"><a href="#if" class="headerlink" title="if"></a>if</h2><p><code>注意: test是if的条件, and, 不用跟逗号</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java">&lt;select id=<span class="hljs-string">&quot;list&quot;</span> parameterType=<span class="hljs-string">&quot;com.sky.entity.AddressBook&quot;</span> resultType=<span class="hljs-string">&quot;com.sky.entity.AddressBook&quot;</span>&gt;<br>        select * from address_book<br>        &lt;where&gt;<br>            &lt;<span class="hljs-keyword">if</span> test=<span class="hljs-string">&quot;userId != null&quot;</span>&gt;<br>                <span class="hljs-type">and</span> <span class="hljs-variable">user_id</span> <span class="hljs-operator">=</span> #&#123;userId&#125;<br>            &lt;/<span class="hljs-keyword">if</span>&gt;<br>            &lt;<span class="hljs-keyword">if</span> test=<span class="hljs-string">&quot;phone != null&quot;</span>&gt;<br>                <span class="hljs-type">and</span> <span class="hljs-variable">phone</span> <span class="hljs-operator">=</span> #&#123;phone&#125;<br>            &lt;/<span class="hljs-keyword">if</span>&gt;<br>            &lt;<span class="hljs-keyword">if</span> test=<span class="hljs-string">&quot;isDefault != null&quot;</span>&gt;<br>                <span class="hljs-type">and</span> <span class="hljs-variable">is_default</span> <span class="hljs-operator">=</span> #&#123;isDefault&#125;<br>            &lt;/<span class="hljs-keyword">if</span>&gt;<br>        &lt;/where&gt;<br>    &lt;/select&gt;<br></code></pre></td></tr></table></figure>
 
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231208211035613.png" srcset="/img/loading.gif" lazyload alt="image-20231208211035613"></p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231208211047188.png" srcset="/img/loading.gif" lazyload alt="image-20231208211047188"></p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231208211103050.png" srcset="/img/loading.gif" lazyload alt="image-20231208211103050"></p>
-<h2 id="Cacheable"><a href="#Cacheable" class="headerlink" title="@Cacheable"></a><strong>@Cacheable</strong></h2><blockquote>
-<p>放入缓存之前, 先进行查找, 如果有缓存就停止</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Cacheable(cacheNames = &quot;userCache&quot;, key = &quot;#id&quot;)</span><br><span class="hljs-meta">@GetMapping</span><br><span class="hljs-keyword">public</span> User <span class="hljs-title function_">getById</span><span class="hljs-params">(Long id)</span>&#123;<br>    <span class="hljs-type">User</span> <span class="hljs-variable">user</span> <span class="hljs-operator">=</span> userMapper.getById(id);<br>    <span class="hljs-keyword">return</span> user;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h2 id="CacheEvict"><a href="#CacheEvict" class="headerlink" title="@CacheEvict"></a><strong>@CacheEvict</strong></h2><blockquote>
-<p>清理指定缓存</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@CacheEvict(cacheNames = &quot;userCache&quot;, key = &quot;#id&quot;)</span> <span class="hljs-comment">// 删除userCache下指定缓存</span><br>   <span class="hljs-meta">@DeleteMapping</span><br>   <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">deleteById</span><span class="hljs-params">(Long id)</span>&#123;<br>       userMapper.deleteById(id);<br>   &#125;<br><br>   <span class="hljs-meta">@CacheEvict(cacheNames = &quot;userCache&quot;, allEntries = true)</span><span class="hljs-comment">// 删除userCache下所有缓存</span><br><span class="hljs-meta">@DeleteMapping(&quot;/delAll&quot;)</span> <br>   <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">deleteAll</span><span class="hljs-params">()</span>&#123;<br>       userMapper.deleteAll();<br>   &#125;<br></code></pre></td></tr></table></figure>
+
+<p><code>跟逗号 不要漏了最后的 where 条件</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">update</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;update&quot;</span> <span class="hljs-attr">parameterType</span>=<span class="hljs-string">&quot;com.sky.entity.AddressBook&quot;</span>&gt;</span><br>        update address_book<br>        <span class="hljs-tag">&lt;<span class="hljs-name">set</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">if</span> <span class="hljs-attr">test</span>=<span class="hljs-string">&quot;consignee != null&quot;</span>&gt;</span><br>                consignee = #&#123;consignee&#125;,<br>            <span class="hljs-tag">&lt;/<span class="hljs-name">if</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">if</span> <span class="hljs-attr">test</span>=<span class="hljs-string">&quot;sex != null&quot;</span>&gt;</span><br>                sex = #&#123;sex&#125;,<br>            <span class="hljs-tag">&lt;/<span class="hljs-name">if</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">if</span> <span class="hljs-attr">test</span>=<span class="hljs-string">&quot;phone != null&quot;</span>&gt;</span><br>                phone = #&#123;phone&#125;,<br>            <span class="hljs-tag">&lt;/<span class="hljs-name">if</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">if</span> <span class="hljs-attr">test</span>=<span class="hljs-string">&quot;detail != null&quot;</span>&gt;</span><br>                detail = #&#123;detail&#125;,<br>            <span class="hljs-tag">&lt;/<span class="hljs-name">if</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">if</span> <span class="hljs-attr">test</span>=<span class="hljs-string">&quot;label != null&quot;</span>&gt;</span><br>                label = #&#123;label&#125;,<br>            <span class="hljs-tag">&lt;/<span class="hljs-name">if</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">if</span> <span class="hljs-attr">test</span>=<span class="hljs-string">&quot;isDefault != null&quot;</span>&gt;</span><br>                is_default = #&#123;isDefault&#125;,<br>            <span class="hljs-tag">&lt;/<span class="hljs-name">if</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">set</span>&gt;</span><br>        where id = #&#123;id&#125;<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">update</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="like"><a href="#like" class="headerlink" title="like"></a>like</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;pageQuery&quot;</span> <span class="hljs-attr">resultType</span>=<span class="hljs-string">&quot;com.sky.entity.Category&quot;</span>&gt;</span><br>        select * from category<br>        <span class="hljs-tag">&lt;<span class="hljs-name">where</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">if</span> <span class="hljs-attr">test</span>=<span class="hljs-string">&quot;name != null and name != &#x27;&#x27;&quot;</span>&gt;</span><br>                and name like concat(&#x27;%&#x27;,#&#123;name&#125;,&#x27;%&#x27;)<br>            <span class="hljs-tag">&lt;/<span class="hljs-name">if</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">if</span> <span class="hljs-attr">test</span>=<span class="hljs-string">&quot;type != null&quot;</span>&gt;</span><br>                and type = #&#123;type&#125;<br>            <span class="hljs-tag">&lt;/<span class="hljs-name">if</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">where</span>&gt;</span><br>        order by sort asc , create_time desc<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="foreach"><a href="#foreach" class="headerlink" title="foreach"></a>foreach</h2><p><code>collection是mapper方法的条件, item是条件的遍历个体(类似vue的for), separator=&quot;,&quot;是分隔符,  中间有逗号,最后一个没逗号; </code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">insert</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;insertBatch&quot;</span> <span class="hljs-attr">parameterType</span>=<span class="hljs-string">&quot;java.util.List&quot;</span>&gt;</span><br>        insert into dish_flavor(dish_id, name, value) values<br>            <span class="hljs-tag">&lt;<span class="hljs-name">foreach</span> <span class="hljs-attr">collection</span>=<span class="hljs-string">&quot;flavors&quot;</span> <span class="hljs-attr">item</span>=<span class="hljs-string">&quot;flavor&quot;</span> <span class="hljs-attr">separator</span>=<span class="hljs-string">&quot;,&quot;</span>&gt;</span><br>                (#&#123;flavor.dishId&#125;, #&#123;flavor.name&#125;, #&#123;flavor.value&#125;)<br>            <span class="hljs-tag">&lt;/<span class="hljs-name">foreach</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">insert</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p><code>这个上一个的区别是: 1.括号写在&lt;foreach&gt;标签内 2.collection不是对象集合, item不是对象, #&#123;&#125;内部不用xx.yy,直接yy</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">delete</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;removeBatch&quot;</span> <span class="hljs-attr">parameterType</span>=<span class="hljs-string">&quot;java.util.List&quot;</span>&gt;</span><br>        delete from setmeal where<br>            <span class="hljs-tag">&lt;<span class="hljs-name">foreach</span> <span class="hljs-attr">item</span>=<span class="hljs-string">&quot;id&quot;</span> <span class="hljs-attr">collection</span>=<span class="hljs-string">&quot;ids&quot;</span></span><br><span class="hljs-tag">                     <span class="hljs-attr">open</span>=<span class="hljs-string">&quot;id in (&quot;</span> <span class="hljs-attr">separator</span>=<span class="hljs-string">&quot;,&quot;</span> <span class="hljs-attr">close</span>=<span class="hljs-string">&quot;)&quot;</span>&gt;</span><br>                #&#123;id&#125;<br>            <span class="hljs-tag">&lt;/<span class="hljs-name">foreach</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">delete</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 
                 
@@ -364,7 +338,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/SpringCache/" class="print-no-link">#SpringCache</a>
+        <a href="/tags/MySQL/" class="print-no-link">#MySQL</a>
+      
+        <a href="/tags/%E5%8A%A8%E6%80%81sql/" class="print-no-link">#动态sql</a>
       
     </div>
   
@@ -376,8 +352,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>SpringCache入门</div>
-      <div>http://example.com/2023/12/08/SpringCache入门/</div>
+      <div>动态sql</div>
+      <div>http://example.com/2023/12/10/动态sql/</div>
     </div>
     <div class="license-meta">
       
@@ -389,7 +365,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年12月8日</div>
+          <div>2023年12月10日</div>
         </div>
       
       
@@ -421,9 +397,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/12/10/%E5%8A%A8%E6%80%81sql/" title="动态sql">
+                      <a href="/2023/12/10/mybatisplus/" title="mybatisplus">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">动态sql</span>
+                        <span class="hidden-mobile">mybatisplus</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -431,8 +407,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/12/08/redis%E5%85%A5%E9%97%A8%E6%93%8D%E4%BD%9C/" title="redis入门操作">
-                        <span class="hidden-mobile">redis入门操作</span>
+                      <a href="/2023/12/08/SpringCache%E5%85%A5%E9%97%A8/" title="SpringCache入门">
+                        <span class="hidden-mobile">SpringCache入门</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
