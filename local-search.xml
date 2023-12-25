@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>开发中遇到的疑难杂症</title>
+    <link href="/2023/12/24/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/"/>
+    <url>/2023/12/24/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>Error:(6, 46) java: 程序包org.springframework.context.annotation不存在</p><p>在cloud项目中导入别人的security模块，导入maven依赖，然后加载提示包不存在，根据报错导航到对应的代码，然后发现已经引进去了，并没有任何报错</p><p>解决：删除.iml文件      <img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224210337446.png" alt="image-20231224210337446" style="zoom: 50%;" /></p></blockquote>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>疑难杂症</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>科目一</title>
     <link href="/2023/12/24/%E7%A7%91%E7%9B%AE%E4%B8%80/"/>
     <url>/2023/12/24/%E7%A7%91%E7%9B%AE%E4%B8%80/</url>
