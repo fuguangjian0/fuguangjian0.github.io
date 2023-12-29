@@ -1,0 +1,953 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="fgj">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="学成在线项目优化模块优化需求视频播放页面用户未登录也可以访问，当用户观看试学课程时需要请求服务端查询数据，接口如下： 1、根据课程id查询课程信息。 2、根据文件id查询视频信息。 这些接口在用户未认证状态下也可以访问，如果接口的性能不高，当高并发到来很可能耗尽整个系统的资源，将整个系统压垮，所以特别需要对这些暴露在外边的接口进行优化。 下边对 根据课程id查询课程信息 接口进行优化，下边的内容将">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学成在线项目优化模块">
+<meta property="og:url" content="http://example.com/2023/12/29/%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96%E6%A8%A1%E5%9D%97/index.html">
+<meta property="og:site_name" content="FGJ">
+<meta property="og:description" content="学成在线项目优化模块优化需求视频播放页面用户未登录也可以访问，当用户观看试学课程时需要请求服务端查询数据，接口如下： 1、根据课程id查询课程信息。 2、根据文件id查询视频信息。 这些接口在用户未认证状态下也可以访问，如果接口的性能不高，当高并发到来很可能耗尽整个系统的资源，将整个系统压垮，所以特别需要对这些暴露在外边的接口进行优化。 下边对 根据课程id查询课程信息 接口进行优化，下边的内容将">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231228204715093.png">
+<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231228205501023.png">
+<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231228205521713.png">
+<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231228205527355.png">
+<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/clip_image002.gif">
+<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/clip_image004.gif">
+<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231228205641848.png">
+<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231228205648750.png">
+<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231228224233684.png">
+<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231229102953824.png">
+<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231229111243200.png">
+<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231229111345629.png">
+<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231229113418275.png">
+<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231229113710823.png">
+<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231229113800399.png">
+<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231229113925808.png">
+<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231229113935734.png">
+<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231229113957008.png">
+<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/clip_image002.gif">
+<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/clip_image002.gif">
+<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/clip_image004.gif">
+<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/clip_image006.gif">
+<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/clip_image008.gif">
+<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231229114440919.png">
+<meta property="article:published_time" content="2023-12-29T03:55:13.000Z">
+<meta property="article:modified_time" content="2023-12-29T03:55:39.407Z">
+<meta property="article:author" content="fgj">
+<meta property="article:tag" content="学成在线">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231228204715093.png">
+  
+  
+  
+  <title>学成在线项目优化模块 - FGJ</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://fgj2.oss-cn-beijing.aliyuncs.com/ddd.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="学成在线项目优化模块"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-12-29 11:55" pubdate>
+          2023年12月29日 中午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          17k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          140 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">学成在线项目优化模块</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="学成在线"><a href="#学成在线" class="headerlink" title="学成在线"></a>学成在线</h1><h2 id="项目优化模块"><a href="#项目优化模块" class="headerlink" title="项目优化模块"></a>项目优化模块</h2><h3 id="优化需求"><a href="#优化需求" class="headerlink" title="优化需求"></a><strong>优化需求</strong></h3><p>视频播放页面用户未登录也可以访问，当用户观看试学课程时需要请求服务端查询数据，接口如下：</p>
+<p>1、根据课程id查询课程信息。</p>
+<p>2、根据文件id查询视频信息。</p>
+<p>这些接口在用户未认证状态下也可以访问，如果接口的性能不高，当高并发到来很可能耗尽整个系统的资源，将整个系统压垮，所以特别需要对这些暴露在外边的接口进行优化。</p>
+<p>下边对 根据课程id查询课程信息 接口进行优化，下边的内容将此接口简称为  课程查询接口。</p>
+<p>接口地址：<a target="_blank" rel="noopener" href="http://www.51xuecheng.cn/open/content/course/whole/%7BcourseId%7D">http://www.51xuecheng.cn/open/content/course/whole/{courseId}</a></p>
+<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231228204715093.png" srcset="/img/loading.gif" lazyload alt="image-20231228204715093"></p>
+<h3 id="压力测试"><a href="#压力测试" class="headerlink" title="压力测试"></a><strong>压力测试</strong></h3><h4 id="性能指标"><a href="#性能指标" class="headerlink" title="性能指标"></a>性能指标</h4><p>对接口进行优化之前需要对接口进行压力测试，不仅接口需要压力测试，整个微服务在发布前也是需要经历压力测试的，因为压力测试可以暴漏功能测试所发现不了的问题。</p>
+<p>功能测试即是对系统的功能按用户需求进行测试，比如：添加一门课程，根据需求文档先准备测试数据，再通过前端界面将一门课程添加到系统，测试是否可以操作成功。整个过程就是测试软件是否可以实现用户的需求。</p>
+<p>压力测试是通过测试工具制造大规模的并发请求去访问系统，测试系统是否经受住压力。</p>
+<p>比如：一个在线学习网站，上线要求该网站可以支持1万用户同时在线，此时就需要模拟1万并发请求去访问网站的关键业务流程，比如：测试点播学习流程，测试系统是否可以抗住1万并发请求。</p>
+<p>一些功能测试时无法发现的问题在压力测试时就会发现，比如：内存泄露、线程安全、IO异常等问题。</p>
+<p>压力测试常用的性能指标如下：</p>
+<p>1、吞吐量</p>
+<p>吞吐量是系统每秒可以处理的事务数，也称为TPS（Transaction Per Second）。</p>
+<p>比如：一次点播流程，从请求进入系统到视频画图显示出来这整个流程就是一次事务。</p>
+<p>所以吞吐量并不是一次数据库事务，它是完成一次业务的整体流程。</p>
+<p>2、响应时间</p>
+<p>响应时间是指客户端请求服务端，从请求进入系统到客户端拿到响应结果所经历的时间。响应时间包括：最大响应时间、最小响应时间、平均响应时间。</p>
+<p>3、每秒查询数</p>
+<p>每秒查询数即QPS（Queries-per-second），它是衡量查询接口的性能指标，比如：商品信息查询， 一秒可以请求该接口查询商品信息的次数就是QPS。</p>
+<p>拿查询接口举例，一次查询请求内部不会再去请求其它接口，此时 QPS&#x3D;TPS</p>
+<p>如果一次查询请求内容需要远程调用另一个接口查询数据，此时 QPS&#x3D;2 * TPS</p>
+<p>4、错误率</p>
+<p>错误率 是一批请求发生错误的请求占全部请求的比例。</p>
+<p>不同的指标其要求不同，比如现在进行接口优化，优化后的接口响应时间应该越来越小，吞吐量越来越大，以及QPS值也是越大越好，错误率要保持在一个很小的范围。</p>
+<p>另外除了关注这些性能指标以外还要关注系统的负载情况：</p>
+<p>1、CPU使用率，不高于85%</p>
+<p>2、内存利用率，不高于 85%</p>
+<p>3、网络利用率，不高于 80%</p>
+<p>4、磁盘IO</p>
+<p>磁盘IO的性能指标是IOPS (Input&#x2F;Output Per Second)即每秒的输入输出量(或读写次数)。</p>
+<p>如果过大说明IO操作密集，IO过大也会影响性能指标。</p>
+<h4 id="安装Jmeter"><a href="#安装Jmeter" class="headerlink" title="安装Jmeter"></a>安装Jmeter</h4><p>Apache JMeter 是 Apache 组织基于 Java 开发的压力测试工具，用于对软件做压力测试。</p>
+<p>下载Jmeter</p>
+<p><a target="_blank" rel="noopener" href="https://jmeter.apache.org/download_jmeter.cgi">https://jmeter.apache.org/download_jmeter.cgi</a></p>
+<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231228205501023.png" srcset="/img/loading.gif" lazyload alt="image-20231228205501023"></p>
+<p>下载，解压，进入bin目录修改jmeter.properties，设置中文和字体</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs routeros">Java<br><span class="hljs-attribute">language</span>=zh_CN<br>jmeter.hidpi.<span class="hljs-attribute">mode</span>=<span class="hljs-literal">true</span><br>jmeter.hidpi.scale.<span class="hljs-attribute">factor</span>=1.8<br>jsyntaxtextarea.font.family= Hack<br>jsyntaxtextarea.font.<span class="hljs-attribute">size</span>=25<br>jmeter.toolbar.icons.<span class="hljs-attribute">size</span>=32x32<br>jmeter.tree.icons.<span class="hljs-attribute">size</span>=24x24<br><br></code></pre></td></tr></table></figure>
+
+<p>双击运行bin目录下的jmeter.bat文件。</p>
+<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231228205521713.png" srcset="/img/loading.gif" lazyload alt="image-20231228205521713"></p>
+<p>界面如下图：</p>
+<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231228205527355.png" srcset="/img/loading.gif" lazyload alt="image-20231228205527355"></p>
+<h4 id="压力测试-1"><a href="#压力测试-1" class="headerlink" title="压力测试"></a>压力测试</h4><p>样本数：200个线程，每个线程请求100次，共20000次</p>
+<p>压力机：通常压力机是单独的客户端。</p>
+<p>测试gateway+content</p>
+<p>吞吐量180左右</p>
+<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/clip_image002.gif" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>测试content</p>
+<p>吞吐量300左右</p>
+<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/clip_image004.gif" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h3 id="优化日志"><a href="#优化日志" class="headerlink" title="优化日志"></a>优化日志</h3><p>内容管理日志级别改为info级别.</p>
+<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231228205641848.png" srcset="/img/loading.gif" lazyload alt="image-20231228205641848"></p>
+<p>单独请求内容管理测试，吞吐量达到1500左右</p>
+<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231228205648750.png" srcset="/img/loading.gif" lazyload alt="image-20231228205648750"></p>
+<h3 id="缓存优化"><a href="#缓存优化" class="headerlink" title="缓存优化"></a><strong>缓存优化</strong></h3><h4 id="redis缓存"><a href="#redis缓存" class="headerlink" title="redis缓存"></a>redis缓存</h4><p>测试用例根据id查询课程信息，这里不存在复杂的SQL，也没有数据库链接不释放的问题，暂时不考虑数据库优化</p>
+<p>课程发布信息的特点是<code>查询较多，修改很少</code>，这里考虑课程发布信息进行缓存，课程信息缓存的流程如下：</p>
+<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231228224233684.png" srcset="/img/loading.gif" lazyload alt="image-20231228224233684"></p>
+<p>在nacos配置redis-dev.yaml（group&#x3D;xuecheng-plus-common）</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-string">Java</span><br><span class="hljs-attr">spring:</span> <br>  <span class="hljs-attr">redis:</span><br>    <span class="hljs-attr">host:</span> <span class="hljs-number">192.168</span><span class="hljs-number">.101</span><span class="hljs-number">.65</span><br>    <span class="hljs-attr">port:</span> <span class="hljs-number">6379</span><br>    <span class="hljs-attr">password:</span> <span class="hljs-string">redis</span><br>    <span class="hljs-attr">database:</span> <span class="hljs-number">0</span><br>    <span class="hljs-attr">lettuce:</span><br>      <span class="hljs-attr">pool:</span><br>        <span class="hljs-attr">max-active:</span> <span class="hljs-number">20</span><br>        <span class="hljs-attr">max-idle:</span> <span class="hljs-number">10</span><br>        <span class="hljs-attr">min-idle:</span> <span class="hljs-number">0</span><br>    <span class="hljs-attr">timeout:</span> <span class="hljs-number">10000</span><br><br></code></pre></td></tr></table></figure>
+
+<p>在content-api微服务加载redis-dev.yaml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs xml">Java<br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-data-redis<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.commons<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>commons-pool2<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.6.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br></code></pre></td></tr></table></figure>
+
+<p>定义查询缓存接口：</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs aspectj">Java<br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@description</span> 查询缓存中的课程信息</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> courseId </span><br><span class="hljs-comment"> * <span class="hljs-doctag">@return</span> com.xuecheng.content.model.po.CoursePublish</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Mr.M</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@date</span> 2022/10/22 16:15</span><br><span class="hljs-comment">*/</span><br><span class="hljs-keyword">public</span> <span class="hljs-function">CoursePublish <span class="hljs-title">getCoursePublishCache</span><span class="hljs-params">(Long courseId)</span></span>;<br><br></code></pre></td></tr></table></figure>
+
+<p>接口实现如下：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">Java<br><span class="hljs-keyword">public</span> CoursePublish getCoursePublishCache(<span class="hljs-built_in">Long</span> courseId)&#123;<br>    <span class="hljs-comment">//查询缓存</span><br>   Object  jsonObj = redisTemplate.opsForValue().<span class="hljs-keyword">get</span>(<span class="hljs-string">&quot;course:&quot;</span> + courseId);<br>    <span class="hljs-keyword">if</span>(jsonObj!=<span class="hljs-literal">null</span>)&#123;<br>    String jsonString = jsonObj.toString();<br>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;=================从缓存查=================&quot;</span>);<br>        CoursePublish coursePublish = JSON.parseObject(jsonString, CoursePublish.<span class="hljs-keyword">class</span>);<br>        <span class="hljs-keyword">return</span> coursePublish;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;从数据库查询...&quot;</span>);<br>        <span class="hljs-comment">//从数据库查询</span><br>        CoursePublish coursePublish = getCoursePublish(courseId);<br>        <span class="hljs-keyword">if</span>(coursePublish!=<span class="hljs-literal">null</span>)&#123;<br>            redisTemplate.opsForValue().<span class="hljs-keyword">set</span>(<span class="hljs-string">&quot;course:&quot;</span> + courseId, JSON.toJSONString(coursePublish));<br>        &#125;<br>        <span class="hljs-keyword">return</span> coursePublish;<br>    &#125;<br>&#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>修改controller接口调用代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs java">Java<br><span class="hljs-meta">@ApiOperation(&quot;获取课程发布信息&quot;)</span><br>    <span class="hljs-meta">@ResponseBody</span><br>    <span class="hljs-meta">@GetMapping(&quot;/course/whole/&#123;courseId&#125;&quot;)</span><br>    <span class="hljs-keyword">public</span> CoursePreviewDto <span class="hljs-title function_">getCoursePublish</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable(&quot;courseId&quot;)</span> Long courseId)</span> &#123;<br>        <span class="hljs-comment">//查询课程发布信息</span><br>        <span class="hljs-type">CoursePublish</span> <span class="hljs-variable">coursePublish</span> <span class="hljs-operator">=</span> coursePublishService.getCoursePublishCache(courseId);<br><span class="hljs-comment">//        CoursePublish coursePublish = coursePublishService.getCoursePublish(courseId);</span><br>        <span class="hljs-keyword">if</span>(coursePublish==<span class="hljs-literal">null</span>)&#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">CoursePreviewDto</span>();<br>        &#125;<br><br>        <span class="hljs-comment">//课程基本信息</span><br>        <span class="hljs-type">CourseBaseInfoDto</span> <span class="hljs-variable">courseBase</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">CourseBaseInfoDto</span>();<br>        BeanUtils.copyProperties(coursePublish, courseBase);<br>        <span class="hljs-comment">//课程计划</span><br>        List&lt;TeachplanDto&gt; teachplans = JSON.parseArray(coursePublish.getTeachplan(), TeachplanDto.class);<br>        <span class="hljs-type">CoursePreviewDto</span> <span class="hljs-variable">coursePreviewInfo</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">CoursePreviewDto</span>();<br>        coursePreviewInfo.setCourseBase(courseBase);<br>        coursePreviewInfo.setTeachplans(teachplans);<br>        <span class="hljs-keyword">return</span> coursePreviewInfo;<br>    &#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>重新测试请求内容管理服务课程查询接口。</p>
+<p>吞吐量达到2700左右，增加了近一倍。</p>
+<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231229102953824.png" srcset="/img/loading.gif" lazyload alt="image-20231229102953824"></p>
+<h4 id="缓存穿透"><a href="#缓存穿透" class="headerlink" title="缓存穿透"></a>缓存穿透</h4><h5 id="什么是缓存穿透"><a href="#什么是缓存穿透" class="headerlink" title="什么是缓存穿透"></a><strong>什么是缓存穿透</strong></h5><p>使用缓存后代码性能有了很大的提高，虽然性能有很大的提高但是控制台打出很多从数据库查询的日志，明明判断了如果缓存存在课程信息则从缓存查询，为什么要有这么多从数据库查询的请求的？</p>
+<p>这是因为并发数高，很多线程会同时到达查询数据库代码处去执行</p>
+<p>我们分析下代码：</p>
+<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231229111243200.png" srcset="/img/loading.gif" lazyload alt="image-20231229111243200"></p>
+<p>如果存在恶意攻击的可能，如果有大量并发去查询一个不存在的课程信息会出现什么问题呢？</p>
+<p>比如去请求&#x2F;content&#x2F;course&#x2F;whole&#x2F;181，查询181号课程，该课程并不在课程发布表中。</p>
+<p>进行压力测试发现会去请求数据库。</p>
+<p>大量并发去访问一个数据库不存在的数据，由于缓存中没有该数据导致大量并发查询数据库，这个现象叫缓存穿透。</p>
+<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231229111345629.png" srcset="/img/loading.gif" lazyload alt="image-20231229111345629"></p>
+<p>缓存穿透可以造成数据库瞬间压力过大，连接数等资源用完，最终数据库拒绝连接不可用。</p>
+<h5 id="解决缓存穿透"><a href="#解决缓存穿透" class="headerlink" title="解决缓存穿透"></a>解决缓存穿透</h5><p>如何解决缓存穿透？</p>
+<ol>
+<li>对请求增加校验机制</li>
+</ol>
+<p>比如：课程ID是长整型，如果发来的不是长整型则直接返回</p>
+<ol start="2">
+<li>使用布隆过滤器</li>
+</ol>
+<p>什么是布隆过滤器，以下摘自百度百科：</p>
+<p>布隆过滤器可以用于检索一个元素是否在一个集合中。如果想要判断一个元素是不是在一个集合里，一般想到的是将所有元素保存起来，然后通过比较确定。<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E9%93%BE%E8%A1%A8/9794473?fromModule=lemma_inlink">链表</a>，树等等数据结构都是这种思路. 但是随着集合中元素的增加，我们需要的存储空间越来越大，<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%A3%80%E7%B4%A2%E9%80%9F%E5%BA%A6/20807841?fromModule=lemma_inlink">检索速度</a>也越来越慢(O(n),O(logn))。不过世界上还有一种叫作散列表（又叫<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%93%88%E5%B8%8C%E8%A1%A8/5981869?fromModule=lemma_inlink">哈希表</a>，Hash table）的数据结构。它可以通过一个Hash函数将一个元素映射成一个位阵列（Bit array）中的一个点。这样一来，我们只要看看这个点是不是1就可以知道集合中有没有它了。这就是布隆过滤器的基本思想。</p>
+<p>布隆过滤器的特点是，高效地插入和查询，占用空间少；查询结果有不确定性，如果查询结果是存在则元素不一定存在，如果不存在则一定不存在；另外它只能添加元素不能删除元素，因为删除元素会增加误判率。</p>
+<p>比如：将商品id写入布隆过滤器，如果分3次hash此时在布隆过滤器有3个点，当从布隆过滤器查询该商品id，通过hash找到了该商品id在过滤器中的点，此时返回1，如果找不到一定会返回0。</p>
+<p>所以，为了避免缓存穿透我们需要缓存预热将要查询的课程或商品信息的id提前存入布隆过滤器，添加数据时将信息的id也存入过滤器，当去查询一个数据时先在布隆过滤器中找一下如果没有到到就说明不存在，此时直接返回。</p>
+<p>实现方法有：</p>
+<p>Google工具包Guava实现。</p>
+<p>redisson 。</p>
+<p>2、缓存空值或特殊值</p>
+<p>请求通过了第一步的校验，查询数据库得到的数据不存在，此时我们仍然去缓存数据，缓存一个空值或一个特殊值的数据，下一次查这个数据就走缓存了。</p>
+<p>但是要注意：如果缓存了空值或特殊值要设置一个短暂的过期时间。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-meta">@Override</span><br><span class="hljs-keyword">public</span> CoursePublish getCoursePublishCache(<span class="hljs-built_in">Long</span> courseId) &#123;<br>    <span class="hljs-comment">//查询缓存</span><br>    Object jsonObject = redisTemplate.opsForValue().<span class="hljs-keyword">get</span>(<span class="hljs-string">&quot;course:&quot;</span> + courseId);<br>    <span class="hljs-keyword">if</span> (jsonObject!=<span class="hljs-literal">null</span>)&#123;<span class="hljs-comment">//查到了缓存</span><br>        String jsonStr = jsonObject.toString();<br>        <span class="hljs-keyword">if</span> (jsonStr.equals(<span class="hljs-string">&quot;null&quot;</span>)) <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;=================从缓存查=================&quot;</span>);<br>        CoursePublish coursePublish = JSON.parseObject(jsonStr, CoursePublish.<span class="hljs-keyword">class</span>);<br>        <span class="hljs-keyword">return</span> coursePublish;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;从数据库查询...&quot;</span>);<br>        <span class="hljs-comment">//从数据库查询</span><br>        CoursePublish coursePublish = getCoursePublish(courseId);<br>        <span class="hljs-comment">//if (coursePublish!=null)&#123;//存入缓存</span><br>        redisTemplate.opsForValue().<span class="hljs-keyword">set</span>(<span class="hljs-string">&quot;course:&quot;</span>+courseId, JSON.toJSONString(coursePublish),<span class="hljs-number">30</span>, TimeUnit.SECONDS);<br>        <span class="hljs-comment">//&#125;</span><br>        <span class="hljs-keyword">return</span> coursePublish;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>再测试，虽然还存在个别请求去查询数据库，但不是所有请求都去查询数据库，基本上都命中缓存。</p>
+<h4 id="缓存雪崩"><a href="#缓存雪崩" class="headerlink" title="缓存雪崩"></a>缓存雪崩</h4><h5 id="什么是缓存雪崩"><a href="#什么是缓存雪崩" class="headerlink" title="什么是缓存雪崩"></a><strong>什么是缓存雪崩</strong></h5><p>缓存雪崩是缓存中大量key失效后当高并发到来时导致大量请求到数据库，瞬间耗尽数据库资源，导致数据库无法使用</p>
+<p>造成缓存雪崩问题的原因是大量key拥有相同的过期时间，比如对课程信息设置缓存过期时间10分钟，在大量请求同时查询大量课程信息时，此时有大量的课程有相同的过期时间，一旦失效将同时失效，造成雪崩问题</p>
+<h5 id="解决缓存雪崩问题"><a href="#解决缓存雪崩问题" class="headerlink" title="解决缓存雪崩问题"></a>解决缓存雪崩问题</h5><p>如何解决缓存雪崩问题？</p>
+<ol>
+<li>使用同步锁控制查询数据库的线程</li>
+</ol>
+<p>使用同步锁控制查询数据库的线程，只允许一个线程去查询数据库，查询得到的数据存入缓存</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs stylus">Java<br><span class="hljs-function"><span class="hljs-title">synchronized</span><span class="hljs-params">(obj)</span></span>&#123;<br>  <span class="hljs-comment">//查询数据库</span><br>  <span class="hljs-comment">//存入缓存</span><br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>对同一类型信息的key设置不同的过期时间</li>
+</ol>
+<p>通常对一类信息的key设置过期时间是相同的，这里可以在原有固定时间的基础上加上一个随机时间使他们的过期时间不同</p>
+<p>示例代码如下：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs scss">Java<br>   <span class="hljs-comment">//设置过期时间300秒</span><br>  redisTemplate<span class="hljs-selector-class">.opsForValue</span>()<span class="hljs-selector-class">.set</span>(&quot;course:&quot; + courseId, JSON.toJSONString(coursePublish),<span class="hljs-number">300</span>+new <span class="hljs-built_in">Random</span>()<span class="hljs-selector-class">.nextInt</span>(<span class="hljs-number">100</span>), TimeUnit<span class="hljs-selector-class">.SECONDS</span>);<br><br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>缓存预热</li>
+</ol>
+<p>不用等到请求到来再去查询数据库加入缓存，可以提前将数据加入缓存，使用缓存预热机制通常有专门的后台程序将数据库的数据同步到缓存</p>
+<h4 id="缓存击穿"><a href="#缓存击穿" class="headerlink" title="缓存击穿"></a><strong>缓存击穿</strong></h4><h5 id="什么是缓存击穿"><a href="#什么是缓存击穿" class="headerlink" title="什么是缓存击穿"></a>什么是缓存击穿</h5><p>大量并发访问同一个热点数据，当热点数据失效后同时去请求数据库，瞬间耗尽数据库资源，导致数据库无法使用</p>
+<p>比如某手机新品发布，当缓存失效时有大量并发到来导致同时去访问数据库。</p>
+<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231229113418275.png" srcset="/img/loading.gif" lazyload alt="image-20231229113418275"></p>
+<h5 id="解决缓存击穿"><a href="#解决缓存击穿" class="headerlink" title="解决缓存击穿"></a>解决缓存击穿</h5><ol>
+<li>使用同步锁控制查询数据库的线程</li>
+</ol>
+<p>使用同步锁控制查询数据库的代码，只允许有一个线程去查询数据库，查询得到数据存入缓存</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs stylus">Java<br><span class="hljs-function"><span class="hljs-title">synchronized</span><span class="hljs-params">(obj)</span></span>&#123;<br>  <span class="hljs-comment">//查询数据库</span><br>  <span class="hljs-comment">//存入缓存</span><br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>2、热点数据不过期</p>
+<p>可以由后台程序提前将热点数据加入缓存，缓存过期时间不过期，由后台程序做好缓存同步。</p>
+<p>下边使用synchronized对代码加锁。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">Java<br><span class="hljs-keyword">public</span>  CoursePublish getCoursePublishCache(<span class="hljs-built_in">Long</span> courseId)&#123;<br>    synchronized(<span class="hljs-keyword">this</span>)&#123;<br>        <span class="hljs-comment">//查询缓存</span><br>        String jsonString = (String) redisTemplate.opsForValue().<span class="hljs-keyword">get</span>(<span class="hljs-string">&quot;course:&quot;</span> + courseId);<br>        <span class="hljs-keyword">if</span>(StringUtils.isNotEmpty(jsonString))&#123;<br>            <span class="hljs-keyword">if</span>(jsonString.equals(<span class="hljs-string">&quot;null&quot;</span>))<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>            CoursePublish coursePublish = JSON.parseObject(jsonString, CoursePublish.<span class="hljs-keyword">class</span>);<br>            <span class="hljs-keyword">return</span> coursePublish;<br>        &#125;<span class="hljs-keyword">else</span>&#123;<br>            System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;=========从数据库查询==========&quot;</span>);<br>            <span class="hljs-comment">//从数据库查询</span><br>            CoursePublish coursePublish = getCoursePublish(courseId);<br>           <span class="hljs-comment">//设置过期时间300秒</span><br>        redisTemplate.opsForValue().<span class="hljs-keyword">set</span>(<span class="hljs-string">&quot;course:&quot;</span> + courseId, JSON.toJSONString(coursePublish),<span class="hljs-number">300</span>, TimeUnit.SECONDS);<br>            <span class="hljs-keyword">return</span> coursePublish;<br>        &#125;<br>    &#125;<br><br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>测试，吞吐量有1300左右</p>
+<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231229113710823.png" srcset="/img/loading.gif" lazyload alt="image-20231229113710823"></p>
+<p>对上边的代码进行优化，对查询缓存的代码不用synchronized加锁控制，只对查询数据库进行加锁，如下：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">Java<br><span class="hljs-keyword">public</span>  CoursePublish getCoursePublishCache(<span class="hljs-built_in">Long</span> courseId)&#123;<br><br>        <span class="hljs-comment">//查询缓存</span><br>         Object  jsonObj = redisTemplate.opsForValue().<span class="hljs-keyword">get</span>(<span class="hljs-string">&quot;course:&quot;</span> + courseId);<br>         <span class="hljs-keyword">if</span>(jsonObj!=<span class="hljs-literal">null</span>)&#123;<br>            String jsonString = jsonObj.toString();<br>            CoursePublish coursePublish = JSON.parseObject(jsonString, CoursePublish.<span class="hljs-keyword">class</span>);<br>            <span class="hljs-keyword">return</span> coursePublish;<br>        &#125;<span class="hljs-keyword">else</span>&#123;<br>            synchronized(<span class="hljs-keyword">this</span>)&#123;<br>                Object  jsonObj = redisTemplate.opsForValue().<span class="hljs-keyword">get</span>(<span class="hljs-string">&quot;course:&quot;</span> + courseId);<br>                <span class="hljs-keyword">if</span>(jsonObj!=<span class="hljs-literal">null</span>)&#123;<br>                   String jsonString = jsonObj.toString();<br>                    CoursePublish coursePublish = JSON.parseObject(jsonString, CoursePublish.<span class="hljs-keyword">class</span>);<br>                    <span class="hljs-keyword">return</span> coursePublish;<br>                &#125;<br>                 System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;=========从数据库查询==========&quot;</span>);<br>                <span class="hljs-comment">//从数据库查询</span><br>                CoursePublish coursePublish = getCoursePublish(courseId);<br>              <span class="hljs-comment">//设置过期时间300秒</span><br>                redisTemplate.opsForValue().<span class="hljs-keyword">set</span>(<span class="hljs-string">&quot;course:&quot;</span> + courseId, JSON.toJSONString(coursePublish),<span class="hljs-number">300</span>, TimeUnit.SECONDS);<br>                <span class="hljs-keyword">return</span> coursePublish;<br>            &#125;<br>        &#125;<br><br><br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>测试，查询数据库只发生一次，整个测试过程的吞吐量在3800左右。</p>
+<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231229113800399.png" srcset="/img/loading.gif" lazyload alt="image-20231229113800399"></p>
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><p>1）缓存穿透：</p>
+<p>去访问一个数据库不存在的数据无法将数据进行缓存，导致查询数据库，当并发较大就会对数据库造成压力。缓存穿透可以造成数据库瞬间压力过大，连接数等资源用完，最终数据库拒绝连接不可用。</p>
+<p>解决的方法：</p>
+<p>缓存一个null值。</p>
+<p>使用布隆过滤器。</p>
+<p>2）缓存雪崩：</p>
+<p>缓存中大量key失效后当高并发到来时导致大量请求到数据库，瞬间耗尽数据库资源，导致数据库无法使用。</p>
+<p>造成缓存雪崩问题的原因是是大量key拥有了相同的过期时间。</p>
+<p>解决办法：</p>
+<p>使用同步锁控制</p>
+<p>对同一类型信息的key设置不同的过期时间，比如：使用固定数+随机数作为过期时间。</p>
+<p>3）缓存击穿</p>
+<p>大量并发访问同一个热点数据，当热点数据失效后同时去请求数据库，瞬间耗尽数据库资源，导致数据库无法使用。</p>
+<p>解决办法：</p>
+<p>使用同步锁控制</p>
+<p>设置key永不过期</p>
+<p>无中生有是穿透，布隆过滤null隔离。<br> 缓存击穿key过期， 锁与非期解难题。<br> 大量过期成雪崩，过期时间要随机。<br> 面试必考三兄弟，可用限流来保底。</p>
+<p>限流技术方案：</p>
+<p>alibaba&#x2F;Sentinel </p>
+<p>nginx+Lua</p>
+<h4 id="分布式锁"><a href="#分布式锁" class="headerlink" title="分布式锁"></a><strong>分布式锁</strong></h4><h5 id="本地锁的问题"><a href="#本地锁的问题" class="headerlink" title="本地锁的问题"></a>本地锁的问题</h5><p>上边的程序使用了同步锁解决了缓存击穿、缓存雪崩的问题，保证同一个key过期后只会查询一次数据库。</p>
+<p>如果将同步锁的程序分布式部署在多个虚拟机上则无法保证同一个key只会查询一次数据库，如下图：</p>
+<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231229113925808.png" srcset="/img/loading.gif" lazyload alt="image-20231229113925808"></p>
+<p>一个同步锁程序只能保证同一个虚拟机中多个线程只有一个线程去数据库，如果高并发通过网关负载均衡转发给各个虚拟机，此时就会存在多个线程去查询数据库情况，因为虚拟机中的锁只能保证该虚拟机自己的线程去同步执行，无法跨虚拟机保证同步执行。</p>
+<p>我们将虚拟机内部的锁叫本地锁，本地锁只能保证所在虚拟机的线程同步执行。</p>
+<p>下边进行测试：</p>
+<p>启动三个内容管理服务：</p>
+<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231229113935734.png" srcset="/img/loading.gif" lazyload alt="image-20231229113935734"></p>
+<p>通过网关访问课程查询，网关通过负载均衡将请求转发给三个服务。</p>
+<p>通过测试发现，有两个服务各有一次数据库查询，这说明本地锁无法跨虚拟机保证同步执行。</p>
+<h5 id="什么是分布锁"><a href="#什么是分布锁" class="headerlink" title="什么是分布锁"></a><strong>什么是分布锁</strong></h5><p>本地锁只能控制所在虚拟机中的线程同步执行，现在要实现分布式环境下所有虚拟机中的线程去同步执行就需要让多个虚拟机去共用一个锁，虚拟机可以分布式部署，锁也可以分布式部署，如下图：</p>
+<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231229113957008.png" srcset="/img/loading.gif" lazyload alt="image-20231229113957008"></p>
+<p>虚拟机都去抢占同一个锁，锁是一个单独的程序提供加锁、解锁服务，谁抢到锁谁去查询数据库。</p>
+<p>该锁已不属于某个虚拟机，而是分布式部署，由多个虚拟机所共享，这种锁叫分布式锁。</p>
+<h5 id="分布式锁的实现方案"><a href="#分布式锁的实现方案" class="headerlink" title="分布式锁的实现方案"></a><strong>分布式锁的实现方案</strong></h5><p>实现分布式锁的方案有很多，常用的如下：</p>
+<p>1、基于数据库实现分布锁</p>
+<p>利用数据库主键唯一性的特点，或利用数据库唯一索引的特点，多个线程同时去插入相同的记录，谁插入成功谁就抢到锁。</p>
+<p>2、基于redis实现锁</p>
+<p>redis提供了分布式锁的实现方案，比如：SETNX、set nx、redisson等。</p>
+<p>拿SETNX举例说明，SETNX命令的工作过程是去set一个不存在的key，多个线程去设置同一个key只会有一个线程设置成功，设置成功的的线程拿到锁。</p>
+<p>3、使用zookeeper实现</p>
+<p>zookeeper是一个分布式协调服务，主要解决分布式程序之间的同步的问题。zookeeper的结构类似的文件目录，多线程向zookeeper创建一个子目录(节点)只会有一个创建成功，利用此特点可以实现分布式锁，谁创建该结点成功谁就获得锁。</p>
+<h5 id="Redis-NX实现分布式锁"><a href="#Redis-NX实现分布式锁" class="headerlink" title="Redis NX实现分布式锁"></a><strong>Redis NX</strong>实现分布式锁</h5><p>redis实现分布式锁的方案可以在redis.cn网站查阅，地址<a target="_blank" rel="noopener" href="http://www.redis.cn/commands/set.html">http://www.redis.cn/commands/set.html</a></p>
+<p>使用命令： SET resource-name anystring NX EX max-lock-time 即可实现。</p>
+<p>NX：表示key不存在才设置成功。</p>
+<p>EX：设置过期时间</p>
+<p>这里启动三个ssh客户端，连接redis: docker exec -it redis redis-cli</p>
+<p>先认证: auth redis</p>
+<p>同时向三个客户端发送测试命令如下：</p>
+<p>表示设置lock001锁，value为001，过期时间为30秒</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">Plain</span> Text<br><span class="hljs-attribute">SET</span> lock001 <span class="hljs-number">001</span> NX EX <span class="hljs-number">30</span><br></code></pre></td></tr></table></figure>
+
+<p>命令发送成功，观察三个ssh客户端发现只有一个设置成功，其它两个设置失败，设置成功的请求表示抢到了lock001锁。</p>
+<p>如何在代码中使用Set nx去实现分布锁呢？</p>
+<p>使用spring-boot-starter-data-redis 提供的api即可实现set nx。</p>
+<p>添加依赖：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs xml">Java<br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-data-redis<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.commons<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>commons-pool2<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.6.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br></code></pre></td></tr></table></figure>
+
+<p>添加依赖后，在bean中注入restTemplate。</p>
+<p>我们先分析一段伪代码如下：</p>
+<figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs isbl"><span class="hljs-variable">Java</span><br><span class="hljs-function"><span class="hljs-title">if</span>(缓存中有)&#123;</span><br><span class="hljs-function"></span><br><span class="hljs-function">  返回缓存中的数据</span><br><span class="hljs-function">&#125;<span class="hljs-variable"><span class="hljs-keyword">else</span></span>&#123;</span><br><span class="hljs-function"></span><br><span class="hljs-function">  获取分布式锁</span><br><span class="hljs-function">  <span class="hljs-title">if</span>(获取锁成功）&#123;</span><br><span class="hljs-function">       <span class="hljs-variable"><span class="hljs-keyword">try</span></span>&#123;</span><br><span class="hljs-function">         查询数据库</span><br><span class="hljs-function">      &#125;<span class="hljs-variable"><span class="hljs-keyword">finally</span></span>&#123;</span><br><span class="hljs-function">         释放锁</span><br><span class="hljs-function">      &#125;</span><br><span class="hljs-function">  &#125;</span><br><span class="hljs-function"> </span><br><span class="hljs-function">&#125;</span><br><span class="hljs-function"></span><br></code></pre></td></tr></table></figure>
+
+<p>1、获取分布式锁</p>
+<p>使用redisTemplate.opsForValue().setIfAbsent(key,vaue)获取锁</p>
+<p>这里考虑一个问题，当set nx一个key&#x2F;value成功1后，这个key(就是锁)需要设置过期时间吗？</p>
+<p>如果不设置过期时间当获取到了锁却没有执行finally这个锁将会一直存在，其它线程无法获取这个锁。</p>
+<p>所以执行set nx时要指定过期时间，即使用如下的命令</p>
+<p>SET resource-name anystring NX EX max-lock-time</p>
+<p>具体调用的方法是：redisTemplate.opsForValue().setIfAbsent(K var1, V var2, long var3, TimeUnit var5)</p>
+<p>2、如何释放锁</p>
+<p>释放锁分为两种情况：key到期自动释放，手动删除。</p>
+<p>1）key到期自动释放的方法</p>
+<p>因为锁设置了过期时间，key到期会自动释放，但是会存在一个问题就是 查询数据库等操作还没有执行完时key到期了，此时其它线程就抢到锁了，最终重复查询数据库执行了重复的业务操作。</p>
+<p>怎么解决这个问题？</p>
+<p>可以将key的到期时间设置的长一些，足以执行完成查询数据库并设置缓存等相关操作。</p>
+<p>如果这样效率会低一些，另外这个时间值也不好把控。</p>
+<p>2）手动删除锁</p>
+<p>如果是采用手动删除锁可能和key到期自动删除有所冲突，造成删除了别人的锁。</p>
+<p>比如：当查询数据库等业务还没有执行完时key过期了，此时其它线程占用了锁，当上一个线程执行查询数据库等业务操作完成后手动删除锁就把其它线程的锁给删除了。</p>
+<p>要解决这个问题可以采用删除锁之前判断是不是自己设置的锁，伪代码如下：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs stylus">JavaScript<br><span class="hljs-function"><span class="hljs-title">if</span><span class="hljs-params">(缓存中有)</span></span>&#123;<br><br>  返回缓存中的数据<br>&#125;<span class="hljs-keyword">else</span>&#123;<br><br>  获取分布式锁: set lock <span class="hljs-number">01</span> NX<br>  <span class="hljs-built_in">if</span>(获取锁成功）&#123;<br>       try&#123;<br>         查询数据库<br>      &#125;finally&#123;<br>         <span class="hljs-built_in">if</span>(redis<span class="hljs-selector-class">.call</span>(<span class="hljs-string">&quot;get&quot;</span>,<span class="hljs-string">&quot;lock&quot;</span>)==<span class="hljs-string">&quot;01&quot;</span>)&#123;<br>            释放锁: redis<span class="hljs-selector-class">.call</span>(<span class="hljs-string">&quot;del&quot;</span>,<span class="hljs-string">&quot;lock&quot;</span>)<br>         &#125;<br>         <br>      &#125;<br>  &#125;<br> <br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>以上代码第11行到13行非原子性，也会导致删除其它线程的锁。</p>
+<p>查看文档上的说明：<a target="_blank" rel="noopener" href="http://www.redis.cn/commands/set.html">http://www.redis.cn/commands/set.html</a></p>
+<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/clip_image002.gif" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>在调用setnx命令设置key&#x2F;value时，每个线程设置不一样的value值，这样当线程去删除锁时可以先根据key查询出来判断是不是自己当时设置的vlaue，如果是则删除。</p>
+<p>这整个操作是原子的，实现方法就是去执行上边的lua脚本。</p>
+<p><em>Lua</em> 是一个小巧的脚本语言，redis在2.6版本就支持通过执行Lua脚本保证多个命令的原子性。</p>
+<p>什么是原子性？</p>
+<p>这些指令要么全成功要么全失败。</p>
+<p>以上就是使用Redis Nx方式实现分布式锁，为了避免删除别的线程设置的锁需要使用redis去执行Lua脚本的方式去实现，这样就具有原子性，但是过期时间的值设置不存在不精确的问题。</p>
+<h5 id="Redisson实现分布式锁"><a href="#Redisson实现分布式锁" class="headerlink" title="Redisson实现分布式锁"></a><strong>Redisson实现分布式锁</strong></h5><h6 id="什么是Redisson"><a href="#什么是Redisson" class="headerlink" title="什么是Redisson"></a><strong>什么是Redisson</strong></h6><p>再查阅 文档<a target="_blank" rel="noopener" href="http://www.redis.cn/commands/set.html">http://www.redis.cn/commands/set.html</a></p>
+<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/clip_image002.gif" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>点击链接查看</p>
+<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/clip_image004.gif" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>我们选用Java的实现方案 <a target="_blank" rel="noopener" href="https://github.com/redisson/redisson">https://github.com/redisson/redisson</a></p>
+<p>Redisson的文档地址：<a target="_blank" rel="noopener" href="https://github.com/redisson/redisson/wiki/Table-of-Content">https://github.com/redisson/redisson/wiki/Table-of-Content</a></p>
+<p>Redisson底层采用的是<a target="_blank" rel="noopener" href="http://netty.io/">Netty</a> 框架。支持<a target="_blank" rel="noopener" href="http://redis.cn/">Redis</a> 2.8以上版本，支持Java1.6+以上版本。Redisson是一个在Redis的基础上实现的Java驻内存数据网格（In-Memory Data Grid）。它不仅提供了一系列的分布式的Java常用对象，还提供了许多分布式服务。其中包括(BitSet, Set, Multimap, SortedSet, Map, List, Queue, BlockingQueue, Deque, BlockingDeque, Semaphore, Lock, AtomicLong, CountDownLatch, Publish &#x2F; Subscribe, Bloom filter, Remote service, Spring cache, Executor service, Live Object service, Scheduler service) 。</p>
+<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/clip_image006.gif" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>使用Redisson可以非常方便将Java本地内存中的常用数据结构的对象搬到分布式缓存redis中。</p>
+<p>也可以将常用的并发编程工具如：AtomicLong、CountDownLatch、Semaphore等支持分布式。</p>
+<p>使用RScheduledExecutorService 实现分布式调度服务。</p>
+<p>支持数据分片，将数据分片存储到不同的redis实例中。</p>
+<p>支持分布式锁，基于Java的Lock接口实现分布式锁，方便开发。</p>
+<p>下边使用Redisson将Queue队列的数据存入Redis，实现一个排队及出队的接口。</p>
+<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/clip_image008.gif" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>添加redisson的依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs xml">Java<br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.redisson<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>redisson-spring-boot-starter<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.11.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br></code></pre></td></tr></table></figure>
+
+<p>从课程资料目录拷贝singleServerConfig.yaml到config工程下</p>
+<p>在redis配置文件中添加：</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs dts">Java<br><span class="hljs-symbol">spring:</span><br><span class="hljs-symbol">  redis:</span><br><span class="hljs-symbol">    redisson:</span><br>      <span class="hljs-meta">#配置文件目录</span><br><span class="hljs-symbol">      config:</span> classpath:singleServerConfig.yaml<br>      <span class="hljs-meta">#config: classpath:clusterServersConfig.yaml</span><br></code></pre></td></tr></table></figure>
+
+<p>redis集群配置clusterServersConfig.yaml.</p>
+<p>Redisson相比set nx实现分布式锁要简单的多，工作原理如下：</p>
+<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231229114440919.png" srcset="/img/loading.gif" lazyload alt="image-20231229114440919"></p>
+<p>•     <strong>加锁机制</strong></p>
+<p>线程获取锁，获取成功，执行lua脚本，保存数据到redis数据库</p>
+<p>线程获取锁，获取失败，while循环尝试获取锁，获取成功后，执行lua，保存数据到redis</p>
+<p>•     <strong>WatchDog</strong>自动延期看门狗机制</p>
+<p>第一种情况：在一个分布式环境下，假如一个线程获得锁后，突然服务器宕机了，那么这个时候在一定时间后这个锁会自动释放，你也可以设置锁的有效时间(当不设置默认30秒时），这样的目的主要是防止死锁的发生</p>
+<p>第二种情况：线程A业务还没有执行完，时间就过了，线程A 还想持有锁的话，就会启动一个watch dog后台线程，不断的延长锁key的生存时间。</p>
+<p>•     <strong>lua</strong>脚本保证原子性操作</p>
+<p>主要是如果你的业务逻辑复杂的话，通过封装在lua脚本中发送给redis，而且redis是单线程的，这样就保证这段复杂业务逻辑执行的原子性</p>
+<p>具体使用RLock操作分布锁，RLock继承JDK的Lock接口，所以他有Lock接口的所有特性，比如lock、unlock、trylock等特性,同时它还有很多新特性：强制锁释放，带有效期的锁,。</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><code class="hljs aspectj">Java<br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">RRLock</span> </span>&#123;<br>    <br>   <span class="hljs-comment">//----------------------Lock接口方法-----------------------</span><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 加锁 锁的有效期默认30秒</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">lock</span><span class="hljs-params">()</span></span>;<br>    <br>     <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 加锁 可以手动设置锁的有效时间</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> leaseTime 锁有效时间</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> unit      时间单位 小时、分、秒、毫秒等</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">lock</span><span class="hljs-params">(<span class="hljs-keyword">long</span> leaseTime, TimeUnit unit)</span></span>;<br>    <br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * tryLock()方法是有返回值的，用来尝试获取锁，</span><br><span class="hljs-comment">     * 如果获取成功，则返回true，如果获取失败（即锁已被其他线程获取），则返回false .</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">tryLock</span><span class="hljs-params">()</span></span>;<br>    <br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * tryLock(long time, TimeUnit unit)方法和tryLock()方法是类似的，</span><br><span class="hljs-comment">     * 只不过区别在于这个方法在拿不到锁时会等待一定的时间，</span><br><span class="hljs-comment">     * 在时间期限之内如果还拿不到锁，就返回false。如果如果一开始拿到锁或者在等待期间内拿到了锁，则返回true。</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> time 等待时间</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> unit 时间单位 小时、分、秒、毫秒等</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">tryLock</span><span class="hljs-params">(<span class="hljs-keyword">long</span> time, TimeUnit unit)</span> <span class="hljs-keyword">throws</span> InterruptedException</span>;<br>    <br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 比上面多一个参数，多添加一个锁的有效时间</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> waitTime  等待时间</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> leaseTime 锁有效时间</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> unit      时间单位 小时、分、秒、毫秒等</span><br><span class="hljs-comment">     * waitTime 大于 leaseTime</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">tryLock</span><span class="hljs-params">(<span class="hljs-keyword">long</span> waitTime, <span class="hljs-keyword">long</span> leaseTime, TimeUnit unit)</span> <span class="hljs-keyword">throws</span> InterruptedException</span>;<br>    <br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 解锁</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">unlock</span><span class="hljs-params">()</span></span>;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>**lock()**：</p>
+<p>•     此方法为加锁，但是锁的有效期采用<strong>默认</strong>30秒</p>
+<p>•     如果主线程未释放，且当前锁未调用unlock方法，则进入到<strong>watchDog</strong>机制</p>
+<p>•     如果主线程未释放，且当前锁调用unlock方法，则直接释放锁</p>
+<h6 id="分布式锁避免缓存击穿"><a href="#分布式锁避免缓存击穿" class="headerlink" title="分布式锁避免缓存击穿"></a><strong>分布式锁避免缓存击穿</strong></h6><p>下面使用分布式锁修改查询课程信息的接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//Redisson 分布式锁</span><br><span class="hljs-meta">@Override</span><br><span class="hljs-keyword">public</span> CoursePublish <span class="hljs-title function_">getCoursePublishCache</span><span class="hljs-params">(Long courseId)</span> &#123;<br><br>    <span class="hljs-comment">//查询缓存</span><br>    <span class="hljs-type">Object</span> <span class="hljs-variable">jsonObject</span> <span class="hljs-operator">=</span> redisTemplate.opsForValue().get(<span class="hljs-string">&quot;course:&quot;</span> + courseId);<br>    <span class="hljs-keyword">if</span> (jsonObject != <span class="hljs-literal">null</span>) &#123;<span class="hljs-comment">//查到了缓存</span><br>        <span class="hljs-type">String</span> <span class="hljs-variable">jsonStr</span> <span class="hljs-operator">=</span> jsonObject.toString();<br>        <span class="hljs-keyword">if</span> (jsonStr.equals(<span class="hljs-string">&quot;null&quot;</span>)) <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>        System.out.println(<span class="hljs-string">&quot;=================从缓存查=================&quot;</span>);<br>        <span class="hljs-type">CoursePublish</span> <span class="hljs-variable">coursePublish</span> <span class="hljs-operator">=</span> JSON.parseObject(jsonStr, CoursePublish.class);<br>        <span class="hljs-keyword">return</span> coursePublish;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-comment">//每门课程设置一个锁</span><br>        <span class="hljs-type">RLock</span> <span class="hljs-variable">lock</span> <span class="hljs-operator">=</span> redissonClient.getLock(<span class="hljs-string">&quot;coursequerylock:&quot;</span> + courseId);<br>        <span class="hljs-comment">//获取锁</span><br>        lock.lock();<br>        <span class="hljs-keyword">try</span> &#123;<br>            jsonObject = redisTemplate.opsForValue().get(<span class="hljs-string">&quot;course:&quot;</span> + courseId);<br>            <span class="hljs-keyword">if</span> (jsonObject != <span class="hljs-literal">null</span>) &#123;<span class="hljs-comment">//查到了缓存</span><br>                <span class="hljs-type">String</span> <span class="hljs-variable">jsonStr</span> <span class="hljs-operator">=</span> jsonObject.toString();<br>                <span class="hljs-keyword">if</span> (jsonStr.equals(<span class="hljs-string">&quot;null&quot;</span>)) <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>                System.out.println(<span class="hljs-string">&quot;=================从缓存查=================&quot;</span>);<br>                <span class="hljs-type">CoursePublish</span> <span class="hljs-variable">coursePublish</span> <span class="hljs-operator">=</span> JSON.parseObject(jsonStr, CoursePublish.class);<br>                <span class="hljs-keyword">return</span> coursePublish;<br>            &#125;<br>            System.out.println(<span class="hljs-string">&quot;从数据库查询...&quot;</span>);<br>            <span class="hljs-comment">//从数据库查询</span><br>            <span class="hljs-type">CoursePublish</span> <span class="hljs-variable">coursePublish</span> <span class="hljs-operator">=</span> getCoursePublish(courseId);<br>            <span class="hljs-comment">//if (coursePublish!=null)&#123;//存入缓存</span><br>            <span class="hljs-comment">//设置过期时间300s</span><br>            redisTemplate.opsForValue().set(<span class="hljs-string">&quot;course:&quot;</span> + courseId, JSON.toJSONString(coursePublish), <span class="hljs-number">30</span>, TimeUnit.SECONDS);<br>            <span class="hljs-comment">//&#125;</span><br>            <span class="hljs-keyword">return</span> coursePublish;<br>        &#125;<span class="hljs-keyword">finally</span> &#123;<br>            <span class="hljs-comment">//释放锁</span><br>            lock.unlock();<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>启动多个内容管理服务实例，使用JMeter压力测试，只有一个实例查询一次数据库。</p>
+<p>测试Redisson自动续期功能。</p>
+<p>在查询数据库处添加休眠，观察锁是否会自动续期。</p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs haxe">JavaScript<br><span class="hljs-keyword">try</span> &#123;<br>    Thread.sleep(<span class="hljs-number">60000</span>);<br>&#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">RuntimeException</span>(e);<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E9%A1%B9%E7%9B%AE/" class="category-chain-item">项目</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF/" class="print-no-link">#学成在线</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>学成在线项目优化模块</div>
+      <div>http://example.com/2023/12/29/学成在线项目优化模块/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>fgj</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年12月29日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/12/28/%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E6%A8%A1%E5%9D%97/" title="学成在线项目部署模块">
+                        <span class="hidden-mobile">学成在线项目部署模块</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":173,"height":346},"mobile":{"show":true},"log":false});</script></body>
+</html>
