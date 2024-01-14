@@ -23,22 +23,22 @@
 <meta property="og:site_name" content="FGJ">
 <meta property="og:description" content="docker入门安装 卸载旧版  12345678yum remove docker \    docker-client \    docker-client-latest \    docker-common \    docker-latest \    docker-latest-logrotate \    docker-logrotate \    docker-engine   配置">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231211110046985.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231211110923697.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231211115636411.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231211120425446.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231211150259683.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231211150414005.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231211150745341.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231211151447851.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231211160519182.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231211160750978.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231211110046985.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231211110923697.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231211115636411.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231211120425446.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231211150259683.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231211150414005.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231211150745341.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231211151447851.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231211160519182.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231211160750978.png">
 <meta property="article:published_time" content="2023-12-11T08:28:04.000Z">
-<meta property="article:modified_time" content="2023-12-11T08:29:08.271Z">
+<meta property="article:modified_time" content="2024-01-14T07:34:24.476Z">
 <meta property="article:author" content="fgj">
 <meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231211110046985.png">
+<meta name="twitter:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231211110046985.png">
   
   
   
@@ -308,7 +308,7 @@
 <li>配置镜像加速</li>
 </ol>
 <p><a target="_blank" rel="noopener" href="https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors">https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors</a></p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231211110046985.png" srcset="/img/loading.gif" lazyload alt="image-20231211110046985"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231211110046985.png" srcset="/img/loading.gif" lazyload alt="image-20231211110046985"></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo <span class="hljs-built_in">mkdir</span> -p /etc/docker<br>sudo <span class="hljs-built_in">tee</span> /etc/docker/daemon.json &lt;&lt;-<span class="hljs-string">&#x27;EOF&#x27;</span><br>&#123;<br>  <span class="hljs-string">&quot;registry-mirrors&quot;</span>: [<span class="hljs-string">&quot;https://uupvlouh.mirror.aliyuncs.com&quot;</span>]<br>&#125;<br>EOF<br>sudo systemctl daemon-reload<br>sudo systemctl restart docker<br></code></pre></td></tr></table></figure>
 
 <h2 id="部署MySQL"><a href="#部署MySQL" class="headerlink" title="部署MySQL"></a>部署MySQL</h2><p>最简单的命令</p>
@@ -321,7 +321,7 @@
 <p><a target="_blank" rel="noopener" href="https://hub.docker.com/">https://hub.docker.com/</a></p>
 <p>这种存储镜像的服务器, 叫 <code>DockerRegistry(镜像仓库)</code>, 可以是官方的, 可以是阿里云第三方的, 可以是私有的, 就像Github  Gitee  Gitlab  </p>
 <p>daemon - 守护进程</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231211110923697.png" srcset="/img/loading.gif" lazyload alt="image-20231211110923697"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231211110923697.png" srcset="/img/loading.gif" lazyload alt="image-20231211110923697"></p>
 <p>回到命令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker run -d \<br>  --name mysql \<br>  -p 3306:3306 \<br>  -e TZ=Asia/Shanghai \<br>  -e MYSQL_ROOT_PASSWORD=123 \<br>  mysql<br>  <br><span class="hljs-comment"># -d 让容器在后台运行</span><br><span class="hljs-comment"># --name 命名</span><br><span class="hljs-comment"># -p 3306:3306  端口映射 -&gt;   -p 宿主端口:容器端口(容器端口&#123;进程默认端口&#125;,宿主端口不能冲突)</span><br><span class="hljs-comment"># -e TZ=Asia/Shanghai  配置容器内进程运行的一些参数, -e k=v</span><br><span class="hljs-comment"># mysql 镜像名称 -&gt; Docker根据名字搜索下载镜像, 格式: 镜像名:版本号(默认latest)</span><br></code></pre></td></tr></table></figure>
 
@@ -389,7 +389,7 @@
 <td align="left">容器开机自启</td>
 </tr>
 </tbody></table>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231211115636411.png" srcset="/img/loading.gif" lazyload alt="image-20231211115636411"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231211115636411.png" srcset="/img/loading.gif" lazyload alt="image-20231211115636411"></p>
 <p>示例: Nginx</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 第1步，去DockerHub查看nginx镜像仓库及相关信息</span><br><br><span class="hljs-comment"># 第2步，拉取Nginx镜像</span><br>docker pull nginx<br><br><span class="hljs-comment"># 第3步，查看镜像</span><br>docker images<br><span class="hljs-comment"># 结果如下：</span><br>REPOSITORY   TAG       IMAGE ID       CREATED         SIZE<br>nginx        latest    605c77e624dd   16 months ago   141MB<br>mysql        latest    3218b38490ce   17 months ago   516MB<br><br><span class="hljs-comment"># 第4步，创建并允许Nginx容器</span><br>docker run -d --name nginx -p 80:80 nginx<br><br><span class="hljs-comment"># 第5步，查看运行中容器</span><br>docker ps<br><span class="hljs-comment"># 也可以加格式化方式访问，格式会更加清爽</span><br>docker ps --format <span class="hljs-string">&quot;table &#123;&#123;.ID&#125;&#125;\t&#123;&#123;.Image&#125;&#125;\t&#123;&#123;.Ports&#125;&#125;\t&#123;&#123;.Status&#125;&#125;\t&#123;&#123;.Names&#125;&#125;&quot;</span><br><br><span class="hljs-comment"># 第6步，访问网页，地址：http://虚拟机地址</span><br><br><span class="hljs-comment"># 第7步，停止容器</span><br>docker stop nginx<br><br><span class="hljs-comment"># 第8步，查看所有容器</span><br>docker ps -a --format <span class="hljs-string">&quot;table &#123;&#123;.ID&#125;&#125;\t&#123;&#123;.Image&#125;&#125;\t&#123;&#123;.Ports&#125;&#125;\t&#123;&#123;.Status&#125;&#125;\t&#123;&#123;.Names&#125;&#125;&quot;</span><br><br><span class="hljs-comment"># 第9步，再次启动nginx容器</span><br>docker start nginx<br><br><span class="hljs-comment"># 第10步，再次查看容器</span><br>docker ps --format <span class="hljs-string">&quot;table &#123;&#123;.ID&#125;&#125;\t&#123;&#123;.Image&#125;&#125;\t&#123;&#123;.Ports&#125;&#125;\t&#123;&#123;.Status&#125;&#125;\t&#123;&#123;.Names&#125;&#125;&quot;</span><br><br><span class="hljs-comment"># 第11步，查看容器详细信息</span><br>docker inspect nginx<br><br><span class="hljs-comment"># 第12步，进入容器,查看容器内目录</span><br>docker <span class="hljs-built_in">exec</span> -it nginx bash<br><span class="hljs-comment"># 或者，可以进入MySQL</span><br>docker <span class="hljs-built_in">exec</span> -it mysql mysql -uroot -p<br><br><span class="hljs-comment"># 第13步，删除容器</span><br>docker <span class="hljs-built_in">rm</span> nginx<br><span class="hljs-comment"># 发现无法删除，因为容器运行中，强制删除容器</span><br>docker <span class="hljs-built_in">rm</span> -f nginx<br></code></pre></td></tr></table></figure>
 
@@ -399,7 +399,7 @@
 <p>读写容器内的文件不方便, 程序运行产生的<code>数据</code>, 程序运行依赖的<code>配置</code>应该与容器<code>解耦</code></p>
 </blockquote>
 <p>数据卷是一个虚拟目录, 是容器内目录和宿主机目录映射的桥梁</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231211120425446.png" srcset="/img/loading.gif" lazyload alt="image-20231211120425446"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231211120425446.png" srcset="/img/loading.gif" lazyload alt="image-20231211120425446"></p>
 <p>容器的conf 和 html与宿主conf 和html 目录关联, 称为<code>挂载</code></p>
 <p>容器内 conf 和 html 目录指向 &#x2F;var&#x2F;lib&#x2F;docker&#x2F;volumes&#x2F;conf&#x2F;_data 和 &#x2F;var&#x2F;lib&#x2F;docker&#x2F;volumes&#x2F;html&#x2F;_data, 我们修改主机对应目录就能实现对容器内对应目录的修改</p>
 <p><strong>直接挂载宿主机目录</strong></p>
@@ -438,9 +438,9 @@
 <p>演示一下MySQL的<code>匿名数据卷(默认存在的数据卷)</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker inspect mysql  <span class="hljs-comment"># 查看MySQL容器的详细信息</span><br></code></pre></td></tr></table></figure>
 
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231211150259683.png" srcset="/img/loading.gif" lazyload alt="image-20231211150259683"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231211150259683.png" srcset="/img/loading.gif" lazyload alt="image-20231211150259683"></p>
 <p>这个容器声明了一个本地目录, 需要挂载数据卷, 数据卷未定义</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231211150414005.png" srcset="/img/loading.gif" lazyload alt="image-20231211150414005"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231211150414005.png" srcset="/img/loading.gif" lazyload alt="image-20231211150414005"></p>
 <p>Name: 数据卷名称, 匿名卷自动生成一串hash值</p>
 <p>Source: 宿主机目录</p>
 <p>Destination: 容器内目录</p>
@@ -450,7 +450,7 @@
 <p>看一下这个数据卷目录</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">ls</span> -l /var/lib/docker/volumes/3706a717d3de91e57b259edc4e69c3d91a38a1bf12baf53c7c1c89b38e6da8c1/_data<br></code></pre></td></tr></table></figure>
 
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231211150745341.png" srcset="/img/loading.gif" lazyload alt="image-20231211150745341"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231211150745341.png" srcset="/img/loading.gif" lazyload alt="image-20231211150745341"></p>
 <h2 id="挂载本地目录"><a href="#挂载本地目录" class="headerlink" title="挂载本地目录"></a>挂载本地目录</h2><p>同样在创建时进行挂载操作</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Bash">-v mysql:/var/lib/mysql <span class="hljs-comment"># 会被识别为一个数据卷叫mysql，运行时会自动创建这个数据卷</span><br>-v ./mysql:/var/lib/mysql <span class="hljs-comment"># 会被识别为当前目录下的mysql目录，运行时如果不存在会创建目录</span><br></code></pre></td></tr></table></figure>
 
@@ -468,7 +468,7 @@
 </ul>
 </blockquote>
 <p>镜像文件不是随意对方的, 按照操作步骤分层叠放, 我们构建的某些层其他人已经制作过, <code>直接拷贝</code>这些层, 不用<code>重复制作</code></p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231211151447851.png" srcset="/img/loading.gif" lazyload alt="image-20231211151447851"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231211151447851.png" srcset="/img/loading.gif" lazyload alt="image-20231211151447851"></p>
 <h2 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h2><p>制作镜像过程需要逐层处理和打包, 所以Docker提供自动打包镜像功能, 只需要将打包过程每一层需要做的事写成一个文件, 全交给Docker一键打包即可</p>
 <table>
 <thead>
@@ -517,7 +517,7 @@
 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile"><span class="hljs-comment"># 基础镜像</span><br><span class="hljs-keyword">FROM</span> openjdk:<span class="hljs-number">11.0</span>-jre-buster<br><span class="hljs-comment"># 设定时区</span><br><span class="hljs-keyword">ENV</span> TZ=Asia/Shanghai<br><span class="hljs-keyword">RUN</span><span class="language-bash"> <span class="hljs-built_in">ln</span> -snf /usr/share/zoneinfo/<span class="hljs-variable">$TZ</span> /etc/localtime &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-variable">$TZ</span> &gt; /etc/timezone</span><br><span class="hljs-comment"># 拷贝jar包</span><br><span class="hljs-keyword">COPY</span><span class="language-bash"> docker-demo.jar /app.jar</span><br><span class="hljs-comment"># 入口</span><br><span class="hljs-keyword">ENTRYPOINT</span><span class="language-bash"> [<span class="hljs-string">&quot;java&quot;</span>, <span class="hljs-string">&quot;-jar&quot;</span>, <span class="hljs-string">&quot;/app.jar&quot;</span>]</span><br></code></pre></td></tr></table></figure>
 
 <h2 id="构建镜像"><a href="#构建镜像" class="headerlink" title="构建镜像"></a>构建镜像</h2><p>准备好项目和dockerfile</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231211160519182.png" srcset="/img/loading.gif" lazyload alt="image-20231211160519182"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231211160519182.png" srcset="/img/loading.gif" lazyload alt="image-20231211160519182"></p>
 <p>构建镜像</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 进入镜像目录</span><br><span class="hljs-built_in">cd</span> /root/demo<br><span class="hljs-comment"># 开始构建</span><br>docker build -t docker-demo:1.0 .<br></code></pre></td></tr></table></figure>
 
@@ -528,7 +528,7 @@
 <p>也可以指定目录, 不用.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 直接指定Dockerfile目录</span><br>docker build -t docker-demo:1.0 /root/demo<br></code></pre></td></tr></table></figure>
 
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231211160750978.png" srcset="/img/loading.gif" lazyload alt="image-20231211160750978"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231211160750978.png" srcset="/img/loading.gif" lazyload alt="image-20231211160750978"></p>
 <p>尝试运行他</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 1.创建并运行容器</span><br>docker run -d --name <span class="hljs-built_in">dd</span> -p 8080:8080 docker-demo:1.0<br><span class="hljs-comment"># 2.查看容器</span><br>dps<br><span class="hljs-comment"># 结果</span><br>CONTAINER ID   IMAGE             PORTS                                                  STATUS         NAMES<br>78a000447b49   docker-demo:1.0   0.0.0.0:8080-&gt;8080/tcp, :::8080-&gt;8080/tcp              Up 2 seconds   <span class="hljs-built_in">dd</span><br>f63cfead8502   mysql             0.0.0.0:3306-&gt;3306/tcp, :::3306-&gt;3306/tcp, 33060/tcp   Up 2 hours     mysql<br><br><span class="hljs-comment"># 3.访问</span><br>curl localhost:8080/hello/count<br><span class="hljs-comment"># 结果：</span><br>&lt;h5&gt;欢迎访问黑马商城, 这是您第1次访问&lt;h5&gt;<br></code></pre></td></tr></table></figure>
 

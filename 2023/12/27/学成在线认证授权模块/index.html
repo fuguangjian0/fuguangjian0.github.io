@@ -23,95 +23,95 @@
 <meta property="og:site_name" content="FGJ">
 <meta property="og:description" content="学成在线认证授权模块模块需求分析什么是认证授权？截至目前，项目已经完成了课程发布功能，课程发布后用户通过在线学习页面点播视频进行学习。如何记录学生的学习过程？要想掌握学生的学习情况需要知道用户的身份信息，记录哪个用户什么时间学习什么课程，如果用户要购买课程需要知道用户身份信息，所以，去管理学生的学习过程最基本的要实现用户的身份认证。 认证授权模块实现平台所有用户的身份认证和用户授权功能。  什么是">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224135916160.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224140155582.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224145850718.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224145910870.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224150315672.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224150349007.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224193913439.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224194407935.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224194933546.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224200453107.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224210819390.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224210849405.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224210903149.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224211328473.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224211635903.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224212214373.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224213256012.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224215931088.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224220018348.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224220029966.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224221619711.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224222136941.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224233859129.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224235114107.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226100944623.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226101103155.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226104100548.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226104244665.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226104446104.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226113249085.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226113456327.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226114121004.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226114240112.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226114917649.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226120332267.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226120801314.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226122508837.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226154848189.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226160736318.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226161045777.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226161233377.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226162949138.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226163459122.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226163746443.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226170841828.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226170947053.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226171541617.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226202942941.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226210615365.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226212746628.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226213250628.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226213354276.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226214116514.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226214145555.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226223602447.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226223648221.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226233742308.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226234103548.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226234215263.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226234421292.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226234549805.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226234710976.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226234719991.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231227105656290.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231227111010963.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231227111058273.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231227111247459.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231227121958289.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231227122010128.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231227123937245.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231227124310952.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231227135247356.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231227135503309.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231227135516048.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231227135538956.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231227135552058.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231227135645831.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231227150001461.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231227150055537.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231227155538069.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231227155551246.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231227155646094.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231227155822920.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224135916160.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224140155582.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224145850718.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224145910870.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224150315672.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224150349007.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224193913439.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224194407935.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224194933546.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224200453107.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224210819390.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224210849405.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224210903149.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224211328473.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224211635903.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224212214373.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224213256012.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224215931088.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224220018348.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224220029966.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224221619711.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224222136941.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224233859129.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224235114107.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226100944623.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226101103155.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226104100548.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226104244665.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226104446104.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226113249085.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226113456327.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226114121004.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226114240112.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226114917649.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226120332267.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226120801314.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226122508837.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226154848189.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226160736318.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226161045777.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226161233377.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226162949138.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226163459122.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226163746443.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226170841828.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226170947053.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226171541617.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226202942941.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226210615365.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226212746628.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226213250628.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226213354276.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226214116514.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226214145555.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226223602447.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226223648221.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226233742308.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226234103548.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226234215263.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226234421292.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226234549805.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226234710976.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226234719991.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231227105656290.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231227111010963.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231227111058273.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231227111247459.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231227121958289.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231227122010128.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231227123937245.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231227124310952.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231227135247356.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231227135503309.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231227135516048.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231227135538956.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231227135552058.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231227135645831.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231227150001461.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231227150055537.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231227155538069.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231227155551246.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231227155646094.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231227155822920.png">
 <meta property="article:published_time" content="2023-12-27T08:23:15.000Z">
-<meta property="article:modified_time" content="2023-12-27T08:23:51.093Z">
+<meta property="article:modified_time" content="2024-01-14T07:34:24.514Z">
 <meta property="article:author" content="fgj">
 <meta property="article:tag" content="学成在线">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224135916160.png">
+<meta name="twitter:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224135916160.png">
   
   
   
@@ -363,29 +363,29 @@
 <p>什么是用户身份认证？</p>
 <p>用户身份认证即用户去访问系统资源时系统要求验证用户的身份信息，身份合法方可继续访问。常见的用户身份认证表现形式有：<strong>用户密码登录，微信扫码</strong>等方法</p>
 <p>项目包括学生，学习机构老师，平台运营人员三类用户，不管哪一类用户在访问项目受保护的资源需要身份认证，比如：发布课程操作，需要学习机构老师首先登录系统成功，然后再执行发布课程操作。创建订单，需要学生用户首先登录系统，才可以创建订单。如图</p>
-<img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224135916160.png" srcset="/img/loading.gif" lazyload alt="image-20231224135916160" style="zoom:67%;" />
+<img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224135916160.png" srcset="/img/loading.gif" lazyload alt="image-20231224135916160" style="zoom:67%;" />
 
 <p>什么是用户授权？</p>
 <p>用户认证通过后访问系统的资源，系统会判断用户是否拥有访问资源权限，只<strong>允许访问有权限的系统资源</strong>，<strong>没有权限的资源无法访问</strong>，这个过程叫用户授权。比如：用户去发布课程，系统首先进行用户身份认证，认证通过后继续判断用户是否有发布课程的权限，如果没有权限则拒绝继续访问系统，如果有权限则继续发布课程</p>
 <p>如图</p>
-<img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224140155582.png" srcset="/img/loading.gif" lazyload alt="image-20231224140155582" style="zoom:67%;" />
+<img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224140155582.png" srcset="/img/loading.gif" lazyload alt="image-20231224140155582" style="zoom:67%;" />
 </blockquote>
 <h4 id="业务流程"><a href="#业务流程" class="headerlink" title="业务流程"></a>业务流程</h4><h5 id="统一认证"><a href="#统一认证" class="headerlink" title="统一认证"></a>统一认证</h5><p>项目包括学生，学习机构老师，平台运营人员三类用户，三类用户使用统一的认证入口，如图：</p>
-<img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224145850718.png" srcset="/img/loading.gif" lazyload alt="image-20231224145850718" style="zoom:50%;" />
+<img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224145850718.png" srcset="/img/loading.gif" lazyload alt="image-20231224145850718" style="zoom:50%;" />
 
 <p>用户输入账号和密码提交认证，认证通过则继续操作。</p>
 <p>项目由统一认证服务受理用户的认证请求，如下图</p>
-<img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224145910870.png" srcset="/img/loading.gif" lazyload alt="image-20231224145910870" style="zoom:67%;" />
+<img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224145910870.png" srcset="/img/loading.gif" lazyload alt="image-20231224145910870" style="zoom:67%;" />
 
 <p>认证通过由认证服务向给用户颁发令牌，相当于访问系统的通行证，用户拿着令牌去访问系统的资源。</p>
 <h5 id="单点登录"><a href="#单点登录" class="headerlink" title="单点登录"></a><strong>单点登录</strong></h5><p>本项目基于微服务架构构建，微服务包括：内容管理服务，媒资管理服务，学习中心服务，系统管理服务等，为了提高用户体验，<code>用户只需要认证一次即可在多个拥有访问权限的系统访问</code>，这个功能叫<code>单点登录</code></p>
 <p>引用百度百科：单点登录（Single Sign On），简称为 SSO，是目前比较流行的企业业务整合的解决方案之一。SSO的定义是在多个应用系统中，用户只需要登录一次就可以访问所有相互信任的应用系统。</p>
 <p>如下图，用户只需要认证一次，便可以在多个拥有访问权限的系统中访问。</p>
-<img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224150315672.png" srcset="/img/loading.gif" lazyload alt="image-20231224150315672" style="zoom:50%;" />
+<img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224150315672.png" srcset="/img/loading.gif" lazyload alt="image-20231224150315672" style="zoom:50%;" />
 
 <h5 id="第三方认证"><a href="#第三方认证" class="headerlink" title="第三方认证"></a>第三方认证</h5><p>为了提高用户体验，很多网站有扫码登录的功能，如：微信扫码登录、QQ扫码登录等。扫码登录的好处是用户不用输入账号和密码，操作简便，另外一个好处就是有利于用户信息的共享，互联网的优势就是资源共享，用户也是一种资源，对于一个新网站如果让用户去注册是很困难的，如果提供了微信扫码登录将省去用户注册的成本，是一种非常有效的推广手段。</p>
 <p>微信扫码登录其中的原理正是使用了第三方认证，如下图</p>
-<img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224150349007.png" srcset="/img/loading.gif" lazyload alt="image-20231224150349007" style="zoom:50%;" />
+<img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224150349007.png" srcset="/img/loading.gif" lazyload alt="image-20231224150349007" style="zoom:50%;" />
 
 <h3 id="Spring-Security-认证"><a href="#Spring-Security-认证" class="headerlink" title="Spring Security 认证"></a>Spring Security 认证</h3><h4 id="Spring-Security-介绍"><a href="#Spring-Security-介绍" class="headerlink" title="Spring Security 介绍"></a>Spring Security 介绍</h4><p>认证功能几乎是每个项目都具备的功能，并且它与业务无关，市面上有很多认证框架，如：Apache Shiro、CAS、Spring Security等。由于本项目基于Spring Cloud技术构建，Spring Security是spring家族的一份子且和Spring Cloud集成的很好，所以本项目选用Spring Security作为认证服务的技术框架。</p>
 <p>Spring Security 是一个功能强大且高度可定制的身份验证和访问控制框架，它是一个专注于为 Java 应用程序提供身份验证和授权的框架。</p>
@@ -403,7 +403,7 @@
 </ol>
 <p>创建xc_users数据库</p>
 <p>导入课程资料中的xcplus_users.sql脚本。</p>
-<img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224193913439.png" srcset="/img/loading.gif" lazyload alt="image-20231224193913439" style="zoom:50%;" />
+<img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224193913439.png" srcset="/img/loading.gif" lazyload alt="image-20231224193913439" style="zoom:50%;" />
 
 <p>在nacos中新增auth-service-dev.yaml：</p>
 <figure class="highlight nestedtext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs nestedtext"><span class="hljs-attribute">server</span><span class="hljs-punctuation">:</span><br>  <span class="hljs-attribute">servlet</span><span class="hljs-punctuation">:</span><br>    <span class="hljs-attribute">context-path</span><span class="hljs-punctuation">:</span> <span class="hljs-string">/auth</span><br>  <span class="hljs-attribute">port</span><span class="hljs-punctuation">:</span> <span class="hljs-string">63070</span><br><span class="hljs-attribute">spring</span><span class="hljs-punctuation">:</span><br>  <span class="hljs-attribute">datasource</span><span class="hljs-punctuation">:</span><br>    <span class="hljs-attribute">driver-class-name</span><span class="hljs-punctuation">:</span> <span class="hljs-string">com.mysql.cj.jdbc.Driver</span><br>    <span class="hljs-attribute">url</span><span class="hljs-punctuation">:</span> <span class="hljs-string">jdbc:mysql://192.168.101.65:3306/xc402_users?serverTimezone=UTC&amp;userUnicode=true&amp;useSSL=false&amp;</span><br>    <span class="hljs-attribute">username</span><span class="hljs-punctuation">:</span> <span class="hljs-string">root</span><br>    <span class="hljs-attribute">password</span><span class="hljs-punctuation">:</span> <span class="hljs-string">mysql</span><br></code></pre></td></tr></table></figure>
@@ -412,17 +412,17 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.xuecheng.auth.controller;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Mr.M</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@description</span> 测试controller</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@date</span> 2022/9/27 17:25</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Slf4j</span><br><span class="hljs-meta">@RestController</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LoginController</span> &#123;<br><br>  <span class="hljs-meta">@Autowired</span><br>  XcUserMapper userMapper;<br><br>  <span class="hljs-meta">@RequestMapping(&quot;/login-success&quot;)</span><br>  <span class="hljs-keyword">public</span> String <span class="hljs-title function_">loginSuccess</span><span class="hljs-params">()</span>&#123;<br><br>      <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;登录成功&quot;</span>;<br>  &#125;<br><br><br>  <span class="hljs-meta">@RequestMapping(&quot;/user/&#123;id&#125;&quot;)</span><br>  <span class="hljs-keyword">public</span> XcUser <span class="hljs-title function_">getuser</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable(&quot;id&quot;)</span> String id)</span>&#123;<br>    <span class="hljs-type">XcUser</span> <span class="hljs-variable">xcUser</span> <span class="hljs-operator">=</span> userMapper.selectById(id);<br>    <span class="hljs-keyword">return</span> xcUser;<br>  &#125;<br><br>  <span class="hljs-meta">@RequestMapping(&quot;/r/r1&quot;)</span><br>  <span class="hljs-keyword">public</span> String <span class="hljs-title function_">r1</span><span class="hljs-params">()</span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;访问r1资源&quot;</span>;<br>  &#125;<br><br>  <span class="hljs-meta">@RequestMapping(&quot;/r/r2&quot;)</span><br>  <span class="hljs-keyword">public</span> String <span class="hljs-title function_">r2</span><span class="hljs-params">()</span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;访问r2资源&quot;</span>;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>启动工程，尝试访问  <a target="_blank" rel="noopener" href="http://localhost:63070/auth/r/r1">http://localhost:63070/auth/r/r1</a> :</p>
-<img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224194407935.png" srcset="/img/loading.gif" lazyload alt="image-20231224194407935" style="zoom:50%;" />
+<img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224194407935.png" srcset="/img/loading.gif" lazyload alt="image-20231224194407935" style="zoom:50%;" />
 
 <p>访问用户信息：<a target="_blank" rel="noopener" href="http://localhost:63070/auth/user/52">http://localhost:63070/auth/user/52</a></p>
-<img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224194933546.png" srcset="/img/loading.gif" lazyload alt="image-20231224194933546" style="zoom:50%;" />
+<img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224194933546.png" srcset="/img/loading.gif" lazyload alt="image-20231224194933546" style="zoom:50%;" />
 
 <h5 id="认证测试"><a href="#认证测试" class="headerlink" title="认证测试"></a>认证测试</h5><p>下边向auth认证工程集成Spring security，向pom.xml加入Spring Security所需要的依赖</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-security<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-oauth2<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <p>重启工程，访问<a target="_blank" rel="noopener" href="http://localhost:63070/auth/r/r1">http://localhost:63070/auth/r/r1</a></p>
 <p>自动进入&#x2F;login登录页面，&#x2F;login是spring security提供的,此页面有几个css样式加载会稍微慢点，如下图：</p>
-<img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224200453107.png" srcset="/img/loading.gif" lazyload alt="image-20231224200453107" style="zoom:50%;" />
+<img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224200453107.png" srcset="/img/loading.gif" lazyload alt="image-20231224200453107" style="zoom:50%;" />
 
 <p>账号和密码是多少呢？下一步需要进行安全配置。</p>
 <p>拷贝课程资料下的WebSecurityConfig.java到config下需要三部分内容：</p>
@@ -447,10 +447,10 @@
 <p>1、访问<a target="_blank" rel="noopener" href="http://localhost:63070/auth/user/52">http://localhost:63070/auth/user/52</a> 可以正常访问</p>
 <p>2、访问<a target="_blank" rel="noopener" href="http://localhost:63070/auth/r/r1">http://localhost:63070/auth/r/r1</a> 显示（跳转到）登录页面</p>
 <p>账号zhangsan，密码为123，如果输入的密码不正确会认证失败，输入正确显示登录成功。</p>
-<img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224210819390.png" srcset="/img/loading.gif" lazyload alt="image-20231224210819390" style="zoom:50%;" />
+<img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224210819390.png" srcset="/img/loading.gif" lazyload alt="image-20231224210819390" style="zoom:50%;" />
 
 <p>http.logout().logoutUrl(“&#x2F;logout”);配置了退出页面，认证成功后访问&#x2F;logout可退出登录。</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224210849405.png" srcset="/img/loading.gif" lazyload alt="image-20231224210849405" style="zoom:25%;" /><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224210903149.png" srcset="/img/loading.gif" lazyload alt="image-20231224210903149" style="zoom:25%;" /></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224210849405.png" srcset="/img/loading.gif" lazyload alt="image-20231224210849405" style="zoom:25%;" /><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224210903149.png" srcset="/img/loading.gif" lazyload alt="image-20231224210903149" style="zoom:25%;" /></p>
 <h5 id="授权测试"><a href="#授权测试" class="headerlink" title="授权测试"></a>授权测试</h5><p>用户认证通过去访问系统资源时spring security进行授权控制，判断用户是否有该资源的访问权限，如果有则继续访问，如果没有则拒绝访问。</p>
 <p>下边测试授权功能：</p>
 <p>1、配置用户拥有哪些权限。</p>
@@ -471,22 +471,22 @@
 <p>访问&#x2F;r&#x2F;r1，使用zhangsan登录可以正常访问，因为在&#x2F;r&#x2F;r1的方法上指定了权限p1，zhangsan用户拥有权限p1,所以可以正常访问。</p>
 <p>访问&#x2F;r&#x2F;r1，使用lisi登录则拒绝访问，由于lisi用户不具有权限p1需要拒绝访问</p>
 <p>注意：如果访问上不加@PreAuthorize，此方法没有授权控制。</p>
-<img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224211328473.png" srcset="/img/loading.gif" lazyload alt="image-20231224211328473" style="zoom:50%;" />
+<img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224211328473.png" srcset="/img/loading.gif" lazyload alt="image-20231224211328473" style="zoom:50%;" />
 
 <h5 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h5><p>通过测试<code>认证</code>和<code>授权</code>两个功能，我们了解了Spring Security的基本使用方法，下边了解它的工作流程。</p>
 <p>Spring Security 所解决的问题是 <code>安全访问控制</code>，而安全访问控制功能其实就是对所有进入系统的请求进行<code>拦截</code>，<code>校验每个请求是否能访问它所期望的资源</code>，根据前边知识的学习，可以通过Filter或AOP等技术来实现，Security 对Web资源的保护靠 Filter 实现， 索引从 Filter 技术入手，深入Security原理</p>
-<img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224211635903.png" srcset="/img/loading.gif" lazyload alt="image-20231224211635903" style="zoom:50%;" />
+<img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224211635903.png" srcset="/img/loading.gif" lazyload alt="image-20231224211635903" style="zoom:50%;" />
 
 <p>FilterChainProxy是一个代理，真正起作用的是FilterChainProxy中的SecurityFilterChain (过滤器链) 所包含的各个Filter，同时这些Filter作为Bean被Spring管理，他们是Spring Security的核心，各有各的职责，但他们并不直接处理用户的<code>认证</code>，也不直接处理用户的授权，而是把他们交给认证管理器（AuthenticationManager）和决策管理器（AccessDecisionManager）来处理</p>
 <p>Spring Security功能是实现主要由一系列过滤器链相互配合完成</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224212214373.png" srcset="/img/loading.gif" lazyload alt="image-20231224212214373"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224212214373.png" srcset="/img/loading.gif" lazyload alt="image-20231224212214373"></p>
 <p>下面介绍过滤器链中的主要的几个过滤器及其作用</p>
 <p><code>SecurityContextPersistenceFilter</code> 这个Filter是整个拦截过程的<code>入口和出口</code>，也就是第一个和最后一个拦截器，会在请求开始时从配置好的SecurityContextRepository中获取SecurityContext，然后把它设置给SecurityContextHolder，在请求完成后将SecurityContextHolder持有的SecurityContext再保存到配置好的SecurityContextRepository，同时清除securityContextHolder 所持有的SecurityContext；</p>
 <p><code>UsernamePasswordAuthenticationFilter</code> 用于处理来自表单提交的<code>认证</code>，该表单必须提供对应的用户名和密码，其内部还有登录成功或失败后进行处理的AuthenticationSuccessHandler 和 AuthenticationFailureHandler，这些都可以根据需求做相关改变；</p>
 <p><code>FilterSecurityInterceptor</code> 用于保护web资源的，使用AccessDecisionManager对当前用户进行<code>授权</code>访问，签名已经详细访问过了；</p>
 <p><code>ExceptionTranslationFilter</code> 能够捕获来自 FilterChain 的所有异常，并进行处理，但它只会处理两类异常： AuthenticationException 和 AccessDeniedException，其它的异常它会继续抛出。</p>
 <p>Spring Security的执行流程如下：</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224213256012.png" srcset="/img/loading.gif" lazyload alt="image-20231224213256012"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224213256012.png" srcset="/img/loading.gif" lazyload alt="image-20231224213256012"></p>
 <ol>
 <li>用户提交用户名，密码被SecurityFilterChain中的  <code>UsernamePasswordAuthenticationFilter</code>过滤器获取到，封装为请求Authentication，通常情况下是 UsernamePasswordAuthenticationToken 实现类</li>
 <li>然后过滤器将<code>Authentication</code>提交至认证管理器<code>AuthenticationManager</code>进行认证。</li>
@@ -500,13 +500,13 @@
 <p>参考：<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/oAuth/7153134?fr=aladdin">https://baike.baidu.com/item/oAuth/7153134?fr=aladdin</a></p>
 <p>Oauth协议：<a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc6749">https://tools.ietf.org/html/rfc6749</a></p>
 <p>下面分析一个 Oauth2 认证的例子，黑马程序员网站使用微信认证扫码登录过程：</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224215931088.png" srcset="/img/loading.gif" lazyload alt="image-20231224215931088"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224215931088.png" srcset="/img/loading.gif" lazyload alt="image-20231224215931088"></p>
 <p>具体流程如下：</p>
 <ol>
 <li>用户点击微信扫码</li>
 </ol>
 <p>用户进入黑马程序登录页面，点击微信图标打开微信扫码页面</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224220018348.png" srcset="/img/loading.gif" lazyload alt="image-20231224220018348" style="zoom:50%;" /><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224220029966.png" srcset="/img/loading.gif" lazyload alt="image-20231224220029966" style="zoom: 33%;" /></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224220018348.png" srcset="/img/loading.gif" lazyload alt="image-20231224220018348" style="zoom:50%;" /><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224220029966.png" srcset="/img/loading.gif" lazyload alt="image-20231224220029966" style="zoom: 33%;" /></p>
 <p>微信扫码目的是通过微信获取当前用户的身份信息才会让当前用户在黑马网站登录成功</p>
 <p>现在搞清几个概念？</p>
 <p>资源：用户信息，在微信中存储</p>
@@ -517,7 +517,7 @@
 <li>用户授权黑马网站访问用户信息</li>
 </ol>
 <p>资源拥有者扫描二维码表示资源拥有者请求微信进行认证，微信认证通过向用户手机返回授权页面，如下图：</p>
-<img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224221619711.png" srcset="/img/loading.gif" lazyload alt="image-20231224221619711" style="zoom:50%;" />
+<img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224221619711.png" srcset="/img/loading.gif" lazyload alt="image-20231224221619711" style="zoom:50%;" />
 
 <p>询问用户是否授权黑马程序员访问自己在微信的用户信息，用户点击“确认登录”表示同意授权，微信认证服务器颁发一个授权码给黑马程序员网站</p>
 <p>只有资源拥有者同意，微信才允许黑马网站访问资源</p>
@@ -531,7 +531,7 @@
 </ol>
 <p>理解了微信扫码登录黑马网站流程，接下来认识Oauth2.0的认证流程，如下：</p>
 <p>引自Oauth2.0协议rfc6749 <a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc6749">https://tools.ietf.org/html/rfc6749</a></p>
-<img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224222136941.png" srcset="/img/loading.gif" lazyload alt="image-20231224222136941" style="zoom:50%;" />
+<img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224222136941.png" srcset="/img/loading.gif" lazyload alt="image-20231224222136941" style="zoom:50%;" />
 
 <p>Oauth2包括以下角色：</p>
 <p>1、客户端</p>
@@ -560,7 +560,7 @@
 <h6 id="授权码模式"><a href="#授权码模式" class="headerlink" title="授权码模式"></a>授权码模式</h6><p>OAuth2的几个授权模式是根据不同的应用场景以不同的方式去获取令牌，最终目的是要获取认证服务颁发的令牌，最终通过令牌去获取资源。</p>
 <p>授权码模式简单理解是使用<code>授权码</code>去<code>获取令牌</code>，要想获取令牌先要<code>获取授权码</code>，授权码的获取需要资源拥有者亲自<code>授权同意</code>才可以获取。</p>
 <p>下图是授权码模式的交互图：</p>
-<img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224233859129.png" srcset="/img/loading.gif" lazyload alt="image-20231224233859129" style="zoom:50%;" />
+<img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224233859129.png" srcset="/img/loading.gif" lazyload alt="image-20231224233859129" style="zoom:50%;" />
 
 <p>以黑马网站微信扫码登录为例进行说明：</p>
 <ol>
@@ -582,7 +582,7 @@
 认证服务3 --颁发令牌--&gt; 客户端3
 </code></pre>
 
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231224235114107.png" srcset="/img/loading.gif" lazyload alt="image-20231224235114107"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231224235114107.png" srcset="/img/loading.gif" lazyload alt="image-20231224235114107"></p>
 <h6 id="授权码模式测试"><a href="#授权码模式测试" class="headerlink" title="授权码模式测试"></a>授权码模式测试</h6><p>1、从课程资料中拷贝 AuthorizationServer.java、TokenConfig.java到认证服务的config包下。</p>
 <p>说明“：AuthorizationServer用 @EnableAuthorizationServer 注解标识并继承AuthorizationServerConfigurerAdapter来配置OAuth2.0 授权服务器。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.xuecheng.auth.config;<br><br><span class="hljs-keyword">import</span> org.springframework.beans.factory.annotation.Autowired;<br><span class="hljs-keyword">import</span> org.springframework.context.annotation.Configuration;<br><span class="hljs-keyword">import</span> org.springframework.http.HttpMethod;<br><span class="hljs-keyword">import</span> org.springframework.security.authentication.AuthenticationManager;<br><span class="hljs-keyword">import</span> org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;<br><span class="hljs-keyword">import</span> org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;<br><span class="hljs-keyword">import</span> org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;<br><span class="hljs-keyword">import</span> org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;<br><span class="hljs-keyword">import</span> org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;<br><span class="hljs-keyword">import</span> org.springframework.security.oauth2.provider.token.AuthorizationServerTokenServices;<br><br><span class="hljs-keyword">import</span> javax.annotation.Resource;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Mr.M</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@description</span> 授权服务器配置</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@date</span> 2022/9/26 22:25</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Configuration</span><br><span class="hljs-meta">@EnableAuthorizationServer</span> <span class="hljs-comment">//启用授权服务器</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AuthorizationServer</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">AuthorizationServerConfigurerAdapter</span> &#123;<br></code></pre></td></tr></table></figure>
@@ -618,16 +618,16 @@
 <p>•     redirect_uri：跳转uri，当授权码申请成功后会跳转到此地址，并在后边带上code参数（授权码）。</p>
 <p>输入账号zhangsan、密码123登录成功，输入&#x2F;oauth&#x2F;authorize?client_id&#x3D;XcWebApp&amp;response_type&#x3D;code&amp;scope&#x3D;all&amp;redirect_uri&#x3D;<a target="_blank" rel="noopener" href="http://www.51xuecheng.cn/">http://www.51xuecheng.cn</a></p>
 <p>显示授权页面</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226100944623.png" srcset="/img/loading.gif" lazyload alt="image-20231226100944623"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226100944623.png" srcset="/img/loading.gif" lazyload alt="image-20231226100944623"></p>
 <p>授权“XcWebApp”访问自己的受保护资源?</p>
 <p>选择同意。</p>
 <p>2、请求成功，重定向至<a target="_blank" rel="noopener" href="http://www.51xuecheng.cn/?code=%E6%8E%88%E6%9D%83%E7%A0%81%EF%BC%8C%E6%AF%94%E5%A6%82%EF%BC%9Ahttp://www.51xuecheng.cn/?code=Wqjb5H">http://www.51xuecheng.cn/?code=授权码，比如：http://www.51xuecheng.cn/?code=Wqjb5H</a></p>
-<img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226101103155.png" srcset="/img/loading.gif" lazyload alt="image-20231226101103155" style="zoom:50%;" />
+<img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226101103155.png" srcset="/img/loading.gif" lazyload alt="image-20231226101103155" style="zoom:50%;" />
 
 <p>3、使用httpclient工具post申请令牌</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs json">### 授权码模式<br>### 第一步申请授权码(浏览器请求)/oauth/authorize?client_id=c1&amp;response_type=code&amp;scope=all&amp;redirect_uri=http<span class="hljs-punctuation">:</span><span class="hljs-comment">//www.51xuecheng.cn</span><br>### 第二步申请令牌<br>### 将授权码进行替换<br>###### 授权码模式<br>POST <span class="hljs-punctuation">&#123;</span><span class="hljs-punctuation">&#123;</span>auth_host<span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">&#125;</span>/auth/oauth/token?client_id=XcWebApp&amp;client_secret=XcWebApp&amp;grant_type=authorization_code&amp;code=<span class="hljs-number">8</span>k39Al&amp;redirect_uri=http<span class="hljs-punctuation">:</span><span class="hljs-comment">//www.51xuecheng.cn</span><br></code></pre></td></tr></table></figure>
 
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226104100548.png" srcset="/img/loading.gif" lazyload alt="image-20231226104100548"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226104100548.png" srcset="/img/loading.gif" lazyload alt="image-20231226104100548"></p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;access_token&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0f7edccc-7a63-44b0-a520-963198dbca90&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;token_type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;bearer&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;refresh_token&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;b0d51a8f-1bbf-44a3-be7b-794953208b20&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;expires_in&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">7199</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;scope&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;all&quot;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
 
 <p>说明：</p>
@@ -637,7 +637,7 @@
 <p>4、expires_in：过期时间（秒）</p>
 <p>5、scope，令牌的权限范围，服务端可以根据令牌的权限范围去对令牌授权。</p>
 <h6 id="密码模式"><a href="#密码模式" class="headerlink" title="密码模式"></a>密码模式</h6><p>密码模式相对授权码模式简单，授权码模式需要借助浏览器供用户亲自授权，密码模式不用借助浏览器，如下图：</p>
-<img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226104244665.png" srcset="/img/loading.gif" lazyload alt="image-20231226104244665" style="zoom:50%;" />
+<img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226104244665.png" srcset="/img/loading.gif" lazyload alt="image-20231226104244665" style="zoom:50%;" />
 
 <ol>
 <li>资源拥有者提供账号和密码</li>
@@ -658,7 +658,7 @@
 <figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs dts">Java<br><span class="hljs-meta">### 密码模式</span><br><span class="hljs-title class_">POST</span> <span class="hljs-punctuation">&#123;</span><span class="hljs-punctuation">&#123;</span>auth_host<span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">&#125;</span><span class="hljs-keyword">/auth/</span>oauth/token?client_<span class="hljs-attr">id</span><span class="hljs-operator">=</span>XcWebApp<span class="hljs-variable">&amp;client_secret</span>=XcWebApp<span class="hljs-variable">&amp;grant_type</span>=password<span class="hljs-variable">&amp;username</span>=zhangsan<span class="hljs-variable">&amp;password</span>=<span class="hljs-number">123</span><br><br></code></pre></td></tr></table></figure>
 
 <p>返回示例：</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226104446104.png" srcset="/img/loading.gif" lazyload alt="image-20231226104446104"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226104446104.png" srcset="/img/loading.gif" lazyload alt="image-20231226104446104"></p>
 <figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript"><span class="hljs-built_in">JSON</span><br>&#123;<br>  <span class="hljs-string">&quot;access_token&quot;</span>: <span class="hljs-string">&quot;368b1ee7-a9ee-4e9a-aae6-0fcab243aad2&quot;</span>,<br>  <span class="hljs-string">&quot;token_type&quot;</span>: <span class="hljs-string">&quot;bearer&quot;</span>,<br>  <span class="hljs-string">&quot;refresh_token&quot;</span>: <span class="hljs-string">&quot;3d56e139-0ee6-4ace-8cbe-1311dfaa991f&quot;</span>,<br>  <span class="hljs-string">&quot;expires_in&quot;</span>: <span class="hljs-number">6806</span>,<br>  <span class="hljs-string">&quot;scope&quot;</span>: <span class="hljs-string">&quot;all&quot;</span><br>&#125;<br><br></code></pre></td></tr></table></figure>
 
 <p>这种模式十分简单，但是却意味着直接将<code>用户敏感信息泄漏</code>给了client，因此这就说明这种模式只能用于client是我们自己开发的情况下。</p>
@@ -666,7 +666,7 @@
 <h4 id="JWT"><a href="#JWT" class="headerlink" title="JWT"></a>JWT</h4><h5 id="普通令牌的问题"><a href="#普通令牌的问题" class="headerlink" title="普通令牌的问题"></a>普通令牌的问题</h5><p>客户申请到令牌，接下来客户端携带令牌去访问资源，到资源服务器将会校验令牌合法性</p>
 <p>资源服务器如何校验令牌的合法性？</p>
 <p>我们以OAuth2的密码模式为例进行说明：</p>
-<img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226113249085.png" srcset="/img/loading.gif" lazyload alt="image-20231226113249085" style="zoom:50%;" />
+<img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226113249085.png" srcset="/img/loading.gif" lazyload alt="image-20231226113249085" style="zoom:50%;" />
 
 <p>从第4步开始说明：</p>
 <ol>
@@ -676,7 +676,7 @@
 </ol>
 <p>这里有一个问题：</p>
 <p>校验令牌需要远程请求认证服务，客户端每次访问都会远程校验，执行性能低，如果让资源服务自己校验令牌合法性将省去远程请求认证服务的成本，提高性能</p>
-<img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226113456327.png" srcset="/img/loading.gif" lazyload alt="image-20231226113456327" style="zoom:50%;" />
+<img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226113456327.png" srcset="/img/loading.gif" lazyload alt="image-20231226113456327" style="zoom:50%;" />
 
 <p>如何解决上面问题，实现资源服务自行校验令牌</p>
 <p>令牌采用JWT格式即可解决上面问题，用户认证通过后得到一个JWT令牌</p>
@@ -685,9 +685,9 @@
 <p>官网：<a target="_blank" rel="noopener" href="https://jwt.io/">https://jwt.io/</a></p>
 <p>使用JWT可以实现无状态认证，什么是无状态认证？</p>
 <p>传统基于session的方式是有状态认证，用户登录成功将<code>用户身份信息存储在服务端</code>，加大了服务端的存储压力，并且这种方式不适合分布式系统应用</p>
-<p>如图，当用户访问应用服务，每个应用服务都会去服务器查看session信息，如果session中没有该用户则说明用户没有登录，此时会重新认证，而解决这个问题的方法是session复制&#x2F;粘贴<br><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226114121004.png" srcset="/img/loading.gif" lazyload alt="image-20231226114121004" style="zoom:50%;" /></p>
+<p>如图，当用户访问应用服务，每个应用服务都会去服务器查看session信息，如果session中没有该用户则说明用户没有登录，此时会重新认证，而解决这个问题的方法是session复制&#x2F;粘贴<br><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226114121004.png" srcset="/img/loading.gif" lazyload alt="image-20231226114121004" style="zoom:50%;" /></p>
 <p>如果基于令牌技术在分布式系统实现认证则服务端不用存储session，可以将用户信息存在令牌，用户认证通过认证服务颁发令牌，用户将令牌存在客户端，去访问应用服务携带令牌，服务端从jwt解析用户信息，这个过程是无状态认证</p>
-<img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226114240112.png" srcset="/img/loading.gif" lazyload alt="image-20231226114240112" style="zoom:50%;" />
+<img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226114240112.png" srcset="/img/loading.gif" lazyload alt="image-20231226114240112" style="zoom:50%;" />
 
 <p>jwt令牌优点：</p>
 <ol>
@@ -733,14 +733,14 @@
 <p>secret：签名所使用的密钥。</p>
 <p><code>为什么JWT可以防止篡改？</code></p>
 <p>第三部分使用签名算法对第一部分和第二部分的内容进行签名，常用的签名算法是 HS256，常见的还有md5,sha 等，签名算法需要使用密钥进行签名，密钥不对外公开，并且签名是不可逆的，如果第三方更改了内容那么服务器验证签名就会失败，要想保证验证签名正确必须保证内容、密钥与签名前一致。</p>
-<img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226114917649.png" srcset="/img/loading.gif" lazyload alt="image-20231226114917649" style="zoom:50%;" />
+<img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226114917649.png" srcset="/img/loading.gif" lazyload alt="image-20231226114917649" style="zoom:50%;" />
 
 <p>从上图可以看出认证服务和资源服务使用相同的密钥，这叫对称加密，对称加密效率高，如果一旦密钥泄露可以伪造jwt令牌。</p>
 <p>JWT还可以使用非对称加密，认证服务自己保留私钥，将公钥下发给受信任的客户端、资源服务，公钥和私钥是配对的，成对的公钥和私钥才可以正常加密和解密，非对称加密效率低但相比对称加密非对称加密更安全一些。</p>
 <h5 id="测试生成JWT令牌"><a href="#测试生成JWT令牌" class="headerlink" title="测试生成JWT令牌"></a>测试生成JWT令牌</h5><p>在认证服务中配置jwt令牌服务，即可实现生成jwt格式的令牌, </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.xuecheng.auth.config;<br><br><span class="hljs-keyword">import</span> org.springframework.beans.factory.annotation.Autowired;<br><span class="hljs-keyword">import</span> org.springframework.context.annotation.Bean;<br><span class="hljs-keyword">import</span> org.springframework.context.annotation.Configuration;<br><span class="hljs-keyword">import</span> org.springframework.security.oauth2.provider.token.AuthorizationServerTokenServices;<br><span class="hljs-keyword">import</span> org.springframework.security.oauth2.provider.token.DefaultTokenServices;<br><span class="hljs-keyword">import</span> org.springframework.security.oauth2.provider.token.TokenEnhancerChain;<br><span class="hljs-keyword">import</span> org.springframework.security.oauth2.provider.token.TokenStore;<br><span class="hljs-keyword">import</span> org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;<br><span class="hljs-keyword">import</span> org.springframework.security.oauth2.provider.token.store.JwtTokenStore;<br><br><span class="hljs-keyword">import</span> java.util.Arrays;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Administrator</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span><br><span class="hljs-comment"> **/</span><br><span class="hljs-meta">@Configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">TokenConfig</span> &#123;<br><br>    <span class="hljs-comment">// 密钥</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-type">String</span> <span class="hljs-variable">SIGNING_KEY</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;mq123&quot;</span>;<br><br>    <span class="hljs-meta">@Autowired</span><br>    TokenStore tokenStore;<br><br>    <span class="hljs-comment">/*@Bean</span><br><span class="hljs-comment">    public TokenStore tokenStore() &#123;</span><br><span class="hljs-comment">        //使用内存存储令牌（普通令牌）</span><br><span class="hljs-comment">        return new InMemoryTokenStore();</span><br><span class="hljs-comment">    &#125;*/</span><br><br>    <span class="hljs-comment">//Jwt 访问令牌转换器</span><br>    <span class="hljs-meta">@Autowired</span><br>    <span class="hljs-keyword">private</span> JwtAccessTokenConverter accessTokenConverter;<br><br>    <span class="hljs-comment">//令牌商店</span><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-keyword">public</span> TokenStore <span class="hljs-title function_">tokenStore</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JwtTokenStore</span>(accessTokenConverter());<br>    &#125;<br><br>    <span class="hljs-comment">//访问令牌转换器</span><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-keyword">public</span> JwtAccessTokenConverter <span class="hljs-title function_">accessTokenConverter</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-type">JwtAccessTokenConverter</span> <span class="hljs-variable">converter</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JwtAccessTokenConverter</span>();<br>        converter.setSigningKey(SIGNING_KEY);<br>        <span class="hljs-keyword">return</span> converter;<br>    &#125;<br><br>    <span class="hljs-comment">//令牌管理服务</span><br>    <span class="hljs-meta">@Bean(name=&quot;authorizationServerTokenServicesCustom&quot;)</span><br>    <span class="hljs-keyword">public</span> AuthorizationServerTokenServices <span class="hljs-title function_">tokenService</span><span class="hljs-params">()</span> &#123;<br>        DefaultTokenServices service=<span class="hljs-keyword">new</span> <span class="hljs-title class_">DefaultTokenServices</span>();<br>        service.setSupportRefreshToken(<span class="hljs-literal">true</span>);<span class="hljs-comment">//支持刷新令牌</span><br>        service.setTokenStore(tokenStore);<span class="hljs-comment">//令牌存储策略</span><br><br>        <span class="hljs-type">TokenEnhancerChain</span> <span class="hljs-variable">tokenEnhancerChain</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">TokenEnhancerChain</span>();<br>        tokenEnhancerChain.setTokenEnhancers(Arrays.asList(accessTokenConverter));<br>        service.setTokenEnhancer(tokenEnhancerChain);<br><br>        service.setAccessTokenValiditySeconds(<span class="hljs-number">7200</span>); <span class="hljs-comment">// 令牌默认有效期2小时</span><br>        service.setRefreshTokenValiditySeconds(<span class="hljs-number">259200</span>); <span class="hljs-comment">// 刷新令牌默认有效期3天</span><br>        <span class="hljs-keyword">return</span> service;<br>    &#125;<br><br><br>&#125;<br><br></code></pre></td></tr></table></figure>
 
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226120332267.png" srcset="/img/loading.gif" lazyload alt="image-20231226120332267"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226120332267.png" srcset="/img/loading.gif" lazyload alt="image-20231226120332267"></p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;access_token&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsieHVlY2hlbmctcGx1cyJdLCJ1c2VyX25hbWUiOiJ6aGFuZ3NhbiIsInNjb3BlIjpbImFsbCJdLCJleHAiOjE3MDM1NzA1ODAsImF1dGhvcml0aWVzIjpbInAxIl0sImp0aSI6IjZlZTMyNjUzLTlmMzctNGE2My04NTY1LTQ0ODgwNjFlOGZiZCIsImNsaWVudF9pZCI6IlhjV2ViQXBwIn0.2romuPqN8siRBX9B65wgpaZL5bfatPWNSLdfUW3oK6g&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;token_type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;bearer&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;refresh_token&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsieHVlY2hlbmctcGx1cyJdLCJ1c2VyX25hbWUiOiJ6aGFuZ3NhbiIsInNjb3BlIjpbImFsbCJdLCJhdGkiOiI2ZWUzMjY1My05ZjM3LTRhNjMtODU2NS00NDg4MDYxZThmYmQiLCJleHAiOjE3MDM4MjI1ODAsImF1dGhvcml0aWVzIjpbInAxIl0sImp0aSI6ImM4MmQyNmNkLWQ1MjItNDE1Zi05ZGZmLWMxODI5YjI3YzQwMiIsImNsaWVudF9pZCI6IlhjV2ViQXBwIn0.iKX8dG0EQzM_UoS_1l70XkpjOJoUeav19ln4Q6aWmOU&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;expires_in&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">7199</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;scope&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;all&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;jti&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;6ee32653-9f37-4a63-8565-4488061e8fbd&quot;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
 
 <ol>
@@ -755,11 +755,11 @@
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs json">### 校验jwt令牌<br>POST <span class="hljs-punctuation">&#123;</span><span class="hljs-punctuation">&#123;</span>auth_host<span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">&#125;</span>/oauth/check_token?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsicmVzMSJdLCJ1c2VyX25hbWUiOiJzdHUxIiwic2NvcGUiOlsiYWxsIl0sImV4cCI6MTY2NDM3MTc4MCwiYXV0aG9yaXRpZXMiOlsicDEiXSwianRpIjoiZjBhM2NkZWItMzk5ZC00OGYwLTg4MDQtZWNhNjM4YWQ4ODU3IiwiY2xpZW50X2lkIjoiYzEifQ.qy46CSCJsH3eXWTHgdcntZhzcSzfRQlBU0dxAjZcsUw<br></code></pre></td></tr></table></figure>
 
 <p>响应示例如下：</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226120801314.png" srcset="/img/loading.gif" lazyload alt="image-20231226120801314"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226120801314.png" srcset="/img/loading.gif" lazyload alt="image-20231226120801314"></p>
 <figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs prolog">&#123;<br>  <span class="hljs-string">&quot;aud&quot;</span>: [<br>    <span class="hljs-string">&quot;xuecheng-plus&quot;</span><br>  ],<br>  <span class="hljs-string">&quot;user_name&quot;</span>: <span class="hljs-string">&quot;zhangsan&quot;</span>,<br>  <span class="hljs-string">&quot;scope&quot;</span>: [<br>    <span class="hljs-string">&quot;all&quot;</span><br>  ],<br>  <span class="hljs-string">&quot;active&quot;</span>: true,<br>  <span class="hljs-string">&quot;exp&quot;</span>: <span class="hljs-number">1703570580</span>,<br>  <span class="hljs-string">&quot;authorities&quot;</span>: [<br>    <span class="hljs-string">&quot;p1&quot;</span><br>  ],<br>  <span class="hljs-string">&quot;jti&quot;</span>: <span class="hljs-string">&quot;6ee32653-9f37-4a63-8565-4488061e8fbd&quot;</span>,<br>  <span class="hljs-string">&quot;client_id&quot;</span>: <span class="hljs-string">&quot;XcWebApp&quot;</span><br>&#125;		<br></code></pre></td></tr></table></figure>
 
 <h5 id="测试资源服务校验令牌"><a href="#测试资源服务校验令牌" class="headerlink" title="测试资源服务校验令牌"></a>测试资源服务校验令牌</h5><p>拿到了jwt令牌下一步是携带令牌访问资源服务的资源，本项目各个微服务是资源服务，比如：内容管理服务，客户端申请到jwt令牌，携带jwt去内容管理服务查询课程信息，此时内容管理服务对jwt去校验，只有jwt合法才能继续访问，如图：</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226122508837.png" srcset="/img/loading.gif" lazyload alt="image-20231226122508837"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226122508837.png" srcset="/img/loading.gif" lazyload alt="image-20231226122508837"></p>
 <p>1、在内容管理服务的content-api工程中添加依赖</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--认证相关--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-security<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-oauth2<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br></code></pre></td></tr></table></figure>
 
@@ -786,7 +786,7 @@
 <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">Plain</span> Text<br><span class="hljs-comment">### 携带token访问资源服务</span><br><span class="hljs-attribute">GET</span> http://localhost:<span class="hljs-number">63040</span>/content/course/<span class="hljs-number">2</span><br><span class="hljs-attribute">Authorization</span>: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsicmVzMSJdLCJ1c2VyX25hbWUiOiJ6aGFuZ3NhbiIsInNjb3BlIjpbImFsbCJdLCJleHAiOjE2NjQzMzM0OTgsImF1dGhvcml0aWVzIjpbInAxIl0sImp0aSI6IjhhM2M2OTk1LWU1ZGEtNDQ1Yy05ZDAyLTEwNDFlYzk3NTkwOSIsImNsaWVudF9pZCI6ImMxIn0.<span class="hljs-number">73</span>eNDxTX5ifttGCjwc7xrd-Sbp_mCfcIerI3lGetZto<br><br></code></pre></td></tr></table></figure>
 
 <p>如果携带jwt令牌且jwt正确则正常访问资源服务的内容。</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226154848189.png" srcset="/img/loading.gif" lazyload alt="image-20231226154848189"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226154848189.png" srcset="/img/loading.gif" lazyload alt="image-20231226154848189"></p>
 <p>如果不正确则报令牌无效的错误：</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs json">JSON<br><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;error&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;invalid_token&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;error_description&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Cannot convert access token to JSON&quot;</span><br><span class="hljs-punctuation">&#125;</span><br><br></code></pre></td></tr></table></figure>
 
@@ -806,12 +806,12 @@
 <li>我们使用密码模式生成jwt令牌用的是zhangsan的信息，所以jwt令牌存储了zhangsan的信息，那在资源服务应该可以取出zhangsan的信息</li>
 </ol>
 <p>下面重启内容管理服务，跟踪到用户身份是否正确</p>
-<img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226160736318.png" srcset="/img/loading.gif" lazyload alt="image-20231226160736318" style="zoom:50%;" />
+<img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226160736318.png" srcset="/img/loading.gif" lazyload alt="image-20231226160736318" style="zoom:50%;" />
 
 <h4 id="网关认证"><a href="#网关认证" class="headerlink" title="网关认证"></a><strong>网关认证</strong></h4><h5 id="技术方案"><a href="#技术方案" class="headerlink" title="技术方案"></a><strong>技术方案</strong></h5><p>到目前为止，测试通过了认证服务颁发jwt令牌，客户端携带jwt访问资源服务，资源服务对jwt的合法性进行验证。如下图：</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226161045777.png" srcset="/img/loading.gif" lazyload alt="image-20231226161045777"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226161045777.png" srcset="/img/loading.gif" lazyload alt="image-20231226161045777"></p>
 <p>仔细观察此图，遗漏了本项目架构中非常重要的组件：网关，加上网关并完善后如下图所示：</p>
-<img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226161233377.png" srcset="/img/loading.gif" lazyload alt="image-20231226161233377" style="zoom:67%;" />
+<img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226161233377.png" srcset="/img/loading.gif" lazyload alt="image-20231226161233377" style="zoom:67%;" />
 
 <p>所有访问微服务的请求经过网关，在网关进行用户<code>身份认证</code>将很多非法的请求拦截到微服务外，这叫做网关认证</p>
 <p>下面需要明确网关的职责：</p>
@@ -848,29 +848,29 @@
 <p>这里访问内容管理服务</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs json">### 通过网关访问资源服务<br>GET http<span class="hljs-punctuation">:</span><span class="hljs-comment">//localhost:63010/content/course/2</span><br>Authorization<span class="hljs-punctuation">:</span> Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsieHVlY2hlbmctcGx1cyJdLCJ1c2VyX25hbWUiOiJ6aGFuZ3NhbiIsInNjb3BlIjpbImFsbCJdLCJleHAiOjE3MDM1ODY1NTEsImF1dGhvcml0aWVzIjpbInAxIl0sImp0aSI6ImRjMzAxZTMxLTNjM2MtNGMzMS05ZWMxLTQxMzcyZjA5MDc4NyIsImNsaWVudF9pZCI6IlhjV2ViQXBwIn0<span class="hljs-number">.1</span>hOMXETZ7xb7jgjbQPnDlTtXUN7JS7y_rjtXRpLRdT8<br></code></pre></td></tr></table></figure>
 
-<img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226162949138.png" srcset="/img/loading.gif" lazyload alt="image-20231226162949138" style="zoom:50%;" />
+<img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226162949138.png" srcset="/img/loading.gif" lazyload alt="image-20231226162949138" style="zoom:50%;" />
 
 <p>当token正确时可以正常访问资源服务，token验证失败返回token无效</p>
 <figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript"><span class="hljs-built_in">JSON</span><br>&#123;<br>  <span class="hljs-string">&quot;errMessage&quot;</span>: <span class="hljs-string">&quot;认证令牌无效&quot;</span><br>&#125;<br><br></code></pre></td></tr></table></figure>
 
 <p>注意：网关鉴权功能调试通过后，由于目前还没有开发认证功能，前端请求网关的URL不在白名单中间时会“没有认证”的错误，暂时在白名单中添加 全部放行配置，待认证功能开发完成再屏蔽全部放行配置，</p>
-<img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226163459122.png" srcset="/img/loading.gif" lazyload alt="image-20231226163459122" style="zoom:50%;" />
+<img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226163459122.png" srcset="/img/loading.gif" lazyload alt="image-20231226163459122" style="zoom:50%;" />
 
 <h4 id="用户认证"><a href="#用户认证" class="headerlink" title="用户认证"></a>用户认证</h4><h5 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h5><p>至此我们了解了使用Spring Security进行认证授权的过程，本节实现<code>用户认证</code>功能。</p>
 <p>目前各大网站的认证方式非常丰富：账号密码认证、手机验证码认证、扫码登录等。</p>
 <p>本项目也要支持多种认证。</p>
 <h5 id="连接用户中心数据库"><a href="#连接用户中心数据库" class="headerlink" title="连接用户中心数据库"></a>连接用户中心数据库</h5><h6 id="连接数据库认证"><a href="#连接数据库认证" class="headerlink" title="连接数据库认证"></a><strong>连接数据库认证</strong></h6><p>基于认证流程在研究Security过程已经测试通过，目前用户认证流程：</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226163746443.png" srcset="/img/loading.gif" lazyload alt="image-20231226163746443"><br>认证需要的用户信息存储在用户中心数据库，现在需要将认证服务连接数据库查询用户信息。</p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226163746443.png" srcset="/img/loading.gif" lazyload alt="image-20231226163746443"><br>认证需要的用户信息存储在用户中心数据库，现在需要将认证服务连接数据库查询用户信息。</p>
 <p>在研究Security过程将<strong>用户信息硬编码</strong>，如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Bean</span><br><span class="hljs-keyword">public</span> UserDetailsService <span class="hljs-title function_">userDetailsService</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-comment">//这里配置用户信息,这里暂时使用这种方式将用户存储在内存中</span><br>    <span class="hljs-type">InMemoryUserDetailsManager</span> <span class="hljs-variable">manager</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">InMemoryUserDetailsManager</span>();<br>    manager.createUser(User.withUsername(<span class="hljs-string">&quot;zhangsan&quot;</span>).password(<span class="hljs-string">&quot;123&quot;</span>).authorities(<span class="hljs-string">&quot;p1&quot;</span>).build());<br>    manager.createUser(User.withUsername(<span class="hljs-string">&quot;lisi&quot;</span>).password(<span class="hljs-string">&quot;456&quot;</span>).authorities(<span class="hljs-string">&quot;p2&quot;</span>).build());<br>    <span class="hljs-keyword">return</span> manager;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>我们要认证服务中连接用户中心数据库查询用户信息：</p>
 <p>如何使用Security连接数据库认证？</p>
 <p>前边学习Spring Security工作原理时有一张执行流程图，如下图：</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226170841828.png" srcset="/img/loading.gif" lazyload alt="image-20231226170841828"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226170841828.png" srcset="/img/loading.gif" lazyload alt="image-20231226170841828"></p>
 <p>用户提交账号和密码由DaoAuthenticationProvider调用UserDetailsService的loadUserByUsername方法获取UserDetails用户信息</p>
 <p>查询DaoAuthenticationProvider的源代码如下：</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226170947053.png" srcset="/img/loading.gif" lazyload alt="image-20231226170947053"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226170947053.png" srcset="/img/loading.gif" lazyload alt="image-20231226170947053"></p>
 <p>UserDetailsService是一个接口，如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> org.springframework.security.core.userdetails;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">UserDetailsService</span> &#123;<br>    UserDetails <span class="hljs-title function_">loadUserByUsername</span><span class="hljs-params">(String var1)</span> <span class="hljs-keyword">throws</span> UsernameNotFoundException;<br>&#125;<br></code></pre></td></tr></table></figure>
 
@@ -878,7 +878,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">UserDetails</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Serializable</span> &#123;<br>    Collection&lt;? <span class="hljs-keyword">extends</span> <span class="hljs-title class_">GrantedAuthority</span>&gt; getAuthorities();<br><br>    String <span class="hljs-title function_">getPassword</span><span class="hljs-params">()</span>;<br><br>    String <span class="hljs-title function_">getUsername</span><span class="hljs-params">()</span>;<br><br>    <span class="hljs-type">boolean</span> <span class="hljs-title function_">isAccountNonExpired</span><span class="hljs-params">()</span>;<br><br>    <span class="hljs-type">boolean</span> <span class="hljs-title function_">isAccountNonLocked</span><span class="hljs-params">()</span>;<br><br>    <span class="hljs-type">boolean</span> <span class="hljs-title function_">isCredentialsNonExpired</span><span class="hljs-params">()</span>;<br><br>    <span class="hljs-type">boolean</span> <span class="hljs-title function_">isEnabled</span><span class="hljs-params">()</span>;<br>&#125;<br><br></code></pre></td></tr></table></figure>
 
 <p>我们实现UserDetailsService接口查询数据库得到用户信息返回UserDetails类型的<code>用户信息</code>即可，框架调用loadUserByUsername()方法拿到用户信息之后如何执行的：</p>
-<img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226171541617.png" srcset="/img/loading.gif" lazyload alt="image-20231226171541617" style="zoom:50%;" />
+<img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226171541617.png" srcset="/img/loading.gif" lazyload alt="image-20231226171541617" style="zoom:50%;" />
 
 <p>首先屏蔽原来定义的UserDetailsService。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/*//配置用户信息服务</span><br><span class="hljs-comment">@Bean</span><br><span class="hljs-comment">public UserDetailsService userDetailsService() &#123;</span><br><span class="hljs-comment">    //这里配置用户信息,这里暂时使用这种方式将用户存储在内存中</span><br><span class="hljs-comment">    InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();</span><br><span class="hljs-comment">    manager.createUser(User.withUsername(&quot;zhangsan&quot;).password(&quot;123&quot;).authorities(&quot;p1&quot;).build());</span><br><span class="hljs-comment">    manager.createUser(User.withUsername(&quot;lisi&quot;).password(&quot;456&quot;).authorities(&quot;p2&quot;).build());</span><br><span class="hljs-comment">    return manager;</span><br><span class="hljs-comment">&#125;*/</span><br></code></pre></td></tr></table></figure>
@@ -934,7 +934,7 @@
 <p>1、启动认证服务、网关、内容管理服务</p>
 <p>2、生成新的令牌</p>
 <p>3、携带令牌访问内容管理服务的查询课程接口</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226202942941.png" srcset="/img/loading.gif" lazyload alt="image-20231226202942941"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226202942941.png" srcset="/img/loading.gif" lazyload alt="image-20231226202942941"></p>
 <h5 id="支持认证方式多样"><a href="#支持认证方式多样" class="headerlink" title="支持认证方式多样"></a>支持认证方式多样</h5><h6 id="统一认证入口"><a href="#统一认证入口" class="headerlink" title="统一认证入口"></a>统一认证入口</h6><p>目前各大网站的认证方式非常丰富：账号密码认证、手机验证码认证、扫码登录等。基于当前研究的Spring Security认证流程如何支持多样化的认证方式呢？</p>
 <p>1、支持账号和密码认证</p>
 <p>采用OAuth2协议的密码模式即可实现。</p>
@@ -973,7 +973,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs java">Java<br><span class="hljs-meta">@Slf4j</span><br><span class="hljs-meta">@Service</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">UserServiceImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">UserDetailsService</span> &#123;<br><br>    <span class="hljs-meta">@Autowired</span><br>    XcUserMapper xcUserMapper;<br><br>    <span class="hljs-meta">@Autowired</span><br>    ApplicationContext applicationContext;<br><br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@description</span> 查询用户信息组成用户身份信息</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> s  AuthParamsDto类型的json数据</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> org.springframework.security.core.userdetails.UserDetails</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@author</span> Mr.M</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@date</span> 2022/9/28 18:30</span><br><span class="hljs-comment">    */</span><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> UserDetails <span class="hljs-title function_">loadUserByUsername</span><span class="hljs-params">(String s)</span> <span class="hljs-keyword">throws</span> UsernameNotFoundException &#123;<br><br>        <span class="hljs-type">AuthParamsDto</span> <span class="hljs-variable">authParamsDto</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;<br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-comment">//将认证参数转为AuthParamsDto类型</span><br>            authParamsDto = JSON.parseObject(s, AuthParamsDto.class);<br>        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>            log.info(<span class="hljs-string">&quot;认证请求不符合项目要求:&#123;&#125;&quot;</span>,s);<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RuntimeException</span>(<span class="hljs-string">&quot;认证请求数据格式不对&quot;</span>);<br>        &#125;<br>        <span class="hljs-comment">//开始认证</span><br>        authService.execute(authParamsDto);<br>        .....<br><br></code></pre></td></tr></table></figure>
 
 <p>到此我们基于Spring Security认证流程修改为如下：</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226210615365.png" srcset="/img/loading.gif" lazyload alt="image-20231226210615365"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226210615365.png" srcset="/img/loading.gif" lazyload alt="image-20231226210615365"></p>
 <h6 id="实现账号密码认证"><a href="#实现账号密码认证" class="headerlink" title="实现账号密码认证"></a><strong>实现账号密码认证</strong></h6><p>上节定义了AuthService认证接口，下边实现该接口实现账号密码认证</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.xuecheng.ucenter.service.impl;<br><br><span class="hljs-keyword">import</span> com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;<br><span class="hljs-keyword">import</span> com.xuecheng.ucenter.mapper.XcUserMapper;<br><span class="hljs-keyword">import</span> com.xuecheng.ucenter.model.dto.AuthParamsDto;<br><span class="hljs-keyword">import</span> com.xuecheng.ucenter.model.dto.XcUserExt;<br><span class="hljs-keyword">import</span> com.xuecheng.ucenter.model.po.XcUser;<br><span class="hljs-keyword">import</span> com.xuecheng.ucenter.service.AuthService;<br><span class="hljs-keyword">import</span> org.springframework.beans.BeanUtils;<br><span class="hljs-keyword">import</span> org.springframework.beans.factory.annotation.Autowired;<br><span class="hljs-keyword">import</span> org.springframework.security.crypto.password.PasswordEncoder;<br><span class="hljs-keyword">import</span> org.springframework.stereotype.Service;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 账号密码认证</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> 付广建 2023/12/26 21:08</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Service(&quot;password_authservice&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">PasswordAuthServiceImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">AuthService</span> &#123;<br>    <br>    <span class="hljs-meta">@Autowired</span><br>    XcUserMapper xcUserMapper;<br>    <br>    <span class="hljs-meta">@Autowired</span><br>    PasswordEncoder passwordEncoder;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> XcUserExt <span class="hljs-title function_">execute</span><span class="hljs-params">(AuthParamsDto authParamsDto)</span> &#123;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">username</span> <span class="hljs-operator">=</span> authParamsDto.getUsername();<span class="hljs-comment">//账号</span><br>        <span class="hljs-type">XcUser</span> <span class="hljs-variable">user</span> <span class="hljs-operator">=</span> xcUserMapper.selectOne(<span class="hljs-keyword">new</span> <span class="hljs-title class_">LambdaQueryWrapper</span>&lt;XcUser&gt;().eq(XcUser::getUsername, username));<br>        <span class="hljs-keyword">if</span> (user==<span class="hljs-literal">null</span>)&#123;<br>            <span class="hljs-comment">//返回空表示用户不存在</span><br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RuntimeException</span>(<span class="hljs-string">&quot;账号不存在&quot;</span>);<br>        &#125;<br>        <span class="hljs-type">XcUserExt</span> <span class="hljs-variable">xcUserExt</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">XcUserExt</span>();<br>        BeanUtils.copyProperties(user, xcUserExt);<br>        <span class="hljs-comment">// 校验密码</span><br>        <span class="hljs-comment">// 取出数据库存储的正确密码</span><br>        <span class="hljs-type">String</span> <span class="hljs-variable">passwordDB</span> <span class="hljs-operator">=</span> user.getPassword();<br>        <span class="hljs-type">String</span> <span class="hljs-variable">passwordForm</span> <span class="hljs-operator">=</span> authParamsDto.getPassword();<br>        <span class="hljs-type">boolean</span> <span class="hljs-variable">matches</span> <span class="hljs-operator">=</span> passwordEncoder.matches(passwordForm, passwordDB);<br>        <span class="hljs-keyword">if</span>(!matches)&#123;<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RuntimeException</span>(<span class="hljs-string">&quot;账号或密码错误&quot;</span>);<br>        &#125;<br>        <span class="hljs-keyword">return</span> xcUserExt;<br>    &#125;<br>    <br>    <br>&#125;<br></code></pre></td></tr></table></figure>
 
@@ -987,7 +987,7 @@
 <h5 id="验证码服务"><a href="#验证码服务" class="headerlink" title="验证码服务"></a><strong>验证码服务</strong></h5><h6 id="创建验证码服务工程"><a href="#创建验证码服务工程" class="headerlink" title="创建验证码服务工程"></a><strong>创建验证码服务工程</strong></h6><p>在认证时一般都需要输入验证码，验证码有什么用？</p>
 <p>验证码可以防止恶性攻击，比如：XSS跨站脚本攻击、CSRF跨站请求伪造攻击，一些比较复杂的图形验证码可以有效的防止恶性攻击。</p>
 <p>为了保护系统的安全在一些比较重要的操作都需要验证码</p>
-<img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226212746628.png" srcset="/img/loading.gif" lazyload alt="image-20231226212746628" style="zoom:50%;" />
+<img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226212746628.png" srcset="/img/loading.gif" lazyload alt="image-20231226212746628" style="zoom:50%;" />
 
 <p>验证码的类型也有很多：图片、语音、手机短信验证码等。</p>
 <p>本项目创建单独的验证码服务为各业务提供验证码的生成、校验等服务。</p>
@@ -1002,7 +1002,7 @@
 <h6 id="验证码接口测试"><a href="#验证码接口测试" class="headerlink" title="验证码接口测试"></a>验证码接口测试</h6><p>验证码服务对外提供的接口有：</p>
 <p>1、生成验证码</p>
 <p>2、校验验证码。</p>
-<p>如下：<img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226213250628.png" srcset="/img/loading.gif" lazyload alt="image-20231226213250628" style="zoom:50%;" /></p>
+<p>如下：<img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226213250628.png" srcset="/img/loading.gif" lazyload alt="image-20231226213250628" style="zoom:50%;" /></p>
 <p>验证码服务如何生成并校验验证码？</p>
 <p>拿图片验证码举例：</p>
 <p>1、先生成一个指定位数的验证码，根据需要可能是数字、数字字母组合或文字。</p>
@@ -1011,7 +1011,7 @@
 <p>4、用户输入验证码，连同key一同提交至认证服务。</p>
 <p>5、认证服务拿key和输入的验证码请求验证码服务去校验</p>
 <p>6、验证码服务根据key从缓存取出正确的验证码和用户输入的验证码进行比对，如果相同则校验通过，否则不通过。</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226213354276.png" srcset="/img/loading.gif" lazyload alt="image-20231226213354276"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226213354276.png" srcset="/img/loading.gif" lazyload alt="image-20231226213354276"></p>
 <p>根据接口分析，验证码服务接口如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.xuecheng.checkcode.controller;<br><br><span class="hljs-keyword">import</span> com.xuecheng.checkcode.model.CheckCodeParamsDto;<br><span class="hljs-keyword">import</span> com.xuecheng.checkcode.model.CheckCodeResultDto;<br><span class="hljs-keyword">import</span> com.xuecheng.checkcode.service.CheckCodeService;<br><span class="hljs-keyword">import</span> io.swagger.annotations.Api;<br><span class="hljs-keyword">import</span> io.swagger.annotations.ApiImplicitParam;<br><span class="hljs-keyword">import</span> io.swagger.annotations.ApiImplicitParams;<br><span class="hljs-keyword">import</span> io.swagger.annotations.ApiOperation;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.PostMapping;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RestController;<br><br><span class="hljs-keyword">import</span> javax.annotation.Resource;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Mr.M</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@description</span> 验证码服务接口</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@date</span> 2022/9/29 18:39</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Api(value = &quot;验证码服务接口&quot;)</span><br><span class="hljs-meta">@RestController</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">CheckCodeController</span> &#123;<br><br>    <span class="hljs-meta">@Resource(name = &quot;PicCheckCodeService&quot;)</span><br>    <span class="hljs-keyword">private</span> CheckCodeService picCheckCodeService;<br><br><br>    <span class="hljs-meta">@ApiOperation(value=&quot;生成验证信息&quot;, notes=&quot;生成验证信息&quot;)</span><br>    <span class="hljs-meta">@PostMapping(value = &quot;/pic&quot;)</span><br>    <span class="hljs-keyword">public</span> CheckCodeResultDto <span class="hljs-title function_">generatePicCheckCode</span><span class="hljs-params">(CheckCodeParamsDto checkCodeParamsDto)</span>&#123;<br>        <span class="hljs-keyword">return</span> picCheckCodeService.generate(checkCodeParamsDto);<br>    &#125;<br><br>    <span class="hljs-meta">@ApiOperation(value=&quot;校验&quot;, notes=&quot;校验&quot;)</span><br>    <span class="hljs-meta">@ApiImplicitParams(&#123;</span><br><span class="hljs-meta">            @ApiImplicitParam(name = &quot;name&quot;, value = &quot;业务名称&quot;, required = true, dataType = &quot;String&quot;, paramType=&quot;query&quot;),</span><br><span class="hljs-meta">            @ApiImplicitParam(name = &quot;key&quot;, value = &quot;验证key&quot;, required = true, dataType = &quot;String&quot;, paramType=&quot;query&quot;),</span><br><span class="hljs-meta">            @ApiImplicitParam(name = &quot;code&quot;, value = &quot;验证码&quot;, required = true, dataType = &quot;String&quot;, paramType=&quot;query&quot;)</span><br><span class="hljs-meta">    &#125;)</span><br>    <span class="hljs-meta">@PostMapping(value = &quot;/verify&quot;)</span><br>    <span class="hljs-keyword">public</span> Boolean <span class="hljs-title function_">verify</span><span class="hljs-params">(String key, String code)</span>&#123;<br>        <span class="hljs-type">Boolean</span> <span class="hljs-variable">isSuccess</span> <span class="hljs-operator">=</span> picCheckCodeService.verify(key,code);<br>        <span class="hljs-keyword">return</span> isSuccess;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
@@ -1029,10 +1029,10 @@
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs json">### 校验验证码<br>POST <span class="hljs-punctuation">&#123;</span><span class="hljs-punctuation">&#123;</span>checkcode_host<span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">&#125;</span>/checkcode/verify?key=checkcode<span class="hljs-punctuation">:</span><span class="hljs-number">9</span>c7084e05f4442a3be23ce045f011d6e&amp;code=<span class="hljs-number">9E2</span>Q<br></code></pre></td></tr></table></figure>
 
 <h5 id="账号密码认证"><a href="#账号密码认证" class="headerlink" title="账号密码认证"></a><strong>账号密码认证</strong></h5><h6 id="需求分析-1"><a href="#需求分析-1" class="headerlink" title="需求分析"></a><strong>需求分析</strong></h6><p>到目前为止账号和密码认证所需要的技术、组件都已开发完毕，下边实现账号密码认证，输出如下图：</p>
-<img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226214116514.png" srcset="/img/loading.gif" lazyload alt="image-20231226214116514" style="zoom:50%;" />
+<img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226214116514.png" srcset="/img/loading.gif" lazyload alt="image-20231226214116514" style="zoom:50%;" />
 
 <p>执行流程如下：</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226214145555.png" srcset="/img/loading.gif" lazyload alt="image-20231226214145555"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226214145555.png" srcset="/img/loading.gif" lazyload alt="image-20231226214145555"></p>
 <h6 id="账号密码认证开发"><a href="#账号密码认证开发" class="headerlink" title="账号密码认证开发"></a><strong>账号密码认证开发</strong></h6><p>1、在认证服务定义远程调用验证码服务的接口</p>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">Java<br><span class="hljs-keyword">package</span> com.xuecheng.ucenter.feignclient;<br><br><span class="hljs-keyword">import</span> org.springframework.cloud.openfeign.FeignClient;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.<span class="hljs-keyword">annotation</span>.PostMapping;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.<span class="hljs-keyword">annotation</span>.RequestParam;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@description</span> 搜索服务远程接口</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Mr.M</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@date</span> 2022/9/20 20:29</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span><br><span class="hljs-comment"> */</span><br> <span class="hljs-meta">@FeignClient(value = <span class="hljs-string">&quot;checkcode&quot;</span>,fallbackFactory = CheckCodeClientFactory.class)</span><br> <span class="hljs-meta">@RequestMapping(<span class="hljs-string">&quot;/checkcode&quot;</span>)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">CheckCodeClient</span> &#123;<br><br> <span class="hljs-meta">@PostMapping(value = <span class="hljs-string">&quot;/verify&quot;</span>)</span><br> <span class="hljs-keyword">public</span> <span class="hljs-built_in">Boolean</span> verify(<span class="hljs-meta">@RequestParam(<span class="hljs-string">&quot;key&quot;</span>)</span> String key,<span class="hljs-meta">@RequestParam(<span class="hljs-string">&quot;code&quot;</span>)</span> String code);<br><br>&#125;<br><br></code></pre></td></tr></table></figure>
 
@@ -1050,7 +1050,7 @@
 
 <p>小技巧：目前账号密码方式添加了验证码校验，为了后期获取令牌方便可以重新定义一个不需要验证码校验的认证类AuthService ，AuthService 中去掉验证码的校验，方便生成令牌。</p>
 <h6 id="账号密码认证测试"><a href="#账号密码认证测试" class="headerlink" title="账号密码认证测试"></a><strong>账号密码认证测试</strong></h6><p>1、使用浏览器访问 <a target="_blank" rel="noopener" href="http://www.51xuecheng.cn/sign.html">http://www.51xuecheng.cn/sign.html</a></p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226223602447.png" srcset="/img/loading.gif" lazyload alt="image-20231226223602447"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226223602447.png" srcset="/img/loading.gif" lazyload alt="image-20231226223602447"></p>
 <p>2、首先测试验证码，分别输入正确的验证码和错误的验证码进行测试</p>
 <p>3、输入正确的账号密码和错误的账号密码进行测试</p>
 <p>登录成功将jwt令牌存储cookie.</p>
@@ -1060,13 +1060,13 @@
 <p>接口文档：</p>
 <p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/doc/oplatform/Website_App/WeChat_Login/Wechat_Login.html">https://developers.weixin.qq.com/doc/oplatform/Website_App/WeChat_Login/Wechat_Login.html</a></p>
 <p>流程如下：</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226223648221.png" srcset="/img/loading.gif" lazyload alt="image-20231226223648221"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226223648221.png" srcset="/img/loading.gif" lazyload alt="image-20231226223648221"></p>
 <p>第3方应用获取access_token令牌后即可请求微信获取用户信息，成功获取用户信息表示用户第3方应用认证成功</p>
 <h6 id="请求获取授权码"><a href="#请求获取授权码" class="headerlink" title="请求获取授权码"></a>请求获取授权码</h6><p>第三方使用网站应用授权登录前请注意已获取相应网页授权作用域(scope&#x3D;snsapi_login)，则可以通过在PC端打开以下链接：</p>
 <p><a target="_blank" rel="noopener" href="https://open.weixin.qq.com/connect/qrconnect?appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=SCOPE&state=STATE#wechat_redirect">https://open.weixin.qq.com/connect/qrconnect?appid=APPID&amp;redirect_uri=REDIRECT_URI&amp;response_type=code&amp;scope=SCOPE&amp;state=STATE#wechat_redirect</a> </p>
 <p>若提示“该链接无法访问”，请检查参数是否填写错误，如redirect_url域名与审核时填写的授权域名不一致或scope不为snsapi_login</p>
 <p><strong>参数说明</strong></p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226233742308.png" srcset="/img/loading.gif" lazyload alt="image-20231226233742308"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226233742308.png" srcset="/img/loading.gif" lazyload alt="image-20231226233742308"></p>
 <p><strong>返回说明</strong></p>
 <p>用户允许授权后，将会重定向到redirect_uri的网址上，并且带上 code 和state参数</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs json">redirect_uri?code=CODE&amp;state=STATE<br></code></pre></td></tr></table></figure>
@@ -1079,15 +1079,15 @@
 <p>步骤2：在需要使用微信登录的地方实例以下 JS 对象：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> obj = <span class="hljs-keyword">new</span> <span class="hljs-title class_">WxLogin</span>(&#123;<br><span class="hljs-attr">self_redirect</span>:<span class="hljs-literal">true</span>,<br><span class="hljs-attr">id</span>:<span class="hljs-string">&quot;login_container&quot;</span>, <br><span class="hljs-attr">appid</span>: <span class="hljs-string">&quot;&quot;</span>, <br><span class="hljs-attr">scope</span>: <span class="hljs-string">&quot;&quot;</span>, <br><span class="hljs-attr">redirect_uri</span>: <span class="hljs-string">&quot;&quot;</span>,<br> <span class="hljs-attr">state</span>: <span class="hljs-string">&quot;&quot;</span>,<br><span class="hljs-attr">style</span>: <span class="hljs-string">&quot;&quot;</span>,<br><span class="hljs-attr">href</span>: <span class="hljs-string">&quot;&quot;</span><br>&#125;);<br></code></pre></td></tr></table></figure>
 
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226234103548.png" srcset="/img/loading.gif" lazyload alt="image-20231226234103548"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226234103548.png" srcset="/img/loading.gif" lazyload alt="image-20231226234103548"></p>
 <h6 id="通过-code-获取access-token"><a href="#通过-code-获取access-token" class="headerlink" title="通过 code 获取access_token"></a><strong>通过 code 获取access_token</strong></h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-attr">https</span>:<span class="hljs-comment">//api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&amp;secret=SECRET&amp;code=CODE&amp;grant_type=authorization_code</span><br></code></pre></td></tr></table></figure>
 
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226234215263.png" srcset="/img/loading.gif" lazyload alt="image-20231226234215263"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226234215263.png" srcset="/img/loading.gif" lazyload alt="image-20231226234215263"></p>
 <p><strong>返回说明</strong></p>
 <p>正确的返回：</p>
 <figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs mathematica"><span class="hljs-built_in">Plain</span> <span class="hljs-built_in">Text</span><br><span class="hljs-punctuation">&#123;</span> <br><span class="hljs-string">&quot;access_token&quot;</span><span class="hljs-operator">:</span><span class="hljs-string">&quot;ACCESS_TOKEN&quot;</span><span class="hljs-operator">,</span> <br><span class="hljs-string">&quot;expires_in&quot;</span><span class="hljs-operator">:</span><span class="hljs-number">7200</span><span class="hljs-operator">,</span> <br><span class="hljs-string">&quot;refresh_token&quot;</span><span class="hljs-operator">:</span><span class="hljs-string">&quot;REFRESH_TOKEN&quot;</span><span class="hljs-operator">,</span><br><span class="hljs-string">&quot;openid&quot;</span><span class="hljs-operator">:</span><span class="hljs-string">&quot;OPENID&quot;</span><span class="hljs-operator">,</span> <br><span class="hljs-string">&quot;scope&quot;</span><span class="hljs-operator">:</span><span class="hljs-string">&quot;SCOPE&quot;</span><span class="hljs-operator">,</span><br><span class="hljs-string">&quot;unionid&quot;</span><span class="hljs-operator">:</span> <span class="hljs-string">&quot;o6_bmasdasdsad6_2sgVt7hMZOPfL&quot;</span><br><span class="hljs-punctuation">&#125;</span><br><br></code></pre></td></tr></table></figure>
 
-<img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226234421292.png" srcset="/img/loading.gif" lazyload alt="image-20231226234421292" style="zoom:50%;" />
+<img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226234421292.png" srcset="/img/loading.gif" lazyload alt="image-20231226234421292" style="zoom:50%;" />
 
 <p>错误返回样例</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs json">Plain Text<br><span class="hljs-punctuation">&#123;</span><span class="hljs-attr">&quot;errcode&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-number">40029</span><span class="hljs-punctuation">,</span><span class="hljs-attr">&quot;errmsg&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;invalid code&quot;</span><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
@@ -1097,16 +1097,16 @@
 <figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mathematica"><span class="hljs-built_in">Plain</span> <span class="hljs-built_in">Text</span><br><span class="hljs-type">access_token</span>有效且未超时；<br>微信用户已授权给第三方应用帐号相应接口作用域（<span class="hljs-variable">scope</span>）。<br><br></code></pre></td></tr></table></figure>
 
 <p>对于接口作用域（scope），能调用的接口有以下</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226234549805.png" srcset="/img/loading.gif" lazyload alt="image-20231226234549805"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226234549805.png" srcset="/img/loading.gif" lazyload alt="image-20231226234549805"></p>
 <p> 其中snsapi_base属于基础接口，若应用已拥有其它 scope 权限，则默认拥有snsapi_base的权限。使用snsapi_base可以让移动端网页授权绕过跳转授权登录页请求用户授权的动作，直接跳转第三方网页带上授权临时票据（code），但会使得用户已授权作用域（scope）仅为snsapi_base，从而导致无法获取到需要用户授权才允许获得的数据和基础功能。 接口调用方法可查阅<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/doc/oplatform/Website_App/WeChat_Login/Authorized_Interface_Calling_UnionID.html">《微信授权关系接口调用指南》</a></p>
 <p>获取用户信息接口文档：<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/doc/oplatform/Website_App/WeChat_Login/Authorized_Interface_Calling_UnionID.html">https://developers.weixin.qq.com/doc/oplatform/Website_App/WeChat_Login/Authorized_Interface_Calling_UnionID.html</a></p>
 <p>接口地址</p>
 <figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sqf">Plain <span class="hljs-built_in">Text</span><br>http请求方式: <span class="hljs-built_in">GET</span><br>https:<span class="hljs-comment">//api.weixin.qq.com/sns/userinfo?access_token=ACCESS_TOKEN&amp;openid=OPENID</span><br><br></code></pre></td></tr></table></figure>
 
 <p>如下：</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226234710976.png" srcset="/img/loading.gif" lazyload alt="image-20231226234710976"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226234710976.png" srcset="/img/loading.gif" lazyload alt="image-20231226234710976"></p>
 <p>响应</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231226234719991.png" srcset="/img/loading.gif" lazyload alt="image-20231226234719991"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231226234719991.png" srcset="/img/loading.gif" lazyload alt="image-20231226234719991"></p>
 <p>说明如下：</p>
 <figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs dns">参数            说明<br>openid        普通用户的标识，对当前开发者帐号唯一<br>nickname        普通用户昵称<br>sex            普通用户性别，<span class="hljs-number">1</span>为男性，<span class="hljs-number">2</span>为女性<br>province        普通用户个人资料填写的省份<br>city            普通用户个人资料填写的城市<br>country        国家，如中国为CN<br>headimgurl        用户头像，最后一个数值代表正方形头像大小（有<span class="hljs-number">0、46、64、96</span>、<span class="hljs-number">132</span>数值可选，<span class="hljs-number">0</span>代表<span class="hljs-number">640*640</span>正方形头像），用户没有头像时该项为空<br>privilege        用户特权信息，json数组，如微信沃卡用户为（chinaunicom）<br>unionid          用户统一标识。针对一个微信开放平台帐号下的应用，同一用户的 unionid 是唯一的。<br></code></pre></td></tr></table></figure>
 
@@ -1114,7 +1114,7 @@
 <p><a target="_blank" rel="noopener" href="https://open.weixin.qq.com/">https://open.weixin.qq.com/</a></p>
 <p>2、添加应用</p>
 <p>进入网站应用，添加应用</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231227105656290.png" srcset="/img/loading.gif" lazyload alt="image-20231227105656290"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231227105656290.png" srcset="/img/loading.gif" lazyload alt="image-20231227105656290"></p>
 <p>3、添加应用需要指定一个外网域名作为微信回调域名</p>
 <p>审核通过后，生成app密钥。</p>
 <p>最终获取appID和AppSecret</p>
@@ -1124,15 +1124,15 @@
 <blockquote>
 <p>内网穿透</p>
 <p>将内网外网通过隧道打通，让内网数据让外网可以获取，比如常用的办公软件等，一般在办公室或家里，通过拨号上网，这样办公软件只有在本地局域网可以访问，那问题来嘞，如果在手机或公司外地上班的员工，如何访问到办公软件？需要内网穿透工具，开启隧道后，内网穿透工具会分配一个专属域名&#x2F;端口，办公软件可以在公网了，在外办公的员工可以在任何地方办公了</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231227111010963.png" srcset="/img/loading.gif" lazyload alt="image-20231227111010963"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231227111010963.png" srcset="/img/loading.gif" lazyload alt="image-20231227111010963"></p>
 <p>在内网穿透服务器开启隧道，配置外网域名，配置穿透内网的端口即本地电脑上的端口</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231227111058273.png" srcset="/img/loading.gif" lazyload alt="image-20231227111058273"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231227111058273.png" srcset="/img/loading.gif" lazyload alt="image-20231227111058273"></p>
 <p>这样我们配置认证服务端口，最终实现外网域名访问本地认证服务</p>
 <p>2  在本地安装内网穿透工具，工具配置内网穿透服务器隧道token</p>
 <p>市面上做内网穿透的商家很多，需要时可以查阅资料了解下。</p>
 </blockquote>
 <h5 id="接入微信登录"><a href="#接入微信登录" class="headerlink" title="接入微信登录"></a><strong>接入微信登录</strong></h5><h6 id="接入分析"><a href="#接入分析" class="headerlink" title="接入分析"></a>接入分析</h6><p>根据OAuth2协议授权码流程，结合本项目自身特点，分析接入微信扫码登录的流程如下：</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231227111247459.png" srcset="/img/loading.gif" lazyload alt="image-20231227111247459"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231227111247459.png" srcset="/img/loading.gif" lazyload alt="image-20231227111247459"></p>
 <p>本项目认证服务需要做哪些事？</p>
 <ol>
 <li>需要定义接口接收微信下发的授权码</li>
@@ -1152,9 +1152,9 @@
 <p>1、启动内网穿透工具</p>
 <p>2、在&#x2F;wxLogin接口中打断点</p>
 <p>3、打开前端微信扫码页面</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231227121958289.png" srcset="/img/loading.gif" lazyload alt="image-20231227121958289"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231227121958289.png" srcset="/img/loading.gif" lazyload alt="image-20231227121958289"></p>
 <p>点击微信图标打开二维码</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231227122010128.png" srcset="/img/loading.gif" lazyload alt="image-20231227122010128"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231227122010128.png" srcset="/img/loading.gif" lazyload alt="image-20231227122010128"></p>
 <p>用户扫码，确认授权</p>
 <p>此时正常进入 &#x2F;wxLogin 方法，最后跳转到</p>
 <p><a target="_blank" rel="noopener" href="http://www.51xuecheng.cn/sign.html?username=t1&authType=wx">http://www.51xuecheng.cn/sign.html?username=t1&amp;authType=wx</a></p>
@@ -1202,7 +1202,7 @@
 <p>基于角色的访问控制（Role-Based Access Control）</p>
 <p>基于资源的访问控制（Resource-Based Access Control）</p>
 <p>角色的访问控制（Role-Based Access Control）是按角色进行授权，比如：主体的角色为总经理可以查询企业运营报表，查询员工工资信息等，访问控制流程如下：</p>
-<img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231227123937245.png" srcset="/img/loading.gif" lazyload alt="image-20231227123937245" style="zoom:70%;" />
+<img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231227123937245.png" srcset="/img/loading.gif" lazyload alt="image-20231227123937245" style="zoom:70%;" />
 
 <p>根据上图的判断逻辑，授权代码可以表示如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">if</span>(主体.hasRole(<span class="hljs-string">&quot;总经理角色id&quot;</span>))&#123;<br>查询工资<br>&#125;<br></code></pre></td></tr></table></figure>
@@ -1213,7 +1213,7 @@
 <p>根据上边的例子发现，当需要修改角色的权限时就需要修改授权的相关代码，系统可扩展性差。</p>
 <p>基于资源的访问控制（Resource-Based Access</p>
 <p>Control）是按资源（或权限）进行授权，比如：用户必须具有查询工资权限才可以查询员工工资信息等，访问控制流程如下：</p>
-<img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231227124310952.png" srcset="/img/loading.gif" lazyload alt="image-20231227124310952" style="zoom:80%;" />
+<img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231227124310952.png" srcset="/img/loading.gif" lazyload alt="image-20231227124310952" style="zoom:80%;" />
 
 <p>根据上图中的判断，授权代码可以表示为：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java">Java<br><span class="hljs-title function_">if</span><span class="hljs-params">(主体.hasPermission(<span class="hljs-string">&quot;查询工资权限标识&quot;</span>)</span>)&#123;<br>    查询工资<br>&#125;<br><br></code></pre></td></tr></table></figure>
@@ -1227,7 +1227,7 @@
 <p>2、在资源服务集成Spring Security</p>
 <p>在需要授权的接口处使用@PreAuthorize(“hasAuthority(‘权限标识符’)”)进行控制</p>
 <p>下边代码指定&#x2F;course&#x2F;list接口需要拥有xc_teachmanager_course_list 权限。</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231227135247356.png" srcset="/img/loading.gif" lazyload alt="image-20231227135247356"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231227135247356.png" srcset="/img/loading.gif" lazyload alt="image-20231227135247356"></p>
 <p>设置了@PreAuthorize表示执行此方法需要授权，如果当前用户请求接口没有权限则抛出异常</p>
 <p>org.springframework.security.access.AccessDeniedException: 不允许访问</p>
 <p>3、在统一异常处理处解析此异常信息</p>
@@ -1237,12 +1237,12 @@
 <p>使用教学机构用户登录系统</p>
 <p>这里使用t1用户登录，账号:t1、密码：111111</p>
 <p>登录成功，点击“教学机构”</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231227135503309.png" srcset="/img/loading.gif" lazyload alt="image-20231227135503309"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231227135503309.png" srcset="/img/loading.gif" lazyload alt="image-20231227135503309"></p>
 <p>当用户没有权限时页面提示：没有操作此功能的权限。</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231227135516048.png" srcset="/img/loading.gif" lazyload alt="image-20231227135516048"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231227135516048.png" srcset="/img/loading.gif" lazyload alt="image-20231227135516048"></p>
 <h5 id="授权相关的数据模型"><a href="#授权相关的数据模型" class="headerlink" title="授权相关的数据模型"></a><strong>授权相关的数据模型</strong></h5><p>如何给用户分配权限呢？</p>
 <p>首先要学习数据模型，本项目授权相关的数据表如下：</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231227135538956.png" srcset="/img/loading.gif" lazyload alt="image-20231227135538956"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231227135538956.png" srcset="/img/loading.gif" lazyload alt="image-20231227135538956"></p>
 <p>说明如下：</p>
 <p>xc_user：用户表，存储了系统用户信息，用户类型包括：学生、老师、管理员等</p>
 <p>xc_role：角色表，存储了系统的角色信息，学生、老师、教学管理员、系统管理员等。</p>
@@ -1250,7 +1250,7 @@
 <p>xc_menu:模块表，记录了菜单及菜单下的权限</p>
 <p>xc_permission:角色权限表，一个角色可拥有多个权限，一个权限可被多个角色所拥有</p>
 <p>本项目教学阶段不再实现权限定义及用户权限分配的功能，权限分配的界面原型如下图所示：</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231227135552058.png" srcset="/img/loading.gif" lazyload alt="image-20231227135552058"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231227135552058.png" srcset="/img/loading.gif" lazyload alt="image-20231227135552058"></p>
 <p>本项目要求掌握基于权限数据模型（5张数据表），要求在数据库中操作完成给用户分配权限、查询用户权限等需求。</p>
 <p>1、查询用户所拥有的权限</p>
 <p>步骤：</p>
@@ -1268,7 +1268,7 @@
 <p>2）删除用户权限</p>
 <p>本项目是基于角色分配权限，如果要删除用户的权限可以给用户换角色，那么新角色下的权限就是用户的权限；如果不换用户的角色可以删除角色下的权限即删除角色权限关系表相应记录，这样操作是将角色下的权限删除，属于该角色的用户都将删除此权限。</p>
 <h5 id="查询用户权限"><a href="#查询用户权限" class="headerlink" title="查询用户权限"></a>查询用户权限</h5><p>使用Spring Security进行授权，首先在生成jwt前会查询用户的权限，如下图：</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231227135645831.png" srcset="/img/loading.gif" lazyload alt="image-20231227135645831"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231227135645831.png" srcset="/img/loading.gif" lazyload alt="image-20231227135645831"></p>
 <p>接下来需要修改UserServiceImpl和PasswordAuthServiceImpl从数据库查询用户的权限。</p>
 <p>1、定义mapper接口</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">XcMenuMapper</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">BaseMapper</span>&lt;XcMenu&gt; &#123;<br>    <span class="hljs-meta">@Select(&quot;SELECT    * FROM xc_menu WHERE id IN (SELECT menu_id FROM xc_permission WHERE role_id IN ( SELECT role_id FROM xc_user_role WHERE user_id = #&#123;userId&#125; ))&quot;)</span><br>    List&lt;XcMenu&gt; <span class="hljs-title function_">selectPermissionByUserId</span><span class="hljs-params">(<span class="hljs-meta">@Param(&quot;userId&quot;)</span> String userId)</span>;<br>&#125;<br><br></code></pre></td></tr></table></figure>
@@ -1279,10 +1279,10 @@
 
 <h6 id="权限测试"><a href="#权限测试" class="headerlink" title="权限测试"></a><strong>权限测试</strong></h6><p>以上实现了认证时从数据库查询用户的权限，下边进行用户授权测试。</p>
 <p>重启认证服务，使用内容管理课程列表查询为例，代码如下：</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231227150001461.png" srcset="/img/loading.gif" lazyload alt="image-20231227150001461"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231227150001461.png" srcset="/img/loading.gif" lazyload alt="image-20231227150001461"></p>
 <p>用户拥有xc_teachmanager_course_list权限方可访问课程查询接口。</p>
 <p>以用户stu1为例，当它没有此权限时页面报“没有此操作的权限”错误</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231227150055537.png" srcset="/img/loading.gif" lazyload alt="image-20231227150055537"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231227150055537.png" srcset="/img/loading.gif" lazyload alt="image-20231227150055537"></p>
 <p>将xc_teachmanager_course_list权限分配给用户。</p>
 <p>1）首先找到当前用户的角色</p>
 <p>2）找到xc_teachmanager_course_list权限的主键</p>
@@ -1324,12 +1324,12 @@
 <p>我们准备了t1 用户作为此次测试的用户，使用此用户登录系统：</p>
 <p>提前在查询课程列表接口处打上断点。</p>
 <p>经过测试可以正常取出用户所属的机构id</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231227155538069.png" srcset="/img/loading.gif" lazyload alt="image-20231227155538069"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231227155538069.png" srcset="/img/loading.gif" lazyload alt="image-20231227155538069"></p>
 <p>跟踪持久层日志发现已将机构id传入dao方法，拼装sql语句，查询本机构的课程信息</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231227155551246.png" srcset="/img/loading.gif" lazyload alt="image-20231227155551246"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231227155551246.png" srcset="/img/loading.gif" lazyload alt="image-20231227155551246"></p>
 <h4 id="实战"><a href="#实战" class="headerlink" title="实战"></a><strong>实战</strong></h4><h5 id="找回密码"><a href="#找回密码" class="headerlink" title="找回密码"></a>找回密码</h5><p>需求：忘记密码需要找回，可以通过手机号找回密码，通过邮箱找回密码以及人工通道。</p>
 <p>界面访问地址：<a target="_blank" rel="noopener" href="http://www.51xuecheng.cn/findpassword.html">http://www.51xuecheng.cn/findpassword.html</a></p>
-<img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231227155646094.png" srcset="/img/loading.gif" lazyload alt="image-20231227155646094" style="zoom: 30%;" />
+<img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231227155646094.png" srcset="/img/loading.gif" lazyload alt="image-20231227155646094" style="zoom: 30%;" />
 
 <p>接口：</p>
 <p>手机验证码：&#x2F;api&#x2F;checkcode&#x2F;phone?param1&#x3D;手机号</p>
@@ -1347,7 +1347,7 @@
 <p>4、如果找到用户更新为新密码</p>
 <h5 id="注册"><a href="#注册" class="headerlink" title="注册"></a><strong>注册</strong></h5><p>需求：为学生提供注册入口，通过此入口注册的用户为学生用户。</p>
 <p>界面访问地址：<a target="_blank" rel="noopener" href="http://www.51xuecheng.cn/register.html">http://www.51xuecheng.cn/register.html</a></p>
-<img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231227155822920.png" srcset="/img/loading.gif" lazyload alt="image-20231227155822920" style="zoom:50%;" />
+<img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231227155822920.png" srcset="/img/loading.gif" lazyload alt="image-20231227155822920" style="zoom:50%;" />
 
 <p>接口：</p>
 <p>手机验证码：&#x2F;api&#x2F;checkcode&#x2F;phone?param1&#x3D;手机号</p>

@@ -23,14 +23,14 @@
 <meta property="og:site_name" content="FGJ">
 <meta property="og:description" content="记录的原因是搞清楚跨域chrome浏览器报错如下： 1Access to XMLHttpRequest at  &#x27;http:&#x2F;&#x2F;localhost:63110&#x2F;system&#x2F;dictionary&#x2F;all&#x27; from origin  &#x27;http:&#x2F;&#x2F;localhost:8601&#x27; has been blocked by CORS policy: No &amp;#x2">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231212224701755.png">
-<meta property="og:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231212224934038.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231212224701755.png">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231212224934038.png">
 <meta property="article:published_time" content="2023-12-12T14:51:43.000Z">
-<meta property="article:modified_time" content="2023-12-12T14:52:40.514Z">
+<meta property="article:modified_time" content="2024-01-14T07:34:24.440Z">
 <meta property="article:author" content="fgj">
 <meta property="article:tag" content="跨域">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231212224701755.png">
+<meta name="twitter:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231212224701755.png">
   
   
   
@@ -298,10 +298,10 @@
 <figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada"><span class="hljs-keyword">Access</span>-Control-Allow-Origin：*<br></code></pre></td></tr></table></figure>
 
 <h2 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h2><h3 id="1、JSONP"><a href="#1、JSONP" class="headerlink" title="1、JSONP"></a>1、JSONP</h3><p>通过script标签的src属性进行跨域请求，如果服务端要响应内容则首先读取请求参数callback的值，callback是一个回调函数的名称，服务端读取callback的值后将响应内容通过调用callback函数的方式告诉请求方。如下图：</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231212224701755.png" srcset="/img/loading.gif" lazyload alt="image-20231212224701755"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231212224701755.png" srcset="/img/loading.gif" lazyload alt="image-20231212224701755"></p>
 <h3 id="2、添加响应头"><a href="#2、添加响应头" class="headerlink" title="2、添加响应头"></a>2、添加响应头</h3><p>服务端在响应头添加 Access-Control-Allow-Origin：*</p>
 <h3 id="3、通过nginx代理跨域"><a href="#3、通过nginx代理跨域" class="headerlink" title="3、通过nginx代理跨域"></a>3、通过nginx代理跨域</h3><p>由于服务端之间没有跨域，浏览器通过nginx去访问跨域地址。</p>
-<p><img src="https://fgj2.oss-cn-beijing.aliyuncs.com/image-20231212224934038.png" srcset="/img/loading.gif" lazyload alt="image-20231212224934038"></p>
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20231212224934038.png" srcset="/img/loading.gif" lazyload alt="image-20231212224934038"></p>
 <p>1）浏览器先访问<a target="_blank" rel="noopener" href="http://192.168.101.10:8601/">http://192.168.101.10:8601</a> nginx提供的地址，进入页面</p>
 <p>2）此页面要跨域访问<a target="_blank" rel="noopener" href="http://192.168.101.11:8601/">http://192.168.101.11:8601</a> ，不能直接跨域访问<a target="_blank" rel="noopener" href="http://www.baidu.com:8601/">http://www.baidu.com:8601</a> ，而是访问nginx的一个同源地址，比如：<a target="_blank" rel="noopener" href="http://192.168.101.11:8601/api">http://192.168.101.11:8601/api</a> ，通过<a target="_blank" rel="noopener" href="http://192.168.101.11:8601/api">http://192.168.101.11:8601/api</a> 的代理去访问<a href="http://www.baidu.com:8601。">http://www.baidu.com:8601。</a></p>
 <p>这样就实现了跨域访问。</p>
