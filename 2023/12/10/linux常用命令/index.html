@@ -23,12 +23,14 @@
 <meta property="og:site_name" content="FGJ">
 <meta property="og:description" content="Linux常用命令https:&#x2F;&#x2F;www.runoob.com&#x2F;w3cnote&#x2F;linux-common-command-2.html ls1234567ls -a 列出目录所有文件，包含以.开始的隐藏文件ls -A 列出除.及..的其它文件ls -r 反序排列ls -t 以文件修改时间排序ls -S 以文件大小排序ls -h 以易读大小显示ls -l 除了文件名之外，还将文件的权限、所有者、文件">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20240212184435060.png">
 <meta property="article:published_time" content="2023-12-10T15:39:57.000Z">
-<meta property="article:modified_time" content="2023-12-10T15:40:53.150Z">
+<meta property="article:modified_time" content="2024-05-16T10:11:33.277Z">
 <meta property="article:author" content="fgj">
 <meta property="article:tag" content="命令">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20240212184435060.png">
   
   
   
@@ -221,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          930 字
+          1k 字
         
       </span>
     
@@ -232,7 +234,7 @@
         
         
         
-          8 分钟
+          9 分钟
         
       </span>
     
@@ -305,12 +307,9 @@
 
 <h2 id="kill"><a href="#kill" class="headerlink" title="kill"></a>kill</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">kill</span> <span class="hljs-literal">-9</span> <span class="hljs-variable">$</span>(<span class="hljs-built_in">ps</span> <span class="hljs-literal">-ef</span> | grep pro1)  先使用<span class="hljs-built_in">ps</span>查找进程pro1，然后用<span class="hljs-built_in">kill</span>杀掉<br></code></pre></td></tr></table></figure>
 
+<h2 id="taskkill"><a href="#taskkill" class="headerlink" title="taskkill"></a>taskkill</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">关闭java程序			taskkill /f /t /im java.exe<br><br>关闭nginx进程			taskkill /f /t /im nginx.exe<br><br>关闭xxx进程			taskkill /f /t /im xxx.exe<br></code></pre></td></tr></table></figure>
 
-
-
-
-
-
+<p><img src="https://fgj3.oss-cn-beijing.aliyuncs.com/image-20240212184435060.png" srcset="/img/loading.gif" lazyload alt="image-20240212184435060"></p>
 
                 
               </div>
