@@ -1,0 +1,802 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="fgj">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="什么是Spring?Spring是一个Java企业级应用开发框架,提供了一系列组件和工具,可以帮助开发者快速构建高效,可扩展,易维护的企业级应用,Spring的核心特性包括依赖注入(Dependency Injection)，面向切面编程(Aspect-Oriented Programming)，控制反转(Inversion of Control).同时,Spring提供了多种插件和扩展, 如Sp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring面试题">
+<meta property="og:url" content="http://example.com/2024/05/16/Spring%E9%9D%A2%E8%AF%95%E9%A2%98/index.html">
+<meta property="og:site_name" content="FGJ">
+<meta property="og:description" content="什么是Spring?Spring是一个Java企业级应用开发框架,提供了一系列组件和工具,可以帮助开发者快速构建高效,可扩展,易维护的企业级应用,Spring的核心特性包括依赖注入(Dependency Injection)，面向切面编程(Aspect-Oriented Programming)，控制反转(Inversion of Control).同时,Spring提供了多种插件和扩展, 如Sp">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-05-16T09:52:07.000Z">
+<meta property="article:modified_time" content="2024-05-16T09:53:02.053Z">
+<meta property="article:author" content="fgj">
+<meta property="article:tag" content="面试题">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Spring面试题 - FGJ</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Home</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://fgj3.oss-cn-beijing.aliyuncs.com/wallhaven-3zmr6y_1920x1080.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Spring面试题"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-05-16 17:52" pubdate>
+          2024年5月16日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          8.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          71 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Spring面试题</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="什么是Spring"><a href="#什么是Spring" class="headerlink" title="什么是Spring?"></a>什么是Spring?</h2><p>Spring是一个Java企业级应用开发框架,提供了一系列组件和工具,可以帮助开发者快速构建高效,可扩展,易维护的企业级应用,Spring的核心特性包括依赖注入(Dependency Injection)，<br>面向切面编程(Aspect-Oriented Programming)，控制反转(Inversion of Control).同时,Spring提供了多种插件和扩展, 如SpringMVC用于Web开发, SpringBoot用于快速<br>构建微服务等. Spring的成功在于他的灵活性和可扩展性, 可以根据具体需求进行定义配置和集成.</p>
+<h2 id="你的项目为什么使用Spring框架"><a href="#你的项目为什么使用Spring框架" class="headerlink" title="你的项目为什么使用Spring框架?"></a>你的项目为什么使用Spring框架?</h2><p>由于Spring框架具有强大的功能和良好的扩展性, 所以我的项目使用Spring框架来构建企业级应用, 具体来说, 我们使用Spring框架的依赖注入功能实现松耦合的组件设计,提高了应用的可维护性和可测试性,<br>同时我们还使用Spring的面向切面实现日志记录,性能监控,事务管理等横切关注点,使代码更简洁和易于维护.此外,使用SpringBoot快速构建微服务应用, 提高应用的可扩展性和部署效率.综合来说, Spring<br>框架为我们项目带来了很多好处, 使得我们能够更加高效的开发和维护企业及应用.</p>
+<h2 id="Autowired和-Resource关键字区别"><a href="#Autowired和-Resource关键字区别" class="headerlink" title="@Autowired和@Resource关键字区别"></a>@Autowired和@Resource关键字区别</h2><ol>
+<li>来源不同,@Autowired是Spring框架提供的注解,而@Resource是JavaEE提供的注解,需要使用javax.annotation包</li>
+<li>自动装配方式不同, @Autowired 默认按照类型进行自动装配, 如果多个相同类型的Bean, 按照属性名进行匹配</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyController</span> &#123;<br>    <span class="hljs-meta">@Autowired</span><br>    <span class="hljs-keyword">private</span> MyService myService;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>在上面实例代码中,Spring会自动寻找类型为MyService的Bean, 并注入到myService属性中, 如果多个MyService类型的Bean, Spring将属性名即(myService)进行匹配, 如果我们<br>想按照名称来装配, 需要结合@Qualifier注解来一起使用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyController</span> &#123;<br>    <span class="hljs-meta">@Autowired</span><br>    <span class="hljs-meta">@Qualifier(&quot;service&quot;)</span><br>    <span class="hljs-keyword">private</span> MyService myService;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>@Resource 按照名称自动装配, 如果制定了name属性则按照名称匹配, 如果没有指定, 则默认按照属性名匹配</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> javax.annotation.Resource;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyController</span> &#123;<br>    <span class="hljs-meta">@Resource(name = &quot;myService&quot;)</span><br>    <span class="hljs-keyword">private</span> MyService myService;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>上面代码中, Spring自动寻找名称为myService的Bean, 将其注入到service属性中, 如果没有指定name属性, Spring根据属性名进行匹配</p>
+<ol start="3">
+<li>支持的注入类型, @Autowired 支持的注入类型包括Bean, 集合类型</li>
+</ol>
+<h2 id="依赖注入的方式有几种"><a href="#依赖注入的方式有几种" class="headerlink" title="依赖注入的方式有几种?"></a>依赖注入的方式有几种?</h2><ul>
+<li>依赖注入(Dependence Injection)是一种设计模式,主要思想是通过构造器,Setter方法或接口来向对象传递依赖关系,而不是让对象自己创建或查找依赖对象,<br>在Spring框架中,依赖注入是实现松耦合,可测试,易维护的重要手段,通常有以下几种手段:</li>
+</ul>
+<ol>
+<li>构造器注入(Constructor Injection)通过对象的构造器来注入依赖对象,通常在对象创建时完成依赖注入.</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;userService&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;com.bt.UserService&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">constructor-arg</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;useRepository&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>Setter方法注入(Setter Injection)通过对象的Setter方法来注入依赖对象, 通常在对象创建后进行依赖注入</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;userService&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;com.bt.UserService&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;userRepository&quot;</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;userRepository&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>接口注入(Interface Injection): 依赖类必须实现指定接口,然后实现接口的一个函数,该函数用来依赖注入, 该函数的参数要注入的对象, 侵入性太强,不建议使用</li>
+</ol>
+<h2 id="讲一下什么是Spring"><a href="#讲一下什么是Spring" class="headerlink" title="讲一下什么是Spring?"></a>讲一下什么是Spring?</h2><p>Spring是一个轻量级的IoC和AOP容器框架, 是为Java应用程序提供基础服务的一套框架, 目的是用于简化企业应用程序的开发, Spring的核心思想通过依赖注入和<br>面向切面编程来实现松耦合, 可测试和易维护的应用程序:<br>Spring框架提供了许多核心功能, 包括:</p>
+<ol>
+<li>控制反转(Inversion of Control IOC): 将对象的创建和依赖关系的管理交给框架, 使应用程序更加松耦合.</li>
+<li>依赖注入(Dependency Injection DI) 将对象之间的依赖关系通过注入的方式来实现, 提高了应用程序的可测试性和可维护性</li>
+<li>面向切面编程(Aspect-Oriented Programming AOP) 通过切面来解决横切关注点的问题, 如事务控制, 安全控制, 日志记录等</li>
+<li>数据访问层(Data Access) 提供了一套方便的API来访问数据库和其他数据存储系统, 包括JDBC, ORM, NoSQL</li>
+<li>Web开发(Web Development) 提供了一套强大的web开发框架, 包括SpringMVC, Spring WebFlux</li>
+<li>消息队列(Messaging) , 提供了一套消息传递机制, 支持JMC, RabbitMQ等<br>除此之外, Spring还提供其他功能, 如集成测试, 批处理, 缓存等</li>
+</ol>
+<h2 id="说说你对SpringMVC的理解"><a href="#说说你对SpringMVC的理解" class="headerlink" title="说说你对SpringMVC的理解"></a>说说你对SpringMVC的理解</h2><p>SpringMvc是Spring框架的一个模块, 提供了一种基于MVC(Model View Controller)架构的web应用程序开发模型, 通过控制器(Controller)管理用户请求,<br>通过模型(Model)来处理业务逻辑,通过视图(View)呈现响应结果, 从而实现web应用程序的分层架构和模块化开发<br>在SpringMVC中,用户请求首先由前端控制器DispatcherServlet接收,并将其分派给相应的处理器(Handler),处理器根据请求的URL和请求方法选择具体的处理方法, 并返回相应的<br>数据模型和视图名称来生成相应结果, 将其返回给用户<br>SpringMVC提供了许多特性,如请求映射,参数绑定,数据验证,异常处理,国际化,文件上传等,同时支持多种视图技术,如JSP Thymeleaf, Freemarker等,MVC支持Restful风格的<br>Web服务开发, 提供了一些Web相关的功能, 如SpringWebSockets, SpringWebFlux等</p>
+<h2 id="SpringMVC常用注解"><a href="#SpringMVC常用注解" class="headerlink" title="SpringMVC常用注解"></a>SpringMVC常用注解</h2><p>用来标识处理器(Handler)和请求映射(RequestMapping)的关系的, 下面一些常用注解:</p>
+<ol>
+<li>@Controller 标记一个类为处理器</li>
+<li>@RequestMapping 标记处理器的方法和请求之间的映射关系, 可以指定请求的URL, 请求方法, 请求参数等</li>
+<li>@RequestParam 用于将请求参数绑定到方法参数上</li>
+<li>@PathVariable 用于将URL路径变量绑定到方法参数上</li>
+<li>@ResponseBody 用于将方法的返回值转换为HTTP响应的正文内容</li>
+<li>@RequestBody  用于将HTTP请求的正文内容绑定到方法参数上</li>
+</ol>
+<h2 id="对SpringAOP的理解"><a href="#对SpringAOP的理解" class="headerlink" title="对SpringAOP的理解"></a>对SpringAOP的理解</h2><p>AOP(Aspect-Oriented Programming 面向切面编程) 是Spring框架的一个核心特性. 通过在程序运行期间动态将额外的行为, 如日志,安全检查等<br>插入到代码中, 实现更加灵活和可维护的程序设计<br>在Spring框架中, AOP通过以下几个概念实现:</p>
+<ol>
+<li>切点(Pointcut) 指定哪些程序执行点上插入额外行为, 通常使用表达式定义切点</li>
+<li>通知(Advice) 插入到切点的额外行为, 通常包括前置通知, 后置通知, 异常通知, 环绕通知等</li>
+<li>切面(Aspect) 由切点和通知组成一个横切逻辑单元, 可以看作一种特殊的类</li>
+<li>织入(Weaving) 将切面和目标对象合并, 生成一个新的代理对象, 并在运行期间插入额外行为</li>
+</ol>
+<p>在Spring框架中, AOP可以应用于各种场景, 如事务管理, 缓存, 日志, 权限控制等, 可以大大简化程序设计和代码维护工作, 同时Spring框架提供各种AOP相关的注解<br>和工具类, 使得AOP使用更加简单方便</p>
+<h2 id="SpringAOP和AspectJ-AOP区别"><a href="#SpringAOP和AspectJ-AOP区别" class="headerlink" title="SpringAOP和AspectJ AOP区别"></a>SpringAOP和AspectJ AOP区别</h2><p>SpringAOP和AspectJ AOP都是AOP实现的, 他们可以在运行时动态为程序添加额外的行为, 但是他们之间有如下区别:</p>
+<ol>
+<li>实现方式不同, SpringAOP基于JDK动态代理和CGLIB代理机制实现, 而AspectJ AOP基于字节码操纵实现</li>
+<li>支持的切点表达式不同, AspectJ AOP支持更强大和灵活的切点表达式, 如正则表达式, 类型模式匹配, 注解匹配等. 而SpringAOP仅支持基于方法名, 参数列表, 异常类型的切点表达式</li>
+<li>适用范围不同, SpringAOP适用于Spring框架IOC容器和SpringMVC中Web应用程序, 而AspectJ AOP是一个独立的AOP框架, 可以用于任何Java框架</li>
+<li>集成方式不同, SpringAop可以和Spring框架的其他特性无缝衔接, 而AspectJ AOP需要通过AspectJ 编译器实现</li>
+</ol>
+<h2 id="SpringAOP-关注点和横切关注的区别"><a href="#SpringAOP-关注点和横切关注的区别" class="headerlink" title="SpringAOP 关注点和横切关注的区别"></a>SpringAOP 关注点和横切关注的区别</h2><p>关注点: 在软件系统中, 需要关注和处理某一方面的功能模块, 例如日志, 事务, 安全等,在 AOP中, 关注点被表示为切点(Pointcut), 用于指定哪些代码位置需要执行额外行为<br>横切关注: 在软件系统中, 不同的关注点可能相互交叉和重叠, 例如一个方法既需要进行日志记录, 又需要事务管理, AOP中, 横切关注通常被表示为切面(Aspect), 由切点和通知组成, 用于将多个关注点的行为织入到代码中</p>
+<h2 id="什么是通知-通知类型"><a href="#什么是通知-通知类型" class="headerlink" title="什么是通知? 通知类型?"></a>什么是通知? 通知类型?</h2><p>在SpringAOP中, 通知Advice 是指在横切关注中执行的额外代码快, 可以在方法调用前后, 异常泡出或方法执行成功后执行, 通知是实现AOP的核心机制之一, 用于将横切关注的行为织入到目标对象的方法中<br>SpringAOP 提供了五种类型通知:</p>
+<ol>
+<li>前置通知(Before Advice) 在目标方法执行前执行的通知</li>
+<li>后置通知(After Advice) 在目标方法执行后执行的通知</li>
+<li>返回通知(After Returning Advice) 在目标方法执行后执行的通知, 只有方法正常返回结果时才会执行</li>
+<li>异常通知(After Throwing Advice) 在目标方法抛出异常后执行的通知</li>
+<li>环绕通知(Around Advice) 在目标方法执行前后都可以执行的通知, 可以控制目标方法执行的过程, 甚至可以完全取代目标方法的执行<br>这些通知可以在切面中指定对应的切点, 实现对目标对象方法的拦截和处理</li>
+</ol>
+<h2 id="对IOC的理解"><a href="#对IOC的理解" class="headerlink" title="对IOC的理解"></a>对IOC的理解</h2><p>Spring的IOC（Inversion of Controller） 将对象的创建组装管理交给容器， 由容器负责对象之间的依赖关系。在IOC模式中，对象不再自己管理其他对象的依赖， 而是将依赖关系反转给容器进行管理。<br>在Spring中，IOC通过依赖注入实现的， 依赖注入是指容器通过自动或手动方式， 将对象所依赖的其他对象或资源注入到对象中， 从而达到对象之间的松耦合<br>通过使用IOC容器， 可以实现对象之间的解耦， 增加代码的灵活性和可维护性，同时IOC容器提供了很多功能， 例如对象的生命周期管理，AOP，事务管理等， 大大减少开发者的工作量， 提高开发效率。<br>总结，Spring的IOC通过依赖注入实现，将对象之间的依赖关系交给容器管理，从而实现对象之间松耦合和增强系统的可维护性和可扩展性</p>
+<h2 id="解释一下Spring的生命周期"><a href="#解释一下Spring的生命周期" class="headerlink" title="解释一下Spring的生命周期"></a>解释一下Spring的生命周期</h2><ol>
+<li>实例化 Spring容器通过Bean定义中指定的构造函数或工厂方法创建bean实例</li>
+<li>属性赋值 这个阶段，spring容器将配置文件中指定的bean属性或引用注入到bean实例</li>
+<li>初始化 这个阶段，spring容器调用bean的初始化方法，完成bean的一些初始化方法</li>
+<li>使用 这个阶段，bean可以被程序使用</li>
+<li>销毁，这个阶段，spirng容器调用bean的销毁方法，完成bean的销毁操作</li>
+</ol>
+<h2 id="几种spring支持的作用域"><a href="#几种spring支持的作用域" class="headerlink" title="几种spring支持的作用域"></a>几种spring支持的作用域</h2><ol>
+<li>singleton 单例 整个应用程序中，只存在一个bean实例，默认情况下，spring的bean都是单例的</li>
+<li>prototype 原型 每次通过容器获取bean时，都会创建一个新的bean实例</li>
+<li>request 在一次http请求中，bean的实例是唯一的</li>
+<li>session 在一个http session中，bean的实例是唯一的</li>
+<li>global session 在一个全局http session中，bean的实例是唯一的</li>
+</ol>
+<h2 id="spring基于xml注入bean有几种方式？"><a href="#spring基于xml注入bean有几种方式？" class="headerlink" title="spring基于xml注入bean有几种方式？"></a>spring基于xml注入bean有几种方式？</h2><ol>
+<li>setter注入</li>
+<li>构造器注入</li>
+<li>静态工厂注入</li>
+<li>实例工厂</li>
+</ol>
+<h2 id="spring框架用了哪些设计模式"><a href="#spring框架用了哪些设计模式" class="headerlink" title="spring框架用了哪些设计模式"></a>spring框架用了哪些设计模式</h2><ol>
+<li>单例模式，spring中bean默认是单例的，通过IOC容器对Bean进行管理，保证整个程序只有一个Bean实例</li>
+<li>工厂模式，spring中IOC容器负责创建和管理Bean实例，可以将IOC容器看作一个工厂，通过工厂方法创建Bean实例</li>
+<li>代理模式，spring的AOP基于代理实现，通过JDK动态代理或Cglib动态代理实现AOP功能</li>
+<li>观察者模式，Spring中的事件驱动机制基于观察者模式实现，Bean可以发布事件，其他Bean可以通过监听器响应事件</li>
+<li>模板方法模式，Spring中的JdbcTemplate和Hibernate Template等模板类，使用了模板方法模式，将重复性的操作封装到父类中，子类只需要实现特定方法即可</li>
+</ol>
+<h2 id="说说Spring中ApplicationContext和BeanFactory的区别"><a href="#说说Spring中ApplicationContext和BeanFactory的区别" class="headerlink" title="说说Spring中ApplicationContext和BeanFactory的区别"></a>说说Spring中ApplicationContext和BeanFactory的区别</h2><ol>
+<li>ApplicationContext是BeanFactory的子接口，提供了更多的功能，例如国际化，事件驱动等</li>
+<li>ApplicationContext在启动时预先实例化所有的单例Bean，而BeanFactory则是按需创建Bean</li>
+<li>ApplicationContext支持Bean的自动装配，AOP等功能，而BeanFactory需要手动配置</li>
+<li>ApplicationContext提供了更多的资源加载方式，例如XML，注解，属性文件等，而BeanFactory只支持XML格式的配置文件</li>
+<li>ApplicationContext提供了更多的扩展点，例如BeanPostProcessor，ApplicationListener等，可以对Bean的生命周期和时间进行监听和处理<br>如果需要使用Spring的更高级的特性，例如AOP，国际化，事件驱动等，可以选择使用ApplicationContext；如果只需要简单创建和管理Bean实例，可以选择使用BeanFactory</li>
+</ol>
+<h2 id="Spring框架的单例Bean是线程安全的吗？"><a href="#Spring框架的单例Bean是线程安全的吗？" class="headerlink" title="Spring框架的单例Bean是线程安全的吗？"></a>Spring框架的单例Bean是线程安全的吗？</h2><p>在Spring框架中，默认所有Bean是单例的，整个应用只有一个Bean实例，是否线程安全，要看具体实现：</p>
+<ol>
+<li>如果Bean无状态，即没有实例变量，或实例变量是线程安全的（如final修饰的常量），那Bean是线程安全的</li>
+<li>如果Bean有状态，即有实例变量，并且这些变量非线程安全，那Bean也非线程安全。在多线程并发访问单例Bean时，出现数据竞争和并发安全问题</li>
+<li>解决：将单例Bean的实例变量用ThreadLocal进行封装，保证每个线程访问时拥有自己的实例变量；也可以将单例Bean作用域改成原型（Prototype），每次请求都会创建一个新的Bean实例，避免并发访问问题</li>
+</ol>
+<h2 id="Spring如何解决循环依赖"><a href="#Spring如何解决循环依赖" class="headerlink" title="Spring如何解决循环依赖"></a>Spring如何解决循环依赖</h2><p>整个流程：</p>
+<ol>
+<li>A完成初始化并曝光自己（通过ObjectFactory将自己提前曝光），在初始化时，发现自己依赖B，这时尝试get(B)，这时发现B还没创建</li>
+<li>然后创建B，B在初始化时，发现自己依赖C，这时尝试get(C)，这时发现C还没创建</li>
+<li>然后创建C，C在初始化时，发现自己依赖A，这时尝试get(A)，这个时候A已经添加到三级缓存中，通过ObjectFactory提前曝光，所以通过ObjectFactory#getObject()方法拿到A，C拿到A后顺利完成初始化，然后将自己添加到一级缓存中</li>
+<li>回到B，B可以拿到C对象，完成初始化，A可以顺利拿到B完成初始化，到这里整个链路完成初始化过程</li>
+</ol>
+<h2 id="说说事务隔离级别？"><a href="#说说事务隔离级别？" class="headerlink" title="说说事务隔离级别？"></a>说说事务隔离级别？</h2><ol>
+<li>读未提交(Read Uncommitted) 事务中的修改即使没有提交，也能被其他事务看到，存在脏读，不可重复读和幻读问题</li>
+<li>读已提交（Read Committed） 事务提交后才能被其他事务看到，解决了脏读问题，但是不可重复读和幻读仍存在</li>
+<li>可重复读 （Repeatable Read） 保证同一事务多次读取同一数据结果是一致的，解决了不可重复读问题，但幻读问题仍然存在</li>
+<li>串行化（Serializable（））事务串行执行，可以完全解决并发问题，但是效率低<br>在Spring中，可以使用@Transactional注解声明一个事务，通过设置isolation属性指定事务隔离级别，默认为Isolation.DEFAULT，表示使用数据库默认隔离级别，通常为读已提交，可以通过Isolation枚举类设置隔离级别</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">A</span>&#123;<br>    <span class="hljs-meta">@Transactional(isolation = Isolation.READ_COMMITED)</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doSomething</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-comment">// something</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="事务传播级别"><a href="#事务传播级别" class="headerlink" title="事务传播级别"></a>事务传播级别</h2><p>当一个事务范围内调用另一个带有事务的方法时，当前事务如何与调用方法的事务进行交互的一种方式</p>
+<ol>
+<li>REQUIRED 如果当前存在事务，则加入该事务；如果当前没有事务，则创建一个新事务，这时默认传播级别</li>
+<li>SUPPORTS 支持当前事务，如果当前存在事务，则加入，如果当前没有事务，则以非事务方式执行</li>
+<li>MANDATORY 强制要求存在事务，如果存在则加入，没有则抛异常</li>
+<li>REQUIRES_NEW 创建一个新的事务，如果存在事务，则挂起当前事务</li>
+<li>NOT——WUPPORTED 以非事务方式执行，如果当前存在事务，则挂起当前事务</li>
+<li>NEVER 以非事务方式执行操作，如果当前存在事务，则抛异常</li>
+<li>NESTEDD 如果当前存在事务，则在嵌套事务内执行，如果没有事务，则执行与REQUIRED传播级别类似的操作</li>
+</ol>
+<h2 id="Spring中事务实现方式有两种：编程式事务和声明式事务"><a href="#Spring中事务实现方式有两种：编程式事务和声明式事务" class="headerlink" title="Spring中事务实现方式有两种：编程式事务和声明式事务"></a>Spring中事务实现方式有两种：编程式事务和声明式事务</h2><ol>
+<li>编程式事务：指通过编写代码来控制事务的提交和回滚，在编程式事务中，开发人员需要手动获取事务管理器，并在需要的地方进行事务的开启，提交，回滚等操作。编程式事务灵活，<br>但是代码侵入性高，容易造成代码臃肿和难以维护，Spring推荐使用声明式事务实现事务管理</li>
+<li>声明式事务：通过配置来控制事务的提交和回滚，在声明式事务中，开发人员只需使用注解或XML配置文件声明事务的属性和行为即可，具体的事务管理操作由框架完成<br>声明式事务优点是代码简洁，易于维护，可以灵活切换事务管理方式，Spring中主要通过AOP技术实现声明式事务，其底层实现依赖于DataSourceTransactionManager和TransactionInterceptor等组件</li>
+</ol>
+<h2 id="Spring框架管理事务的优点？"><a href="#Spring框架管理事务的优点？" class="headerlink" title="Spring框架管理事务的优点？"></a>Spring框架管理事务的优点？</h2><ol>
+<li>简化代码：使用Spring框架观念可以大大简化代码量，使代码更易于维护</li>
+<li>降低耦合性：使用Spring框架管理事务可以将业务逻辑和事务处理分离，降低耦合度</li>
+<li>避免重复代码：使用Spring框架管理事务可以避免在每个业务方法中重复编写事务管理代码</li>
+<li>支持声明式事务：Spring框架支持声明式事务，通过注解或XML配置定义事务的属性和行为</li>
+<li>支持多种事务管理器：JDBC事务，Hibernate事务，JPA事务，JTA事务等</li>
+<li>支持事务的回滚和提交：可以自动管理事务的提交和回滚，保证事务的一致性和完整性</li>
+<li>提高事务的性能：使用缓存和批处理技术提高事务的性能和效率</li>
+</ol>
+<h2 id="事务注解的本质"><a href="#事务注解的本质" class="headerlink" title="事务注解的本质?"></a>事务注解的本质?</h2><p>通过Spring AOP机制，在方法执行前后动态创建代理对象，将方法包装在一个事务中，事务注解在执行方法前开启一个事务，如果方法执行成功，则提交事务；如果方法执行过程发生异常，则回滚事务，<br>通过事务注解，可以在方法标记事务的属性，方便灵活控制事务的行为，同时，由于Spring框架在底层处理事务，因此可以避免一些常见的事务处理问题，如并发访问，死锁问题，事务注解使用简单，提高开发效率，降低代码复杂度</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="category-chain-item">面试题</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="print-no-link">#面试题</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Spring面试题</div>
+      <div>http://example.com/2024/05/16/Spring面试题/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>fgj</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年5月16日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/05/16/SpringBoot%E9%9D%A2%E8%AF%95%E9%A2%98/" title="SpringBoot面试题">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">SpringBoot面试题</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/05/16/Redis%E9%9D%A2%E8%AF%95%E9%A2%98/" title="Redis面试题">
+                        <span class="hidden-mobile">Redis面试题</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":173,"height":346},"mobile":{"show":true},"log":false});</script></body>
+</html>
